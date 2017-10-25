@@ -1,0 +1,1717 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function getXMLHttpRequest() {
+  var xmlHttpReq = false;
+  // to create XMLHttpRequest object in non-Microsoft browsers
+  if (window.XMLHttpRequest) {
+    xmlHttpReq = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    try {
+      // to create XMLHttpRequest object in later versions
+      // of Internet Explorer
+      xmlHttpReq = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (exp1) {
+      try {
+        // to create XMLHttpRequest object in older versions
+        // of Internet Explorer
+        xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (exp2) {
+        xmlHttpReq = false;
+      }
+    }
+  }
+  return xmlHttpReq;
+}
+
+/**
+ * TP method
+ */
+function readyStateHandlerText1(req,responseTextHandler){
+    return function() {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+             //   (document.getElementById("loadingImage")).style.display = "none";
+                responseTextHandler(req.responseXML);
+            } else {
+                alert("HTTP error"+req.status+" : "+req.statusText);
+            }
+        }
+        else {
+          
+           // (document.getElementById("loadingImage")).style.display = "block";
+        }
+    }
+}
+
+
+
+ function readyStateHandlerText(req,responseTextHandler){
+    return function() {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                (document.getElementById("loadingImage")).style.display = "none";
+                responseTextHandler(req.responseXML);
+            } else {
+                alert("HTTP error"+req.status+" : "+req.statusText);
+            }
+        }
+        else {
+          
+            (document.getElementById("loadingImage")).style.display = "block";
+        }
+    }
+}  
+function getPoDetails(number,number1){
+    var num=number;
+    var num1=number1; 
+    $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+  var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populatePoDetails); 
+    var url="../ajax/getPoDetails.action?poNumber="+num+"&poInst="+num1;
+    req.open("POST",url,"true");
+   // req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populatePoDetails(responseXML)
+{
+     var details = responseXML.getElementsByTagName("DETAILS")[0];
+     
+    // alert("datails--->"+details);
+     var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            var fileID = detail.getElementsByTagName("FILEID")[0].childNodes[0].nodeValue; 
+            var poNUM = detail.getElementsByTagName("PONUM")[0].childNodes[0].nodeValue; 
+            var poDATE = detail.getElementsByTagName("PODATE")[0].childNodes[0].nodeValue; 
+            var poValue = detail.getElementsByTagName("POVALUE")[0].childNodes[0].nodeValue;
+            var sapIdocNum = detail.getElementsByTagName("SAPIDOCNUM")[0].childNodes[0].nodeValue;
+            var SENDER_ID = detail.getElementsByTagName("SENDER_ID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVER_ID")[0].childNodes[0].nodeValue; 
+            
+            var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var deilvaryName = detail.getElementsByTagName("DELSTATUS")[0].childNodes[0].nodeValue;   
+            var itemQty = detail.getElementsByTagName("ITEMQTY")[0].childNodes[0].nodeValue;
+            var sonumber = detail.getElementsByTagName("SO_NUMBER")[0].childNodes[0].nodeValue;
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            var ORGFILEPATH = detail.getElementsByTagName("ORGFILEPATH")[0].childNodes[0].nodeValue;
+            var ORDER_STATUS = detail.getElementsByTagName("ORDER_STATUS")[0].childNodes[0].nodeValue; 
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+            
+            var ISA_NUMBER = detail.getElementsByTagName("ISA_NUMBER")[0].childNodes[0].nodeValue;
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue;
+            var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue;
+             
+             var TRANSACTION_TYPE = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue;
+             var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue; 
+             var FILE_TYPE = detail.getElementsByTagName("FILE_TYPE")[0].childNodes[0].nodeValue; 
+             
+             //alert("ACKFILEID-->"+ACKFILEID);
+           // var routings = detail.getElementsByTagName("ROUTINGS")[0].childNodes[0].nodeValue;  
+           
+           var details="<table style='margin: 0 0 0 0;padding: 0px 0px;'>"+
+                   "<tr><td class='ajaxTd'>Instance Id :</td><td class='ajaxTd'>"+fileID+"</td></tr>"+
+                   "<tr><td class='ajaxTd'>PO # :</td><td class='ajaxTd'>"+poNUM+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>PO Date :</td><td class='ajaxTd'>"+poDATE+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>PO Value :</td><td class='ajaxTd'>"+poValue+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>PO status :</td><td class='ajaxTd'>"+ORDER_STATUS+"</td></tr>";
+	            if(sonumber != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>SO&nbsp;# :</td><td class='ajaxTd'>"+sonumber+"</td></tr>";
+					}
+		    if(sapIdocNum != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>SAPIDOC&nbsp;# :</td><td class='ajaxTd'>"+sapIdocNum+"</td></tr>";
+					}
+                     if(deilvaryName != "NO"){                   
+                    details = details + "<tr><td class='ajaxTd'>IDOC Status :</td><td class='ajaxTd'>"+deilvaryName+"</td></tr>";
+                     }  
+                     details = details + "<tr><td class='ajaxTd'>PO&nbsp;Quantity&nbsp;:</td><td class='ajaxTd'>"+itemQty+"</td></tr>"+
+                         "<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+FILE_TYPE+"</td></tr>"+
+                         "<tr><td class='ajaxTd'>Transaction&nbspType&nbsp;:</td><td class='ajaxTd'>"+TRANSACTION_TYPE+"</td></tr>";
+                    /*details = details + "<tr><td class='ajaxTd'>Sender ID :</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Receiver&nbsp;Id&nbsp;:</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>"+*/
+                    details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                   details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                   details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+
+                   details = details + "<tr><td class='ajaxTd'><b>Receiver Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                   details = details + "<tr><td class='ajaxTd'>Id&nbsp; :&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+                   details = details + "<tr><td class='ajaxTd'> Name&nbsp;: &nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+
+                    
+                    
+            
+                    details = details + "<tr><td class='ajaxTd'>ISA #:</td><td class='ajaxTd'>"+ISA_NUMBER+"</td></tr>";
+                    
+                    details = details + "<tr><td class='ajaxTd'>GS #:</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>";
+                    details = details + "<tr><td class='ajaxTd'>ST #:</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>";
+                    details = details + "<tr><td class='ajaxTd'>ISA Date:</td><td class='ajaxTd'>"+ISA_DATE+"</td></tr>";
+                    details = details + "<tr><td class='ajaxTd'>ISA Time:</td><td class='ajaxTd'>"+ISA_TIME+"</td></tr>";
+          /*  if(ORGFILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Original File&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Original File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ORGFILEPATH+"\">Download</a></td></tr>";
+            }*/
+            
+            if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else {
+               details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS.toUpperCase()+"</font></td></tr>"; 
+            }
+            
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File :</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr> ";
+            }
+           
+            //alert(ERRMESSAGE);
+            if(ERRMESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd'>Error&nbsp;Message&nbsp;:</td><td class='ajaxTd'> <font color='red'>"+ERRMESSAGE+"</font></td></tr></table>";
+            }
+               // "<h5 >PRE_TRANS_FILE :&nbsp; &nbsp; <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">PRE_TRANS_FILE</a></h5>"+
+              //  "<h5 >POST_TRANS_FILE :&nbsp; &nbsp; <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">POST_TRANS_FILE</a></h5>";
+               
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+    /*  $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+/*Reterving ASN Details using ASN Number
+ *DATE : 03/21/2013
+ * 
+ */
+
+function getAsnDetails(number,ponum){
+    
+    var num=number;
+    var poNum=ponum;
+  // alert("poNumber-->"+num);
+  // var req = new XMLHttpRequest();
+  $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+  var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateASNDetails); 
+
+    var url="../ajax/getASNDetails.action?asnNumber="+num+"&poNumber="+poNum;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populateASNDetails(responseXML)
+{
+
+   
+   var details = responseXML.getElementsByTagName("DETAILS")[0];
+    var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            var fileID = detail.getElementsByTagName("FILEID")[0].childNodes[0].nodeValue; 
+            var asnNum = detail.getElementsByTagName("ASNNUMBER")[0].childNodes[0].nodeValue;   
+            var poNum = detail.getElementsByTagName("PONUMBER")[0].childNodes[0].nodeValue; 
+            var bolNum = detail.getElementsByTagName("BOLNUMBER")[0].childNodes[0].nodeValue;  
+            var isaNum = detail.getElementsByTagName("ISANUMBER")[0].childNodes[0].nodeValue; 
+            var isaDate = detail.getElementsByTagName("ISADATE")[0].childNodes[0].nodeValue; 
+            var isaTime = detail.getElementsByTagName("ISATIME")[0].childNodes[0].nodeValue; 
+            var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue; 
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            var ORGFILEPATH = detail.getElementsByTagName("ORGFILEPATH")[0].childNodes[0].nodeValue;
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+            var SHIPDATE = detail.getElementsByTagName("SHIPDATE")[0].childNodes[0].nodeValue;
+          
+            var SENDER_ID = detail.getElementsByTagName("SENDER_ID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVER_ID")[0].childNodes[0].nodeValue; 
+            var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var TRANSACTION_TYPE = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue;
+            var FILE_TYPE = detail.getElementsByTagName("FILE_TYPE")[0].childNodes[0].nodeValue; 
+          
+         // alert(deilvaryName+" "+poValue+ " "+ routings+ " "+invoice+" "+itemQty);
+          
+          
+           var details="<table style='margin: 0 0 0 0;padding: 0px 0px;'> ";
+           details = details +  "<tr><td class='ajaxTd'>Instance Id :</td><td class='ajaxTd'>"+fileID+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>ASN # :</td><td class='ajaxTd'>"+asnNum+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>PO&nbsp;&nbsp;#:</td><td class='ajaxTd'>"+poNum+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>BOL&nbsp;&nbsp;#:</td><td class='ajaxTd'>"+bolNum+"</td></tr>";
+                 details = details + "<tr><td class='ajaxTd'>Ship Date :</td><td class='ajaxTd'>"+SHIPDATE+"</td></tr>"+
+                     "<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+FILE_TYPE+"</td></tr>"+
+                     "<tr><td class='ajaxTd'>Transaction&nbspType&nbsp;:</td><td class='ajaxTd'>"+TRANSACTION_TYPE+"</td></tr>";
+          
+                
+                  details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+               
+                       details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+               details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+               details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+               details =details+"<tr><td class='ajaxTd'>ISA&nbsp;&nbsp;#:</td><td class='ajaxTd'>"+isaNum+"</td></tr>";
+               
+               
+              details = details + "<tr><td class='ajaxTd'>GS #  :</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>";
+                      
+                     details = details +"<tr><td class='ajaxTd'>ST #  :</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>";
+              details = details +  "<tr><td class='ajaxTd'>ISA Date  :</td><td class='ajaxTd'>"+isaDate+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>ISA Time :</td><td class='ajaxTd'>"+isaTime+"</td></tr>";
+                    
+                
+            if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else {
+               details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS.toUpperCase()+"</font></td></tr>"; 
+            }
+                   // "<tr><td class='ajaxTd'><font color='red'>Status :</font></td><td class='ajaxTd'><font color='red'>"+STATUS+"</font></td></tr>";
+    
+        /*   if(ORGFILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Original File :</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Original File :</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ORGFILEPATH+"\">Download</a></td></tr>";
+            }*/
+            
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr>";
+            }
+            //alert(ERRMESSAGE);
+            if(ERRMESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd'>Error&nbsp;Message :</td><td class='ajaxTd'> <font color='red'>"+ERRMESSAGE+"</font></td></tr></table>";
+            }
+    
+          
+      //  }
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+    /*  $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+/*
+ * Reteriving Invoice Table Details
+ * Date : 03/21/2013
+ * 
+ */
+function getInvDetails(number,ponum){
+    var num=number;
+   //alert("inv number-->"+num);
+ //  var req = new XMLHttpRequest();
+ $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+ var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateInvDetails); 
+
+    var url="../ajax/getInvDetails.action?invNumber="+num+"&poNumber="+ponum;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populateInvDetails(responseXML)
+{
+     var details = responseXML.getElementsByTagName("DETAILS")[0];
+    var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {   
+            var detail = details.childNodes[0];
+            var fileID = detail.getElementsByTagName("FILEID")[0].childNodes[0].nodeValue; 
+            var invNum = detail.getElementsByTagName("INVNUMBER")[0].childNodes[0].nodeValue;   
+            var poNum = detail.getElementsByTagName("PONUMBER")[0].childNodes[0].nodeValue; 
+            var itemQty = detail.getElementsByTagName("ITEMQTY")[0].childNodes[0].nodeValue;  
+            var invAmt = detail.getElementsByTagName("INVAMT")[0].childNodes[0].nodeValue;  
+            var isaNum = detail.getElementsByTagName("ISANUM")[0].childNodes[0].nodeValue; 
+            var isaDate = detail.getElementsByTagName("ISADATE")[0].childNodes[0].nodeValue; 
+            var isaTime = detail.getElementsByTagName("ISATIME")[0].childNodes[0].nodeValue; 
+            var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue; 
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            var ORGFILEPATH = detail.getElementsByTagName("ORGFILEPATH")[0].childNodes[0].nodeValue;
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+            
+             var SENDER_ID = detail.getElementsByTagName("SENDER_ID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVER_ID")[0].childNodes[0].nodeValue; 
+            var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var TRANSACTION_TYPE = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue;
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var FILETYPE = detail.getElementsByTagName("FILETYPE")[0].childNodes[0].nodeValue;
+         // alert(deilvaryName+" "+poValue+ " "+ routings+ " "+invoice+" "+itemQty);
+          
+          
+           var details="<table style='margin: 0 0 0 0;padding: 0px 0px;'>"+
+                    "<tr><td class='ajaxTd'>Instance Id :</td><td class='ajaxTd'>"+fileID+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Invoice # :</td><td class='ajaxTd'>"+invNum+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>PO #:</td><td class='ajaxTd'>"+poNum+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Invoice Value :</td><td class='ajaxTd'>"+invAmt+"</td></tr>"+
+                   "<tr><td class='ajaxTd'>Item Quantity  :</td><td class='ajaxTd'>"+itemQty+"</td></tr>"+
+                   "<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+FILETYPE+"</td></tr>"+
+                   "<tr><td class='ajaxTd'>Transaction&nbspType&nbsp;:</td><td class='ajaxTd'>"+TRANSACTION_TYPE+"</td></tr>";
+                   
+                
+                 details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+               
+                       details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+               details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+               details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+               
+               details = details + "<tr><td class='ajaxTd'>ISA #  :</td><td class='ajaxTd'>"+isaNum+"</td></tr>";
+                   
+            details = details + "<tr><td class='ajaxTd'>GS #  :</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>";
+            details = details + "<tr><td class='ajaxTd'>ST #  :</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>";
+               
+            details  = details+ "<tr><td class='ajaxTd'>ISA date  :</td><td class='ajaxTd'>"+isaDate+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>ISA Time :</td><td class='ajaxTd'>"+isaTime+"</td></tr>";
+            if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else {
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }
+                    //"<tr><td class='ajaxTd'><font color='red'>Status :</font></td><td class='ajaxTd'><font color='red'>"+STATUS+"</font></td></tr>";
+    
+             /*    if(ORGFILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd' >Original File&nbsp:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd' >Original File&nbsp;: </td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+ORGFILEPATH+"\">Download</a></td></tr>";
+            }
+            */
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd' >Pre-Translation&nbsp:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd' >Pre-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd' >Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd' >Post-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd' >997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd' >997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr>";
+            }
+            //alert(ERRMESSAGE);
+            if(ERRMESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd' >Error&nbsp;Message&nbsp;:</td><td class='ajaxTd'> <font color='red'>"+ERRMESSAGE+"</font></td></tr></table>";
+            }
+          
+      //  }
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+     /* $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+
+/**
+ * For doc Ajax call
+ * 
+ */
+function getDocDetails(number,ponum){
+    
+    var num=number;
+    var ponum = ponum;
+    $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+   var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateDocDetails); 
+   var url="../ajax/getDocDetails.action?isaNumber="+num+"&poNumber="+ponum;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+
+
+function populateDocDetails(responseXML)
+{
+  // alert("responseXML--->"+responseXML.toString());
+    var details = responseXML.getElementsByTagName("DETAILS")[0];
+    var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            var fileid = detail.getElementsByTagName("FILEID")[0].childNodes[0].nodeValue;   
+            var docType = detail.getElementsByTagName("FILETYPE")[0].childNodes[0].nodeValue; 
+            
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            
+            var SENDER_ID = detail.getElementsByTagName("SENDERID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVERID")[0].childNodes[0].nodeValue; 
+             var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var ISA_NUMBER = detail.getElementsByTagName("ISA_NUMBER")[0].childNodes[0].nodeValue; 
+            var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue; 
+            var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue; 
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+            //var TRAN_NUMBER = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue; 
+            var SEC_KEY_VAL = detail.getElementsByTagName("SEC_KEY_VAL")[0].childNodes[0].nodeValue; 
+            var PRI_KEY_TYPE = detail.getElementsByTagName("PRI_KEY_TYPE")[0].childNodes[0].nodeValue; 
+            var PRI_KEY_VAL = detail.getElementsByTagName("PRI_KEY_VAL")[0].childNodes[0].nodeValue; 
+            var ORG_FILEPATH = detail.getElementsByTagName("ORG_FILEPATH")[0].childNodes[0].nodeValue; 
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+            var DIRECTION = detail.getElementsByTagName("DIRECTION")[0].childNodes[0].nodeValue;
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+            
+            var TRANSACTION_TYPE = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue;
+             var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue; 
+          
+          var details = " <table style='margin: 0 0 0 0;padding: 0px 0px;'><tr><td class='ajaxTd'>Instance Id # :&nbsp; &nbsp; </td><td class='ajaxTd'>"+fileid+"</td></tr>"+
+                       " <tr><td class='ajaxTd'>PO # : </td><td class='ajaxTd'>"+SEC_KEY_VAL+"</td></tr>";
+                  
+                  // alert(PRI_KEY_TYPE);
+                   if(PRI_KEY_VAL=="NO"){
+                   PRI_KEY_VAL="-";
+                   }
+                   if(PRI_KEY_TYPE != "PO"){
+                   details = details + " <tr><td class='ajaxTd'>"+PRI_KEY_TYPE+" # : </td><td class='ajaxTd'>"+PRI_KEY_VAL+"</td></tr>";
+                   }
+                      details = details + "<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+docType+"</td></tr>"+
+                          "<tr><td class='ajaxTd'>Transaction&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+TRANSACTION_TYPE+"</td></tr>";
+                      
+                      //"<tr><td class='ajaxTd'>SENDER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>"+
+                      //"<tr><td class='ajaxTd'>RECEIVER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>"+
+                      
+                     // alert("direction--->"+DIRECTION);
+                      if(DIRECTION == "inbound"){
+                          details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                      }else{
+                          details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                      }
+                      // details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+               
+                        if(DIRECTION == "outbound"){
+                          details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                      }else{
+                          details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                      }
+                      // details = details + "<tr><td class='ajaxTd'><b>Receiver Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+               
+                       
+                      details = details + "<tr><td class='ajaxTd'>ISA # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_NUMBER+"</td></tr>"+
+                          
+                      "<tr><td class='ajaxTd'>GS # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>"+
+                      "<tr><td class='ajaxTd'>ST # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>";
+                  details  = details +"<tr><td class='ajaxTd'>ISA Date :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_DATE+"</td></tr>"+
+                          "<tr><td class='ajaxTd'>ISA Time :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_TIME+"</td></tr>";
+             
+            /* if(TRAN_NUMBER!="856" && TRAN_NUMBER!="810"){
+            if(ORG_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Original File&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Original File&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+ORG_FILEPATH+"\">Download</a></td></tr>";
+            }
+            }*/
+        
+        if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else {
+               details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS.toUpperCase()+"</font></td></tr>"; 
+            }
+            
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+           // alert("TRAN_NUMBER--->"+TRAN_NUMBER);
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr> ";
+            }
+            
+            if(ERRMESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd'>Error&nbsp;Message&nbsp;:</td><td class='ajaxTd'> <font color='red'>"+ERRMESSAGE+"</font></td></tr></table>";
+            }
+
+            details = details + "</table>";
+           //alert("details--->"+details);
+      //  }
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+     /* $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+
+
+/**
+ * Doc copying using Ajax call
+ * 
+ */
+ function getProces(btnValue,list) {
+
+     var po_Files = "";
+     if((btnValue.value =='ReTransmit')){
+       //  alert("ReTransmit-->"+list);
+       var res;
+         for(var j=0; j<list;j++) {
+             if(list == 1){
+                res = document.purchaseForm.check_List.checked;
+             }else{
+                res = document.purchaseForm.check_List[j].checked;  
+             }
+            // alert("res---->"+res);
+             if(res == true){
+                po_Files =  po_Files + document.getElementById("text"+j).value +"|";
+                po_Files =  po_Files + document.getElementById("Instance"+j).value +"^";
+                //alert("hii");
+             }
+         }  
+         // alert("length-->"+po_Files);
+         if((po_Files != "")&& (po_Files != null)) {
+                    var r=confirm("Please confirm retransmission of the selected PO!");
+                    if(r == true) {
+                    getcopy(po_Files,"POST");  
+                    }
+                    else {
+                    return false;
+                    }
+        }
+        else {
+            alert("Please select checkbox(s) before ReTransmit");
+        }
+     }
+ 
+     if((btnValue.value == 'ReSubmit')){
+        // alert("ReSubmit-->"+list);
+          for(var j=0; j<list;j++) { 
+              var res;
+             if(list == 1){
+                res = document.purchaseForm.check_List.checked;
+             }else{
+                res = document.purchaseForm.check_List[j].checked;  
+             }
+             if(res == true){
+                 po_Files =  po_Files + document.getElementById("text"+j).value +"|";
+                   po_Files =  po_Files + document.getElementById("Instance"+j).value +"^"; 
+             }
+         }
+         
+         //alert("length-->"+po_Files);
+         if((po_Files != "")&& (po_Files != null)) {
+                    var r=confirm("Please confirm resubmission of the selected PO!");
+                    if(r == true) {
+                    getcopy(po_Files,"PRE");
+                    }else {
+                    return false;
+                    }
+            }
+            else {
+            alert("Please select checkbox(s) before ReSubmit");
+            }
+      }            
+ }
+ 
+   function populateDocCopy(responseText) {
+     alert(responseText);
+     document.getElementById("purchaseForm").submit();
+ }
+ 
+
+  function getcopy(PO_LIST,type){
+  //var req = new XMLHttpRequest();
+  var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerString(req,populateDocCopy); 
+    var url="../ajax/getDocCopy.action?poList="+PO_LIST+"&type="+type;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+ }
+
+ function readyStateHandlerString(req,responseTextHandler){
+    return function() {
+        if (req.readyState == 4) {
+            if (req.status == 200) {               
+                responseTextHandler(req.responseText);
+            } else {
+                alert("HTTP error"+req.status+" : "+req.statusText);
+            }
+        }
+    }
+} 
+/**
+ * LoadTender copying using Ajax call
+ * 
+ */
+ function getloadTenderProcess(btnValue,list) {
+
+     var load_Files = "";
+     if((btnValue.value =='ReTransmit')){
+       //  alert("ReTransmit-->"+list);
+       var res;
+         for(var j=0; j<list;j++) {
+             if(list == 1){
+                res = document.logisticsForm.check_List.checked;
+             }else{
+                res = document.logisticsForm.check_List[j].checked;  
+             }
+            // alert("res---->"+res);
+             if(res == true){
+                load_Files =  load_Files + document.getElementById("text"+j).value +"|";
+                load_Files =  load_Files + document.getElementById("Instance"+j).value +"^";
+                //alert("hii");
+             }
+         }  
+         // alert("length-->"+po_Files);
+         if((load_Files != "")&& (load_Files != null)) {
+                    var r=confirm("Please confirm retransmission of the selected Load Files!");
+                    if(r == true) {
+                    getLoadTenderCopy(load_Files,"POST");  
+                    }
+                    else {
+                    return false;
+                    }
+        }
+        else {
+            alert("Please select checkbox(s) before ReTransmit");
+        }
+     }
+ 
+     if((btnValue.value == 'ReSubmit')){
+        // alert("ReSubmit-->"+list);
+          for(var j=0; j<list;j++) { 
+              var res;
+             if(list == 1){
+                res = document.logisticsForm.check_List.checked;
+             }else{
+                res = document.logisticsForm.check_List[j].checked;  
+             }
+             if(res == true){
+                 load_Files =  load_Files + document.getElementById("text"+j).value +"|";
+                   load_Files =  load_Files + document.getElementById("Instance"+j).value +"^"; 
+             }
+         }
+         
+         //alert("length-->"+po_Files);
+         if((load_Files != "")&& (load_Files != null)) {
+                    var r=confirm("Please confirm resubmission of the selected Load Files!");
+                    if(r == true) {
+                    getLoadTenderCopy(load_Files,"PRE");
+                    }else {
+                    return false;
+                    }
+            }
+            else {
+            alert("Please select checkbox(s) before ReSubmit");
+            }
+      }            
+ }
+ 
+ function getLoadTenderCopy(Load_LIST,type){
+  //var req = new XMLHttpRequest();
+  var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerString(req,populateLoadTenderCopy); 
+    var url="../ajax/getLoadCopy.action?loadList="+Load_LIST+"&type="+type;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+ }
+  function populateLoadTenderCopy(responseText) {
+     alert(responseText);
+     document.getElementById("logisticsForm").submit();
+ }
+/*
+ *Get Payment Details
+ */
+function getPaymentDetails(fileId) {
+    $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+    var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populatePaymentDetails); 
+
+    var url="../ajax/getPaymentDetails.action?fileId="+fileId;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populatePaymentDetails(responseXML)
+{
+     var details = responseXML.getElementsByTagName("DETAILS")[0];
+     
+    // alert("datails--->"+details);
+     var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            
+            var FILE_ID = detail.getElementsByTagName("FILE_ID")[0].childNodes[0].nodeValue; 
+           // var Check_Number = detail.getElementsByTagName("Check_Number")[0].childNodes[0].nodeValue; 
+            var SENDER_ID = detail.getElementsByTagName("SENDER_ID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVER_ID")[0].childNodes[0].nodeValue; 
+            
+            var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue;   
+            
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            var ORGFILEPATH = detail.getElementsByTagName("ORGFILEPATH")[0].childNodes[0].nodeValue;
+            var ACKFILE = detail.getElementsByTagName("ACKFILE")[0].childNodes[0].nodeValue;
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+            var Check_Number = detail.getElementsByTagName("Check_Number")[0].childNodes[0].nodeValue; 
+             
+             var ISA_NUMBER = detail.getElementsByTagName("ISA_NUMBER")[0].childNodes[0].nodeValue; 
+             var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue; 
+             var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue; 
+             var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+             var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+             var TRANSACTION_TYPE = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue; 
+             var SEC_KEY_VAL = detail.getElementsByTagName("SEC_KEY_VAL")[0].childNodes[0].nodeValue; 
+             var INVOICE_NUMBER = detail.getElementsByTagName("INVOICE_NUMBER")[0].childNodes[0].nodeValue; 
+             var FILETYPE = detail.getElementsByTagName("FILE_TYPE")[0].childNodes[0].nodeValue;  
+          
+                                
+           // var routings = detail.getElementsByTagName("ROUTINGS")[0].childNodes[0].nodeValue;  
+           
+           var details = " <table style='margin: 0 0 0 0;padding: 0px 0px;'><tr><td class='ajaxTd'>Instance Id  :&nbsp; &nbsp;</td><td class='ajaxTd'> "+FILE_ID+"</td></tr>";
+           //alert(Check_Number);
+               if(Check_Number != "NO"){
+                   details = details + "<tr><td class='ajaxTd'>Cheque # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+Check_Number+"</td></tr>";
+               }else{
+                   details = details + "<tr><td class='ajaxTd'>Cheque # :&nbsp; &nbsp;</td><td class='ajaxTd'>-- </td></tr>";
+               }
+                  details = details + "<tr><td class='ajaxTd'>PO # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+SEC_KEY_VAL+"</td></tr>"
+                                    + "<tr><td class='ajaxTd'>Invoice # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+INVOICE_NUMBER+"</td></tr>"
+                                    +"<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+FILETYPE+"</td></tr>"
+                                    +"<tr><td class='ajaxTd'>Transaction&nbsp;Type :&nbsp; &nbsp;</td><td class='ajaxTd'>"+TRANSACTION_TYPE+"</td></tr>";
+                  
+               /* details = details + "<tr><td class='ajaxTd'>SENDER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>"+
+                "<tr><td class='ajaxTd'>RECEIVER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";*/
+            
+            details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+               
+                       details = details + "<tr><td class='ajaxTd'><b>Receiver Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+               details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+               details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+             
+                          details = details + "<tr><td class='ajaxTd'>ISA #:&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_NUMBER+"</td></tr>"
+                                    
+                                    + "<tr><td class='ajaxTd'>GS #:&nbsp; &nbsp;</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>"
+                                    +"<tr><td class='ajaxTd'>ST #:&nbsp; &nbsp;</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>";
+                                details = details +"<tr><td class='ajaxTd'>ISA Date:&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_DATE+"</td></tr>"
+                                    +"<tr><td class='ajaxTd'>ISA Time:&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_TIME+"</td></tr>"
+               
+            if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }else {
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS.toUpperCase()+"</font></td></tr>";
+            }
+            
+        /*    if(ORGFILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Original File&nbsp;:</td><td> -- </td class='ajaxTd'></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Original File&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+ORGFILEPATH+"\">Download</a></td></tr>";
+            }*/
+            
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(ACKFILE == "No File"){
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+ACKFILE+"\">Download</a></td></tr>";
+            }
+            
+            
+            //alert(ERRMESSAGE);
+            if(ERRMESSAGE != "NO MSG"){
+               
+                details = details + "<tr><td class='ajaxTd'>Error&nbsp;Message&nbsp;:&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+ERRMESSAGE+"</font></td></tr></table>"
+          
+            }
+               // "<h5 >PRE_TRANS_FILE :&nbsp; &nbsp; <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">PRE_TRANS_FILE</a></h5>"+
+              //  "<h5 >POST_TRANS_FILE :&nbsp; &nbsp; <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">POST_TRANS_FILE</a></h5>";
+               
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+     /* $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+
+ 
+
+
+ 
+ /** 
+  * New 
+  * To add and update TP
+  */
+ //for editing TP Details
+ 
+function doEdit(id) {
+  var id=id;
+    var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText1(req,populateTpDetails); 
+
+    var url="../ajax/getTpDetails.action?tpId="+id;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+ 
+ function populateTpDetails(responseXML)
+ {
+     
+      var details = responseXML.getElementsByTagName("DETAILS")[0];
+     
+    // alert("datails--->"+details);
+     var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            
+            var ID = detail.getElementsByTagName("ID")[0].childNodes[0].nodeValue; 
+           // var Check_Number = detail.getElementsByTagName("Check_Number")[0].childNodes[0].nodeValue; 
+            var NAME = detail.getElementsByTagName("NAME")[0].childNodes[0].nodeValue;
+            var CONTACT_INFO = detail.getElementsByTagName("CONTACT_INFO")[0].childNodes[0].nodeValue; 
+            
+            var VENDOR_NUMBER = detail.getElementsByTagName("VENDOR_NUMBER")[0].childNodes[0].nodeValue;   
+            
+            var DEPARTMENTS = detail.getElementsByTagName("DEPARTMENTS")[0].childNodes[0].nodeValue;
+            var EDI_COMM_ID = detail.getElementsByTagName("EDI_COMM_ID")[0].childNodes[0].nodeValue; 
+            var QUALIFIER = detail.getElementsByTagName("QUALIFIER")[0].childNodes[0].nodeValue;
+            
+            document.getElementById('id').value=ID;
+            document.getElementById('id').disabled = true;
+            document.getElementById('name').value=NAME;
+            document.getElementById('contact').value=CONTACT_INFO;
+            document.getElementById('phno').value=VENDOR_NUMBER;
+            document.getElementById('dept').value=DEPARTMENTS;
+            document.getElementById('commid').value=EDI_COMM_ID;
+            document.getElementById('qualifier').value=QUALIFIER;
+   document.getElementById("add").style.display = 'none';
+   document.getElementById("update").style.display = 'table-row';
+            
+     }     
+ }
+ function doTpUpdate()
+ {
+   //  alert("do up");
+     var id = document.getElementById("id").value;
+    var name = document.getElementById("name").value;
+    if(((id!=null)&&(id!=""))&&(name!=null)&&(name!=""))
+        {
+     //  alert("in do Update");
+       
+    var id = document.getElementById('id').value;
+    document.getElementById('id').disabled = false;
+    var name=document.getElementById('name').value ;
+    var contact=document.getElementById('contact').value ;
+    var phno = document.getElementById('phno').value ;
+    var dept=document.getElementById('dept').value ;
+    var commid=document.getElementById('commid').value ;
+    var qualifier=document.getElementById('qualifier').value ;
+       
+     var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerString(req,showResultForUpdate); 
+
+    var url="../ajax/updateTpDetails.action?tpId="+id+"&name="+name+"&contact="+contact+"&phno="+phno+"&dept="+dept+"&commid="+commid+"&qualifier="+qualifier;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);  
+       
+        }
+    else
+        { 
+             alert("Please enter atleast Id and Name!!!");
+        }           
+ }
+ 
+ function showResultForUpdate(result)
+ {
+     alert(result);
+     document.getElementById('id').value="";
+            document.getElementById('id').value = "";
+            document.getElementById('name').value="";
+            document.getElementById('contact').value="";
+            document.getElementById('phno').value="";
+            document.getElementById('dept').value="";
+            document.getElementById('commid').value="";
+            document.getElementById('qualifier').value="";
+   document.getElementById("add").style.display = 'table-row';
+   document.getElementById("update").style.display = 'none';
+     
+ }
+
+
+
+function getTpDetailInformation(tpId)
+{
+     $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+   var tpname = name;
+    var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateTpDetailInformation); 
+
+    var url="../ajax/getTpDetailInformation.action?tpId="+tpId;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+    
+}
+
+function populateTpDetailInformation(responseXML)
+{
+     var details = responseXML.getElementsByTagName("DETAILS")[0];
+     
+    // alert("datails--->"+details);
+     var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            var id = detail.getElementsByTagName("ID")[0].childNodes[0].nodeValue; 
+            var city = detail.getElementsByTagName("CITY")[0].childNodes[0].nodeValue; 
+            var zip = detail.getElementsByTagName("ZIP")[0].childNodes[0].nodeValue; 
+            
+            //added 
+            var vendor = detail.getElementsByTagName("VENDOR")[0].childNodes[0].nodeValue; 
+            
+            //var vendor = detail.getElementByTagName("VENDOR")[0].childNodes[0].nodeValue;
+            var department = detail.getElementsByTagName("DEPARTMENT")[0].childNodes[0].nodeValue;
+            
+            var ship = detail.getElementsByTagName("SHIP")[0].childNodes[0].nodeValue;
+            var payDuns = detail.getElementsByTagName("PAY_DUNS")[0].childNodes[0].nodeValue;
+            var order = detail.getElementsByTagName("ORDER")[0].childNodes[0].nodeValue;
+            var url = detail.getElementsByTagName("URL")[0].childNodes[0].nodeValue;
+          //  var cert = detail.getElementsByTagName("CERT")[0].childNodes[0].nodeValue;
+            
+             //alert("ACKFILEID-->"+ACKFILEID);
+           // var routings = detail.getElementsByTagName("ROUTINGS")[0].childNodes[0].nodeValue;  
+           
+           var details="<table style='margin: 0 0 0 0;padding: 0px 0px;'> ";
+	            if(id != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>ID&nbsp;# :</td><td class='ajaxTd'>"+id+"</td></tr>";
+                    }
+                    else
+                        {
+                            details = details + "<tr><td class='ajaxTd'>ID&nbsp;# :</td><td class='ajaxTd'>--</td></tr>";
+                        }
+		    if(city != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>City&nbsp; :</td><td class='ajaxTd'>"+city+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>City&nbsp; :</td><td class='ajaxTd'>--</td></tr>";   
+                        }
+                     if(zip != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>Zip&nbsp; :</td><td class='ajaxTd'>"+zip+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>Zip&nbsp; :</td><td class='ajaxTd'>--</td></tr>";   
+                        }   
+              
+                        
+                 if(vendor != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>Vendor&nbsp;#&nbsp;:</td><td class='ajaxTd'>"+vendor+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>Vendor&nbsp;Number :</td><td class='ajaxTd'>--</td></tr>";   
+                        }         
+                 
+                   if(department != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>Department&nbsp; :</td><td class='ajaxTd'>"+department+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>Department&nbsp;Number&nbsp; :</td><td class='ajaxTd'>--</td></tr>";   
+                        } 
+                        
+                         
+                    
+                    
+                        if(ship != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>Ship&nbsp;Duns&nbsp; :</td><td class='ajaxTd'>"+ship+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>Ship&nbsp;Duns&nbsp; :</td><td class='ajaxTd'>--</td></tr>";   
+                        }  
+                    if(payDuns != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>Pay&nbsp;Duns&nbsp; :</td><td class='ajaxTd'>"+payDuns+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>Billings&nbsp;Duns&nbsp; :</td><td class='ajaxTd'>--</td></tr>";   
+                        }      
+                        
+                       if(order != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>Order&nbsp;Duns&nbsp; :</td><td class='ajaxTd'>"+order+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>Order&nbsp;Duns :</td><td class='ajaxTd'>--</td></tr>";   
+                        }    
+           
+                           if(url != "NO"){
+                    details = details + "<tr><td class='ajaxTd'>URL&nbsp; :</td><td class='ajaxTd'>"+url+"</td></tr>";
+					}
+                    else
+                        {
+                                details = details + "<tr><td class='ajaxTd'>URL&nbsp; :</td><td class='ajaxTd'>--</td></tr>";   
+                        } 
+            
+                     
+            
+          
+            
+               // "<h5 >PRE_TRANS_FILE :&nbsp; &nbsp; <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">PRE_TRANS_FILE</a></h5>"+
+              //  "<h5 >POST_TRANS_FILE :&nbsp; &nbsp; <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">POST_TRANS_FILE</a></h5>";
+               
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+    /*  $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+function getLogisticsDocDetails(number,ponum){
+    
+    //alert("hiii222222"+number+"ponum------>"+ponum);
+    
+    var num=number;
+    var ponum = ponum;
+    $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+   var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateLogisticsDocDetails); 
+   var url="../ajax/getLogisticsDocDetails.action?isaNumber="+num+"&poNumber="+ponum;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populateLogisticsDocDetails(responseXML)
+{
+  // alert("responseXML--->"+responseXML.toString());
+    var details = responseXML.getElementsByTagName("DETAILS")[0];
+    var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            var fileid = detail.getElementsByTagName("FILEID")[0].childNodes[0].nodeValue;   
+            var docType = detail.getElementsByTagName("FILETYPE")[0].childNodes[0].nodeValue; 
+            
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            
+            var SENDER_ID = detail.getElementsByTagName("SENDERID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVERID")[0].childNodes[0].nodeValue; 
+             var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue;
+            
+            var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue;
+            
+            var ISA_NUMBER = detail.getElementsByTagName("ISA_NUMBER")[0].childNodes[0].nodeValue; 
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+            var TRAN_NUMBER = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue; 
+            var SEC_KEY_VAL = detail.getElementsByTagName("SEC_KEY_VAL")[0].childNodes[0].nodeValue; 
+            var PRI_KEY_TYPE = detail.getElementsByTagName("PRI_KEY_TYPE")[0].childNodes[0].nodeValue; 
+            var PRI_KEY_VAL = detail.getElementsByTagName("PRI_KEY_VAL")[0].childNodes[0].nodeValue; 
+            var ORG_FILEPATH = detail.getElementsByTagName("ORG_FILEPATH")[0].childNodes[0].nodeValue; 
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+           //  var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue;
+            //  var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue;
+               var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue;
+               var DIRECTION = detail.getElementsByTagName("DIRECTION")[0].childNodes[0].nodeValue;
+           
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+            
+            var BOL_NUMBER = detail.getElementsByTagName("BOL_NUMBER")[0].childNodes[0].nodeValue;
+            var CO_NUMBER = detail.getElementsByTagName("CO_NUMBER")[0].childNodes[0].nodeValue;
+            var PO_NUMBER = detail.getElementsByTagName("PO_NUMBER")[0].childNodes[0].nodeValue;
+          
+          var details = " <table style='margin: 0 0 0 0;padding: 0px 0px;'><tr><td class='ajaxTd'>Instance Id # :&nbsp; &nbsp; </td><td class='ajaxTd'>"+fileid+"</td></tr>";
+                      // " <tr><td class='ajaxTd'>Shipment # : </td><td class='ajaxTd'>"+SEC_KEY_VAL+"</td></tr>";
+                  
+                  // alert(PRI_KEY_TYPE);
+                  details = details + " <tr><td class='ajaxTd'>Shipment # : </td><td class='ajaxTd'>"+SEC_KEY_VAL+"</td></tr>";
+                   
+                   if(PRI_KEY_TYPE != "SID"){
+                   details = details + " <tr><td class='ajaxTd'>Response # : </td><td class='ajaxTd'>"+PRI_KEY_VAL+"</td></tr>";
+                   }
+                   
+                   if(BOL_NUMBER != "NO"){
+                   details = details + " <tr><td class='ajaxTd'>BOL # : </td><td class='ajaxTd'>"+BOL_NUMBER+"</td></tr>";
+                   }
+                if(CO_NUMBER != "NO"){
+                   details = details + " <tr><td class='ajaxTd'>CO # : </td><td class='ajaxTd'>"+CO_NUMBER+"</td></tr>";
+                   }
+                   if(PO_NUMBER != "NO"){
+                   details = details + " <tr><td class='ajaxTd'>PO # : </td><td class='ajaxTd'>"+PO_NUMBER+"</td></tr>";
+                   }
+                   
+                      details = details + "<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+docType+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>Transaction&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+TRAN_NUMBER+"</td></tr>";
+                      //<tr><td class='ajaxTd'>SENDER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>"+
+                      //<tr><td class='ajaxTd'>RECEIVER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>"+
+                      if(DIRECTION == "INBOUND"){
+                       details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                      }
+                   else{
+                       details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                   }
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+                       if(DIRECTION == "OUTBOUND"){
+                       details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       }else
+                           {
+                       details = details + "<tr><td class='ajaxTd'><b>Receiver Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                           }
+                           details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+               
+                       
+                      details = details + "<tr><td class='ajaxTd'>ISA # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_NUMBER+"</td></tr>"+
+                         
+                      "<tr><td class='ajaxTd'>GS # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>"+
+                      "<tr><td class='ajaxTd'>ST # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>"+
+                       "<tr><td class='ajaxTd'>ISA Date :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_DATE+"</td></tr>"+
+                          "<tr><td class='ajaxTd'>ISA Time :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_TIME+"</td></tr>";
+                          //"<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'>"+STATUS+"</td></tr>";
+             
+           if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS+"</font></td></tr>";
+            }else {
+               details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS+"</font></td></tr>"; 
+            }
+            
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+           // alert("TRAN_NUMBER--->"+TRAN_NUMBER);
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr> ";
+            }
+            
+            if(ERRMESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd'>Error&nbsp;Message&nbsp;:</td><td class='ajaxTd'> <font color='red'>"+ERRMESSAGE+"</font></td></tr></table>";
+            }
+
+            details = details + "</table>";
+           //alert("details--->"+details);
+      //  }
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+     /* $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+function getLoadTenderingDetails(number,ponum){
+    
+    //alert("hiii222222"+number+"ponum------>"+ponum);
+    
+    var num=number;
+    var ponum = ponum;
+    $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+   var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateLoadTenderingDetails); 
+   var url="../ajax/getLoadTenderingDetails.action?isaNumber="+num+"&poNumber="+ponum;
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populateLoadTenderingDetails(responseXML)
+{
+  // alert("responseXML--->"+responseXML.toString());
+    var details = responseXML.getElementsByTagName("DETAILS")[0];
+    var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {
+    
+            var detail = details.childNodes[0];
+            var fileid = detail.getElementsByTagName("FILEID")[0].childNodes[0].nodeValue;   
+            var docType = detail.getElementsByTagName("FILETYPE")[0].childNodes[0].nodeValue; 
+            
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+            var DIRECTION = detail.getElementsByTagName("DIRECTION")[0].childNodes[0].nodeValue;
+            var SENDER_ID = detail.getElementsByTagName("SENDERID")[0].childNodes[0].nodeValue;
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVERID")[0].childNodes[0].nodeValue; 
+            var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue;
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue;
+            
+            var	BOL_NUMBER = detail.getElementsByTagName("BOL_NUMBER")[0].childNodes[0].nodeValue; 	 
+            var CO_NUMBER = detail.getElementsByTagName("CO_NUMBER")[0].childNodes[0].nodeValue;
+            var TOTAL_WEIGHT = detail.getElementsByTagName("TOTAL_WEIGHT")[0].childNodes[0].nodeValue;
+            var TOTAL_PIECES = detail.getElementsByTagName("TOTAL_PIECES")[0].childNodes[0].nodeValue;
+            var TOTAL_VOLUME = detail.getElementsByTagName("TOTAL_VOLUME")[0].childNodes[0].nodeValue;
+            
+            var ISA_NUMBER = detail.getElementsByTagName("ISA_NUMBER")[0].childNodes[0].nodeValue; 
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue; 
+            var TRAN_NUMBER = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue; 
+            var SEC_KEY_VAL = detail.getElementsByTagName("SEC_KEY_VAL")[0].childNodes[0].nodeValue; 
+            var PRI_KEY_TYPE = detail.getElementsByTagName("PRI_KEY_TYPE")[0].childNodes[0].nodeValue; 
+            var PRI_KEY_VAL = detail.getElementsByTagName("PRI_KEY_VAL")[0].childNodes[0].nodeValue; 
+            
+             var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue; 
+              var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue; 
+               var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue; 
+            //var ORG_FILEPATH = detail.getElementsByTagName("ORG_FILEPATH")[0].childNodes[0].nodeValue; 
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+             var PO_NUMBER = detail.getElementsByTagName("PO_NUMBER")[0].childNodes[0].nodeValue;
+           
+            var ERRMESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+          
+          var details = " <table style='margin: 0 0 0 0;padding: 0px 0px;'><tr><td class='ajaxTd'>Instance Id # :&nbsp; &nbsp; </td><td class='ajaxTd'>"+fileid+"</td></tr>"+
+                       " <tr><td class='ajaxTd'>Shipment # : </td><td class='ajaxTd'>"+SEC_KEY_VAL+"</td></tr>";
+                  
+                  // alert(PRI_KEY_TYPE);
+                   if(PRI_KEY_VAL=="NO"){
+                   PRI_KEY_VAL="-";
+                   }
+                   if(CO_NUMBER=="NO"){
+                   CO_NUMBER="-";
+                   }
+                    if(PO_NUMBER=="NO"){
+                   PO_NUMBER="-";
+                   }
+                   if(ST_CONTROL_NUMBER=="NO")
+                   {
+                       ST_CONTROL_NUMBER= "-";
+                   }
+                  
+                      
+                      details = details + "<tr><td class='ajaxTd'>PO #:</td><td class='ajaxTd'>"+PO_NUMBER+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>BOL #:</td><td class='ajaxTd'>"+BOL_NUMBER+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>CO #:</td><td class='ajaxTd'>"+CO_NUMBER+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>Total Weight :</td><td class='ajaxTd'>"+TOTAL_WEIGHT+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>Volume :</td><td class='ajaxTd'>"+TOTAL_VOLUME+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>Pieces :</td><td class='ajaxTd'>"+TOTAL_PIECES+"</td></tr>";
+                      details = details + "<tr><td class='ajaxTd'>Document&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+docType+"</td></tr>";
+                      
+                      details = details + "<tr><td class='ajaxTd'>Transaction&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+TRAN_NUMBER+"</td></tr>";
+                      //<tr><td class='ajaxTd'>SENDER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>"+
+                      //<tr><td class='ajaxTd'>RECEIVER_ID :&nbsp; &nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>"+
+                       details = details + "<tr><td class='ajaxTd'><b>Patner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+               
+                       details = details + "<tr><td class='ajaxTd'><b>Receiver Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+               
+                       
+                      details = details + "<tr><td class='ajaxTd'>ISA # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_NUMBER+"</td></tr>"+
+                      "<tr><td class='ajaxTd'>GS # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>"+
+                      "<tr><td class='ajaxTd'>ST # :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>"+
+                  "<tr><td class='ajaxTd'>ISA Date  :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_DATE+"</td></tr>"+
+                  "<tr><td class='ajaxTd'>ISA Time :&nbsp; &nbsp;</td><td class='ajaxTd'>"+ISA_TIME+"</td></tr>";
+                  
+             
+              if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS+"</font></td></tr>";
+            }else {
+               details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS+"</font></td></tr>"; 
+            }
+                       if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd'>Pre-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>Post-Translation&nbsp;:</td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+           // alert("TRAN_NUMBER--->"+TRAN_NUMBER);
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </tr></td>";
+            }else{
+                details = details + "<tr><td class='ajaxTd'>997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr> ";
+            }
+            
+            if(ERRMESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd'>Error&nbsp;Message&nbsp;:</td><td class='ajaxTd'> <font color='red'>"+ERRMESSAGE+"</font></td></tr></table>";
+            }
+
+            details = details + "</table>";
+           //alert("details--->"+details);
+      //  }
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+     /* $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}
+
+function getLtResponseDetails(fileId,refId){
+  //  alert("hii");
+    //var num=number;
+   //alert("inv number-->"+num);
+ //  var req = new XMLHttpRequest();
+ $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });
+ var req = getXMLHttpRequest();
+   req.onreadystatechange = readyStateHandlerText(req,populateLtResponseDetails); 
+   
+    var url="../ajax/getLtResponseDetails.action?fileId="+fileId+"&refId="+refId;
+   
+    req.open("GET",url,"true");
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    req.send(null);
+}
+
+function populateLtResponseDetails(responseXML)
+{
+     var details = responseXML.getElementsByTagName("DETAILS")[0];
+    var detail = details.childNodes[0];
+    var chk=detail.getElementsByTagName("VALID")[0];  
+    
+     if(chk.childNodes[0].nodeValue =="true") {   
+            var detail = details.childNodes[0];
+            var FILE_ID = detail.getElementsByTagName("FILE_ID")[0].childNodes[0].nodeValue; 
+            var SHIPMENT_ID = detail.getElementsByTagName("SHIPMENT_ID")[0].childNodes[0].nodeValue;   
+            var FILE_TYPE = detail.getElementsByTagName("FILE_TYPE")[0].childNodes[0].nodeValue; 
+            var TRANSACTION_TYPE = detail.getElementsByTagName("TRANSACTION_TYPE")[0].childNodes[0].nodeValue;  
+            var SENDER_ID = detail.getElementsByTagName("SENDER_ID")[0].childNodes[0].nodeValue;  
+            var SENDER_NAME = detail.getElementsByTagName("SENDER_NAME")[0].childNodes[0].nodeValue; 
+            var RECEIVER_ID = detail.getElementsByTagName("RECEIVER_ID")[0].childNodes[0].nodeValue; 
+            var RECEIVER_NAME = detail.getElementsByTagName("RECEIVER_NAME")[0].childNodes[0].nodeValue; 
+            var ISA_NUMBER = detail.getElementsByTagName("ISA_NUMBER")[0].childNodes[0].nodeValue; 
+            var GS_CONTROL_NUMBER = detail.getElementsByTagName("GS_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var ST_CONTROL_NUMBER = detail.getElementsByTagName("ST_CONTROL_NUMBER")[0].childNodes[0].nodeValue;
+            var ISA_DATE = detail.getElementsByTagName("ISA_DATE")[0].childNodes[0].nodeValue;
+            var ISA_TIME = detail.getElementsByTagName("ISA_TIME")[0].childNodes[0].nodeValue;
+             var REFERENCE = detail.getElementsByTagName("REFERENCE")[0].childNodes[0].nodeValue;
+             var STATUS = detail.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue;
+            var PRE_TRANS_FILEPATH = detail.getElementsByTagName("PRETRANSFILEPATH")[0].childNodes[0].nodeValue;
+            var POST_TRANS_FILEPATH = detail.getElementsByTagName("POSTTRANSFILEPATH")[0].childNodes[0].nodeValue; 
+           // var ORGFILEPATH = detail.getElementsByTagName("ORGFILEPATH")[0].childNodes[0].nodeValue;
+            
+            var ACKFILEID = detail.getElementsByTagName("ACKFILEID")[0].childNodes[0].nodeValue;
+            var ERR_MESSAGE = detail.getElementsByTagName("ERR_MESSAGE")[0].childNodes[0].nodeValue;
+             
+            
+          
+         // alert(deilvaryName+" "+poValue+ " "+ routings+ " "+invoice+" "+itemQty);
+          
+          
+           var details="<table style='margin: 0 0 0 0;padding: 0px 0px;'>"+
+                    "<tr><td class='ajaxTd'>Instance&nbsp;Id&nbsp;:</td><td class='ajaxTd'>"+FILE_ID+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Reference&nbsp;Id&nbsp;:</td><td class='ajaxTd'>"+REFERENCE+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Shipment&nbsp;Id&nbsp;:</td><td class='ajaxTd'>"+SHIPMENT_ID+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Doc&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+FILE_TYPE+"</td></tr>"+
+                    "<tr><td class='ajaxTd'>Transaction&nbsp;Type&nbsp;:</td><td class='ajaxTd'>"+TRANSACTION_TYPE+"</td></tr>";
+                    
+                   
+                
+                 details = details + "<tr><td class='ajaxTd'><b>Sender Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_ID+"</td></tr>";
+                       details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+SENDER_NAME+"</td></tr>";
+               
+                       details = details + "<tr><td class='ajaxTd'><b>Partner Info</b> :&nbsp; &nbsp;</td><td class='ajaxTd'></td></tr>";
+               details = details + "<tr><td class='ajaxTd'>Id&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_ID+"</td></tr>";
+               details = details + "<tr><td class='ajaxTd'> Name&nbsp;:&nbsp;</td><td class='ajaxTd'>"+RECEIVER_NAME+"</td></tr>";
+               
+               details = details + "<tr><td class='ajaxTd'>ISA #  :</td><td class='ajaxTd'>"+ISA_NUMBER+"</td></tr>"+
+                    
+                    "<tr><td class='ajaxTd'>GS # </td><td class='ajaxTd'>"+GS_CONTROL_NUMBER+"</td></tr>"
+                +"<tr><td class='ajaxTd'>ST #  :</td><td class='ajaxTd'>"+ST_CONTROL_NUMBER+"</td></tr>"
+                    + "<tr><td class='ajaxTd'>ISA date  :</td><td class='ajaxTd'>"+ISA_DATE+"</td></tr>"
+                    + "<tr><td class='ajaxTd'>ISA Time :</td><td class='ajaxTd'>"+ISA_TIME+"</td></tr>";
+            
+            if(STATUS.toUpperCase() == "ERROR"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp;</td><td class='ajaxTd'><font color='red'>"+STATUS+"</font></td></tr>";
+            }else if(STATUS.toUpperCase() == "SUCCESS"){
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='green'>"+STATUS+"</font></td></tr>";
+            }else {
+                details = details + "<tr><td class='ajaxTd'>Status :&nbsp; &nbsp; </td><td class='ajaxTd'><font color='orange'>"+STATUS+"</font></td></tr>";
+            }
+                    //"<tr><td class='ajaxTd'><font color='red'>Status :</font></td><td class='ajaxTd'><font color='red'>"+STATUS+"</font></td></tr>";
+    
+              /*   if(ORGFILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd' >Original File&nbsp:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd' >Original File&nbsp;: </td><td class='ajaxTd'><a href=\"../download/getAttachment.action?locationAvailable="+ORGFILEPATH+"\">Download</a></td></tr>";
+            }*/
+            
+            if(PRE_TRANS_FILEPATH == "No File"){
+               details = details + "<tr><td class='ajaxTd' >Pre-Translation&nbsp:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+               details = details + "<tr><td class='ajaxTd' >Pre-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+PRE_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(POST_TRANS_FILEPATH == "No File"){
+                details = details + "<tr><td class='ajaxTd' >Post-Translation&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd' >Post-Translation&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+POST_TRANS_FILEPATH+"\">Download</a></td></tr>";
+            }
+            
+            if(ACKFILEID == "No File"){
+                details = details + "<tr><td class='ajaxTd' >997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> -- </td></tr>";
+            }else{
+                details = details + "<tr><td class='ajaxTd' >997&nbsp;Ack&nbsp;File&nbsp;:</td><td class='ajaxTd'> <a href=\"../download/getAttachment.action?locationAvailable="+ACKFILEID+"\">Download</a></td></tr>";
+            }
+            //alert(ERRMESSAGE);
+            if(ERR_MESSAGE != "NO MSG"){
+                details = details + "<tr><td class='ajaxTd' >Error&nbsp;Message&nbsp;:</td><td class='ajaxTd'> <font color='red'>"+ERR_MESSAGE+"</font></td></tr></table>"
+            }
+          
+      //  }
+    } //if
+    if(chk.childNodes[0].nodeValue =="false") {
+      var details = " <h5 >Sorry ! No Results Found</h5>";
+                    
+    }
+     var detailsDIV=document.getElementById("detailInformation");
+	detailsDIV.innerHTML="";
+	detailsDIV.innerHTML=details;
+     /* $(function() {
+       
+           $('#detail_box').show();
+           return false;
+               
+   });*/
+ 
+}

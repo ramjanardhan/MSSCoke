@@ -1,0 +1,12 @@
+com.meterware.servletunit
+org.apache.jasper.runtime
+org.apache.jasper.servlet
+org.displaytag.decorator
+org.displaytag.filter
+org.displaytag.jsptests
+org.displaytag.pagination
+org.displaytag.properties
+org.displaytag.tags
+org.displaytag.test
+org.displaytag.tld
+org.displaytag.util

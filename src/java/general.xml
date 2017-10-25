@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="general" namespace="/general" extends="default">
+            <action name="index">
+            <result>/index.jsp</result>
+            </action> 
+            <action name="ltIndex">
+            <result>/ltIndex.jsp</result>
+            </action>
+            
+           <action name="login">
+            <result>/general/login.jsp</result>
+            </action> 
+            
+            <action name="loginCheck" class="com.mss.ediscv.general.LoginAction">
+		<interceptor-ref name="crudStack" />
+                        
+                        <result name="AppUser" type="redirect">/doc/orderToCash.action
+			</result>
+			<!--<result name="AppAdmin" type="redirect">/doc/orderToCash.action
+			</result>-->
+			<result name="TPUser" type="redirect">/doc/orderToCash.action
+			</result>
+			<result name="TPAdmin" type="redirect">/doc/orderToCash.action
+			</result>
+			<result name="EFUser" type="redirect">/doc/orderToCash.action
+			</result>
+			<result name="EFAdmin" type="redirect">/doc/orderToCash.action
+			</result>
+			<result name="TRNUser" type="redirect">/doc/orderToCash.action
+			</result>
+			<result name="TRNAdmin" type="redirect">/doc/orderToCash.action
+			</result>
+                        
+                       <!-- <result name="Admin" type="redirect">/doc/orderToCash.action
+			</result>  -->
+                        
+                        <!-- New Action -->
+                        <result name="msscvpAdmin" type="redirect">/user/userAction.action
+			</result>
+                        <result name="Manufacturing" type="redirect">/doc/orderToCash.action
+			</result>
+                      <!--  <result name="Logistics">/logistics/logistics.jsp
+			</result> -->
+                         <result name="Logistics" type="redirect">/logisticsdoc/Logistics.action
+			</result> 
+                         <result name="DocumentVisibility" type="redirect">/documentVisibility/DocumentVisibility.action
+			</result>
+                        
+                         <result name="Retailer" >/retailer/retailer.jsp
+			</result>
+			<result name="input">/general/login.jsp</result>
+			<result type="redirect" name="login">login.action</result>
+                         <result name="RCTSCSR" type="redirect">/logisticsloadtendering/loadtendering.action
+			</result> 
+                        <result name="INVOICE USER" type="redirect">/logisticsinvoice/ltinvoice.action
+			</result> 
+                        <result name="error" type="redirect">../exception/exception.action</result>
+                         <!-- End Action-->
+		</action>
+
+                <action name="logout" class="com.mss.ediscv.general.LoginAction" method="doLogout">
+                    <interceptor-ref name="crudStack" />
+                <result type="redirect">./login.action</result>
+                <result name="error" type="redirect">./login.action</result>
+                </action>
+       
+        
+        
+    </package>
+</struts>
+

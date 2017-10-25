@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : manifacturing.xml
+    Created on : May 6, 2013, 10:45 AM
+    Author     : miracle1
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manifacturing" namespace="/manifacturing" extends="default">
+
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="Manufacturing" class="com.mss.ediscv.manifacturing.ManifacturingAction">
+            <result type="redirect">../doc/orderToCash.action</result>
+            
+         </action>
+            
+           <!-- <action name="documentSearch" class="com.mss.ediscv.doc.DocRepositoryAction" method="getDocumentSearchQuery">
+               <result>/doc/DocRepository.jsp</result>
+                <result name="error" type="redirect" >../general/exception.action</result> 
+                <result type="redirect" name="login">../general/login.action</result>       
+        </action> -->
+    </package>
+</struts>

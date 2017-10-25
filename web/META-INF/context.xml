@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/ediscvPls">
+  <!--QA-->    
+  <Resource auth="Container" 
+  driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
+  maxActive="10" 
+  maxIdle="4" 
+  name="jndi/mscvp" password="Change@13" 
+  type="javax.sql.DataSource" 
+  url="jdbc:sqlserver://nt000935;DatabaseName=MSCVP_COKE" 
+  username="MSCVP_SQL"/>
+  
+  <!--PROD-->
+<!--  <Resource auth="Container" 
+  driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
+  maxActive="10" 
+  maxIdle="4" 
+  name="jndi/mscvp" password="Change@16" 
+  type="javax.sql.DataSource" 
+  url="jdbc:sqlserver://nt000934;DatabaseName=mscvp_coke" 
+  username="mscvp_sql"/>-->
+  
+  
+ <!--Local-->
+<!-- <Resource auth="Container" 
+  driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
+  maxActive="10" 
+  maxIdle="4" 
+  name="jndi/mscvp" password="Change@16" 
+  type="javax.sql.DataSource" 
+  url="jdbc:sqlserver://172.17.0.180;DatabaseName=MSCVP_COKE" 
+  username="MSCVP_SQL"/>-->
+  </Context>

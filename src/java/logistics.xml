@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : logistics.xml
+    Created on : May 6, 2013, 7:59 AM
+    Author     : miracle1
+    Description:
+        Purpose of the document follows.
+-->
+
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="logistics" namespace="/logistics" extends="default">
+
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="Logistics" class="com.mss.ediscv.logistics.LogisticsAction">
+            <result>/logistics/logistics.jsp</result>
+            
+         </action>
+            
+           <!-- <action name="documentSearch" class="com.mss.ediscv.doc.DocRepositoryAction" method="getDocumentSearchQuery">
+               <result>/doc/DocRepository.jsp</result>
+                <result name="error" type="redirect" >../general/exception.action</result> 
+                <result type="redirect" name="login">../general/login.action</result>       
+        </action> -->
+    </package>
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : switchFlow.xml
+    Created on : May 7, 2013, 2:19 AM
+    Author     : miracle1
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="switchFlow" namespace="/switchFlow" extends="default">
+
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="switchFlow" class="com.mss.ediscv.switchflow.SwitchFlowAction" method="prepare">
+            <result name="Manufacturing" type="redirect">../manifacturing/Manufacturing.action</result>
+            <result name="Logistics" type="redirect">../logisticsdoc/Logistics.action</result>
+            <result name="Retailer" type="redirect">../retailer/Retailer.action</result>
+            <result name="msscvpAdmin" type="redirect">../user/userAction.action</result>
+             <result name="DocumentVisibility" type="redirect">../documentVisibility/DocumentVisibility.action</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>
+            
+    </package>
+</struts>

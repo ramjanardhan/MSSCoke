@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="logisticsshipment" namespace="/logisticsshipment" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        <action name = "ltshipment" class="com.mss.ediscv.logisticsshipment.LogisticsShipmentAction" >
+            <result>/logistcsshipment/logisticsShipment.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+             
+        <action name="ltShipmentSearch" class="com.mss.ediscv.logisticsshipment.LogisticsShipmentAction" method="getShipmentSearchList">
+            <result>/logistcsshipment/logisticsShipment.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action> 
+         
+        <action name="nextLtShipment" class="com.mss.ediscv.logisticsshipment.LogisticsShipmentAction" method="doNextLtShipment">
+            <result>/logistcsshipment/logisticsShipment.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+    </package>
+</struts>
+

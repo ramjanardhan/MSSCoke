@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="tradingPartner" namespace="/tradingPartner" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        
+
+	<action name="addTradingPartner" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="doAdd">
+            <result>/tradingPartner/tradingPartner.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>  
+           <action name="doAddTradingPartner" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="doAddTP">
+            <result>/tradingPartner/tradingPartner.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>  
+        
+        <action name="tpSearch" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="getTradingSearchQuery">
+            <result>/tradingPartner/tpSearch.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>  
+        <action name="doSearchTp" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="prepare">
+            <result>/tradingPartner/tpSearch.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action> 
+             <action name="tpEdit" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="tpEdit">
+            <result>/tradingPartner/tradingPartner.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+         
+           <action name="doEditTradingPartner" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="doEditTradingPartner">
+            <result>/tradingPartner/tradingPartner.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+         
+          <action name="backToSearchList" class="com.mss.ediscv.tradingPartner.TradingPartnerAction" method="backToSearchList">
+            <result>/tradingPartner/tpSearch.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+    </package>
+</struts>

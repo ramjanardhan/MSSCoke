@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : reports.xml
+    Created on : February 6, 2015, 12:37 PM
+    Author     : miracle
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="logisticsReports" namespace="/logisticsReports" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        
+        <action name="getLogisticReports" class="com.mss.ediscv.logisticreports.LogisticReportsAction" method="getLogisticReports">
+            <result>LogisticReports.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>  
+         
+        <action name="logisticreportsSearch" class="com.mss.ediscv.logisticreports.LogisticReportsAction" method="logisticreportsSearch">
+            <result>../logisticsReports/LogisticReports.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>  
+         
+        <action name="nextLtReports" class="com.mss.ediscv.logisticreports.LogisticReportsAction" method="doNextLtReports">
+            <result>../logisticsReports/LogisticReports.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+         
+        <action name="dashboard" class="com.mss.ediscv.logisticreports.LogisticReportsAction" method="getDashboard">
+            <result>../logisticsReports/DashBoard.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>      
+        <action name="getTrackInOut" class="com.mss.ediscv.logisticeditracking.LogisticTrackInOutAction" method="getTrackDetails">
+            <result>../logisticsReports/TrackInOut.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>  
+        <action name="trackInOutSearch" class="com.mss.ediscv.logisticeditracking.LogisticTrackInOutAction" method="trackInOutSearch">
+            <result>../logisticsReports/TrackInOut.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action> 
+         
+         
+        <action name="getTrackSummary" class="com.mss.ediscv.logisticeditracking.LogisticTrackInOutAction" method="getTrackDetails">
+            <result>TrackSummary.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>  
+        <action name="trackSummarySearch" class="com.mss.ediscv.logisticeditracking.LogisticTrackInOutAction" method="trackSummarySearch">
+            <result>TrackSummary.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action> 
+         
+         
+         
+        <action name="getTrackInquiry" class="com.mss.ediscv.logisticeditracking.LogisticTrackInOutAction" method="getTrackDetails">
+            <result>TrackInquiry.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action> 
+        <action name="trackInquirySearch" class="com.mss.ediscv.logisticeditracking.LogisticTrackInOutAction" method="trackInquirySearch">
+            <result>TrackInquiry.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action> 
+    </package>
+</struts>
+

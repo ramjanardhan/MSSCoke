@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="user" namespace="/user" extends="default">
+
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="userAction" class="com.mss.ediscv.user.UserAction" method="doCreateUser">
+            <result>/user/CreateUser.jsp</result>
+            <result name="input">/user/CreateUser.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+            <action name="createUser" class="com.mss.ediscv.user.UserAction" method="createUser">
+            <result>/user/CreateUser.jsp</result>
+            <result name="input">/user/CreateUser.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+         <action name="resetUserPwd" class="com.mss.ediscv.user.UserAction" method="resetUserPassword">
+            <result>/user/resetUserPassword.jsp</result>
+            <result name="input">/user/resetUserPassword.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+           <action name="updateUserPwd" class="com.mss.ediscv.user.UserAction" method="updateUserPwd">
+            <result>/user/resetUserPassword.jsp</result>
+            <result name="input">/user/resetUserPassword.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+            <action name="resetMyPwd" class="com.mss.ediscv.user.UserAction" method="resetMyPassword">
+            <result>/user/resetMyPassword.jsp</result>
+            <result name="input">/user/resetMyPassword.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+           <action name="updateMyPwd" class="com.mss.ediscv.user.UserAction" method="updateMyPwd">
+            <result>/user/resetMyPassword.jsp</result>
+            <result name="input">/user/resetMyPassword.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+        
+        <!-- New Action -->
+        <action name="doSearchUser" class="com.mss.ediscv.user.UserAction" method="userSearch">
+            <result>/user/userSearch.jsp</result>
+            <result name="input">/user/userSearch.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+          <action name="userSearchList" class="com.mss.ediscv.user.UserAction" method="getUserSearchList">
+            <result>/user/userSearch.jsp</result>
+            <result name="input">/user/userSearch.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+         <action name="nextUserList" class="com.mss.ediscv.user.UserAction" method="doNextUserList">
+            <result>/user/userSearch.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+         
+          <action name="userEdit" class="com.mss.ediscv.user.UserAction" method="userEdit">
+            <result>/user/CreateUser.jsp</result>
+            <result name="input">/user/CreateUser.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+          <action name="doUpdateUser" class="com.mss.ediscv.user.UserAction" method="doUpdateUser">
+            <result>/user/CreateUser.jsp</result>
+            <result name="input">/user/CreateUser.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+          <action name="backToSearchList" class="com.mss.ediscv.user.UserAction" method="backToSearchList">
+            <result>/user/userSearch.jsp</result>
+            <result name="input">/user/userSearch.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+         </action>
+        <!-- End -->
+           <!--New Actions for assigning roles -->
+          <action name="getAssingnedFlows" class="com.mss.ediscv.user.UserAction" method="getAssingnedFlows">
+          <result>/user/AssignedRoles.jsp</result>
+            <result name="input">/user/AssignedRoles.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+        
+          <action name="transferFlow" class="com.mss.ediscv.user.UserAction" method="getTransferFlow">
+              <result name="success" type="redirect">userSearchList.action</result>
+        <!--  <result>/user/AssignedRoles.jsp</result> -->
+            <result name="input">/user/AssignedRoles.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+        <!-- End Assign Roles Actions -->
+    </package>
+</struts>

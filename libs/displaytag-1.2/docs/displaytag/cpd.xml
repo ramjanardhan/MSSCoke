@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="66" tokens="220">
+<file line="79" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/exception/BaseNestableJspTagException.java"/>
+<file line="77" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/exception/BaseNestableRuntimeException.java"/>
+<codefragment>
+<![CDATA[
+    public BaseNestableRuntimeException(Class source, String message, Throwable cause)
+    {
+        super(message);
+        this.sourceClass = source;
+        this.nestedException = cause;
+
+        // log exception
+        Log log = LogFactory.getLog(source);
+
+        // choose appropriate logging method
+        if (getSeverity() == SeverityEnum.DEBUG)
+        {
+            log.debug(toString(), cause);
+        }
+        else if (getSeverity() == SeverityEnum.INFO)
+        {
+            log.info(toString(), cause);
+        }
+        else if (getSeverity() == SeverityEnum.WARN)
+        {
+            log.warn(toString(), cause);
+        }
+        else
+        {
+            // error - default
+            log.error(toString(), cause);
+        }
+
+    }
+
+    /**
+     * returns the previous exception.
+     * @return Throwable previous exception
+     */
+    public Throwable getCause()
+    {
+        return this.nestedException;
+    }
+
+    /**
+     * basic toString. Returns the message plus the previous exception (if a previous exception exists).
+     * @return String
+     */
+    public String toString()
+    {
+        String className = this.sourceClass.getName();
+        className = className.substring(className.lastIndexOf(".")); //$NON-NLS-1$
+
+        if (this.nestedException == null)
+        {
+            return Messages.getString("NestableException.msg", //$NON-NLS-1$
+                new Object[]{className, getMessage()});
+        }
+
+        return Messages.getString("NestableException.msgcause", //$NON-NLS-1$
+            new Object[]{className, getMessage(), this.nestedException.getMessage()});
+    }
+
+    /**
+     * subclasses need to define the getSeverity method to provide correct severity for logging.
+     * @return SeverityEnum exception severity
+     * @see org.displaytag.exception.SeverityEnum
+     */
+    public abstract SeverityEnum getSeverity();
+
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="34" tokens="116">
+<file line="49" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/decorator/DefaultDecoratorFactory.java"/>
+<file line="114" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/decorator/DefaultDecoratorFactory.java"/>
+<codefragment>
+<![CDATA[
+    public DisplaytagColumnDecorator loadColumnDecorator(PageContext pageContext, String decoratorName)
+        throws DecoratorInstantiationException
+    {
+        if (StringUtils.isBlank(decoratorName))
+        {
+            return null;
+        }
+
+        // first check: is decoratorName an object in page/request/session/application scope?
+        Object decorator = pageContext.findAttribute(decoratorName);
+
+        // second check: if a decorator was not found assume decoratorName is the class name and load it using
+        // reflection
+        if (decorator == null)
+        {
+            try
+            {
+                decorator = ReflectHelper.classForName(decoratorName).newInstance();
+            }
+            catch (ClassNotFoundException e)
+            {
+                throw new DecoratorInstantiationException(DefaultDecoratorFactory.class, decoratorName, e);
+            }
+            catch (InstantiationException e)
+            {
+                throw new DecoratorInstantiationException(DefaultDecoratorFactory.class, decoratorName, e);
+            }
+            catch (IllegalAccessException e)
+            {
+                throw new DecoratorInstantiationException(DefaultDecoratorFactory.class, decoratorName, e);
+            }
+        }
+
+        if (decorator instanceof DisplaytagColumnDecorator)
+]]>
+</codefragment>
+</duplication>
+<duplication lines="31" tokens="111">
+<file line="143" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/pagination/PaginatedListSmartListHelper.java"/>
+<file line="343" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/pagination/SmartListHelper.java"/>
+<codefragment>
+<![CDATA[
+            pagination.setLast(new Integer(this.pageCount));
+        }
+
+        // format for previous/next banner
+        String bannerFormat;
+
+        if (pagination.isOnePage())
+        {
+            bannerFormat = this.properties.getPagingBannerOnePage();
+        }
+        else if (pagination.isFirst())
+        {
+            bannerFormat = this.properties.getPagingBannerFirst();
+        }
+        else if (pagination.isLast())
+        {
+            bannerFormat = this.properties.getPagingBannerLast();
+        }
+        else
+        {
+            bannerFormat = this.properties.getPagingBannerFull();
+        }
+
+        return pagination.getFormattedBanner(this.properties.getPagingPageLink(), this.properties
+            .getPagingPageSelected(), this.properties.getPagingPageSeparator(), bannerFormat);
+    }
+
+    /**
+     * @see java.lang.Object#toString()
+     */
+    public String toString()
+]]>
+</codefragment>
+</duplication>
+<duplication lines="36" tokens="101">
+<file line="44" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/exception/BaseNestableJspTagException.java"/>
+<file line="42" path="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/exception/BaseNestableRuntimeException.java"/>
+<codefragment>
+<![CDATA[
+    public BaseNestableRuntimeException(Class source, String message)
+    {
+        super(message);
+        this.sourceClass = source;
+
+        // log exception
+        Log log = LogFactory.getLog(source);
+
+        // choose appropriate logging method
+        if (getSeverity() == SeverityEnum.DEBUG)
+        {
+            log.debug(toString());
+        }
+        else if (getSeverity() == SeverityEnum.INFO)
+        {
+            log.info(toString());
+        }
+        else if (getSeverity() == SeverityEnum.WARN)
+        {
+            log.warn(toString());
+        }
+        else
+        {
+            // error - default
+            log.error(toString());
+        }
+
+    }
+
+    /**
+     * Instantiate a new BaseNestableRuntimeException.
+     * @param source Class where the exception is generated
+     * @param message message
+     * @param cause previous Exception
+     */
+    public BaseNestableRuntimeException(Class source, String message, Throwable cause)
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>

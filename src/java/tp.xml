@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="tp" namespace="/tp" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="addTP" class="com.mss.ediscv.tp.TpAction" method="prepare">
+            <result>/tp/tp.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>  
+         <action name="tpAdd" class="com.mss.ediscv.tp.TpAction" method="doAddTP">
+            <result>/tp/tp.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>  
+         
+         
+          <action name="getTpList" class="com.mss.ediscv.tp.TpAction" method="getTpList">
+            <result>/tp/tp.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action> 
+           
+    </package>
+</struts>
+

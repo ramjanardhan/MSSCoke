@@ -1,0 +1,3745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Display tag library - Surefire Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+                                                    
+<style type="text/css" media="all">@import url(../css/site.css);</style>
+                    </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="http://sourceforge.net/projects/displaytag" id="bannerLeft">
+    
+                                    <img src="http://sourceforge.net/sflogo.php?group_id=73068&amp;type=2" alt="" />
+    
+            </a>
+                        <a href="http://displaytag.sf.net/1.2/" id="bannerRight">
+    
+                                    <img src="http://displaytag.sf.net/1.2/images/displaytag.png" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 12-27-2008 02:48
+                      </div>
+            <div class="xright">            <a href="http://displaytag.homeip.net/displaytag-examples-1.2" class="externalLink">Live examples</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Reference</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">About</a>
+          </li>
+              
+    <li class="none">
+                    <a href="download.html">Download</a>
+          </li>
+              
+    <li class="none">
+                    <a href="install.html">Install</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tlds.html">Tlds</a>
+          </li>
+              
+    <li class="none">
+                    <a href="displaytag/tagreference.html">Tag reference</a>
+          </li>
+              
+    <li class="none">
+                    <a href="configuration.html">Configuration</a>
+          </li>
+              
+    <li class="none">
+                    <a href="export_filter.html">Export filter</a>
+          </li>
+              
+    <li class="none">
+                    <a href="migrating.html">Migrating</a>
+          </li>
+              
+    <li class="none">
+                    <a href="faq.html">FAQ</a>
+          </li>
+              
+    <li class="none">
+                    <a href="thirdparty.html">Related projects</a>
+          </li>
+          </ul>
+              <h5>Tutorial</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="tut_basic.html">Basic usage</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tut_implicitobjects.html">Implicit objects</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tut_sources.html">Data sources</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tut_decorators.html">Decorators</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tut_links.html">Links</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tut_style.html">Style</a>
+          </li>
+              
+    <li class="none">
+                    <a href="export.html">Export</a>
+          </li>
+              
+    <li class="none">
+                    <a href="i18n.html">I18n</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tut_externalSortAndPage.html">External paging/sorting</a>
+          </li>
+          </ul>
+              <h5>Displaytag Extensions</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="portlet.html">Jsr-168 Portlet support</a>
+          </li>
+          </ul>
+              <h5>Developers</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="coding_conventions.html">Coding Conventions</a>
+          </li>
+              
+    <li class="none">
+                    <a href="source-repository.html">Source repository</a>
+          </li>
+          </ul>
+              <h5>Project Info</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="integration.html">Continuous Integration</a>
+          </li>
+              
+    <li class="none">
+                    <a href="dependencies.html">Dependencies</a>
+          </li>
+              
+    <li class="none">
+                    <a href="issue-tracking.html">Issue Tracking</a>
+          </li>
+              
+    <li class="none">
+                    <a href="mail-lists.html">Mailing Lists</a>
+          </li>
+              
+    <li class="none">
+                    <a href="license.html">Project License</a>
+          </li>
+              
+    <li class="none">
+                    <a href="team-list.html">Project Team</a>
+          </li>
+              
+    <li class="none">
+                    <a href="source-repository.html">Source Repository</a>
+          </li>
+          </ul>
+              <h5>Project Reports</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="changes-report.html">Changes Report</a>
+          </li>
+              
+    <li class="none">
+                    <a href="jira-report.html">Jira Report</a>
+          </li>
+              
+    <li class="none">
+                    <a href="dependency-convergence.html">Dependency Convergence</a>
+          </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="expanded">
+                    <a href="displaytag/index.html">Main tag library</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="displaytag/dependencies.html">Dependencies</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/apidocs/index.html">Javadoc</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/pmd.html">PMD</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/clover/index.html">Clover</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/surefire-report.html">Maven Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/xref-text/index.html">Test Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/jdepend-report.html">JDepend Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/taglibvalidation.html">Tag library validation</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/tagreference.html">Tag reference</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag/tlddoc/index.html">Taglibdoc documentation</a>
+          </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="expanded">
+                    <a href="displaytag-export-poi/index.html">Excel export module</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/dependencies.html">Dependencies</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/apidocs/index.html">Javadoc</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/pmd.html">PMD</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/xref-text/index.html">Test Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-export-poi/surefire-report.html">Maven Surefire Report</a>
+          </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="expanded">
+                    <a href="displaytag-portlet/index.html">Portlet support</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/dependencies.html">Dependencies</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/apidocs/index.html">Javadoc</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/pmd.html">PMD</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/xref-text/index.html">Test Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-portlet/surefire-report.html">Maven Surefire Report</a>
+          </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+              
+        <li class="expanded">
+                    <a href="displaytag-examples/index.html">Example application</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="displaytag-examples/dependencies.html">Dependencies</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="displaytag-examples/xref/index.html">Source Xref</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <script type="text/javascript">
+function toggleDisplay(elementId) {
+ var elm = document.getElementById(elementId + 'error');
+ if (elm && typeof elm.style != "undefined") {
+ if (elm.style.display == "none") {
+ elm.style.display = "";
+ document.getElementById(elementId + 'off').style.display = "none";
+ document.getElementById(elementId + 'on').style.display = "inline";
+ } else if (elm.style.display == "") { elm.style.display = "none";
+ document.getElementById(elementId + 'off').style.display = "inline";
+ document.getElementById(elementId + 'on').style.display = "none";
+ } 
+ } 
+ }
+</script><div class="section"><h2>Surefire Report</h2>
+</div>
+<div class="section"><h2><a name="Summary"></a>Summary</h2>
+<div class="section">[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</div>
+<br />
+<table class="bodyTable"><tr class="a"><th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td>351</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>12.129</td>
+</tr>
+</table>
+<br />
+Note: failures are anticipated and checked for with assertions while errors are unanticipated.<br />
+</div>
+<div class="section"><h2><a name="Package_List"></a>Package List</h2>
+<div class="section">[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</div>
+<br />
+<table class="bodyTable"><tr class="a"><th>Package</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.pagination">org.displaytag.pagination</a></td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.util">org.displaytag.util</a></td>
+<td>57</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.042</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.tld">org.displaytag.tld</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.177</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.tags">org.displaytag.tags</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.properties">org.displaytag.properties</a></td>
+<td>24</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.339</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.decorator">org.displaytag.decorator</a></td>
+<td>21</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.008</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptests">org.displaytag.jsptests</a></td>
+<td>236</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>10.561</td>
+</tr>
+</table>
+<br />
+Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.<div class="section"><h3><a name="org.displaytag.pagination"></a>org.displaytag.pagination</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.paginationPaginationHelperTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.paginationPaginationHelperTest">PaginationHelperTest</a></td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.util"></a>org.displaytag.util</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.utilToStringTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.utilToStringTest">ToStringTest</a></td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.utilDefaultHrefTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.utilDefaultHrefTest">DefaultHrefTest</a></td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.038</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.utilPostHrefTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.utilPostHrefTest">PostHrefTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.utilHtmlTagUtilTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.utilHtmlTagUtilTest">HtmlTagUtilTest</a></td>
+<td>23</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.utilParamEncoderTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.utilParamEncoderTest">ParamEncoderTest</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.tld"></a>org.displaytag.tld</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.tldTldTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.tldTldTest">TldTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.177</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.tags"></a>org.displaytag.tags</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.tagsTableTagExtraInfoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.tagsTableTagExtraInfoTest">TableTagExtraInfoTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.properties"></a>org.displaytag.properties</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.propertiesTitleKeySpringTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeySpringTest">TitleKeySpringTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.367</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.propertiesTitleKeyAutoColumnJstlTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyAutoColumnJstlTest">TitleKeyAutoColumnJstlTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.03</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.propertiesTitleKeyJstlFmtBundlePrefixTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyJstlFmtBundlePrefixTest">TitleKeyJstlFmtBundlePrefixTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.054</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.propertiesMediaTypeEnumTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesMediaTypeEnumTest">MediaTypeEnumTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.propertiesTitleKeyWebWorkTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyWebWorkTest">TitleKeyWebWorkTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.178</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.propertiesTitleKeyAutoColumnSpringTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyAutoColumnSpringTest">TitleKeyAutoColumnSpringTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.051</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.propertiesTitleKeyJstlTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyJstlTest">TitleKeyJstlTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.043</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.propertiesTitleKeyJstlFmtBundleTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyJstlFmtBundleTest">TitleKeyJstlFmtBundleTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.045</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.propertiesTitleKeyStrutsTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyStrutsTest">TitleKeyStrutsTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.205</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.propertiesTitleKeyAutoColumnStrutsTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyAutoColumnStrutsTest">TitleKeyAutoColumnStrutsTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.071</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.propertiesTitleKeyAutoColumnWebworkTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.propertiesTitleKeyAutoColumnWebworkTest">TitleKeyAutoColumnWebworkTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.295</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.decorator"></a>org.displaytag.decorator</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.decoratorTableDecoratorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.decoratorTableDecoratorTest">TableDecoratorTest</a></td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.005</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.decoratorMessageFormatColumnDecoratorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.decoratorMessageFormatColumnDecoratorTest">MessageFormatColumnDecoratorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.decoratorAutolinkColumnDecoratorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.decoratorAutolinkColumnDecoratorTest">AutolinkColumnDecoratorTest</a></td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.001</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptests"></a>org.displaytag.jsptests</h3>
+<table class="bodyTable"><tr class="a"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl212Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl212Test">Displ212Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.111</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl199Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl199Test">Displ199Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.059</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsRequestUriTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsRequestUriTest">RequestUriTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.028</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl110Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl110Test">Displ110Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.059</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsEncodedUriTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsEncodedUriTest">EncodedUriTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.038</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsMediaSupportXmlTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsMediaSupportXmlTest">MediaSupportXmlTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.044</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsTotalsTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsTotalsTest">TotalsTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.066</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl129Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl129Test">Displ129Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.046</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl009Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl009Test">Displ009Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.27</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsExportLinksTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportLinksTest">ExportLinksTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.067</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl305Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl305Test">Displ305Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.04</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl081Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl081Test">Displ081Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.041</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl017Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl017Test">Displ017Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.316</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl232Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl232Test">Displ232Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.576</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl145Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl145Test">Displ145Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.093</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsPaginationAllItemsTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsPaginationAllItemsTest">PaginationAllItemsTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.071</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExportFilterErrorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportFilterErrorTest">ExportFilterErrorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.056</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsEmptyTableTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsEmptyTableTest">EmptyTableTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.039</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl298RtfTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl298RtfTest">Displ298RtfTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.844</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsPartialListSortFullTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsPartialListSortFullTest">PartialListSortFullTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.014</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl080Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl080Test">Displ080Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.035</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsExportUTF8Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportUTF8Test">ExportUTF8Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.042</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl117Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl117Test">Displ117Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.044</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDataSourceMapTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDataSourceMapTest">DataSourceMapTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.054</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl056Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl056Test">Displ056Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.305</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl298PdfTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl298PdfTest">Displ298PdfTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.169</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl109Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl109Test">Displ109Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.149</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl004Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl004Test">Displ004Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.032</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl298HtmlMediaDecoratorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl298HtmlMediaDecoratorTest">Displ298HtmlMediaDecoratorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.059</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsPartialListTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsPartialListTest">PartialListTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.182</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExportHeadersTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportHeadersTest">ExportHeadersTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.069</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsFilterTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsFilterTest">FilterTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.057</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl001Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl001Test">Displ001Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.037</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsColumnLinksTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsColumnLinksTest">ColumnLinksTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.067</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl209Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl209Test">Displ209Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.1</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsExportPdfFilterTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportPdfFilterTest">ExportPdfFilterTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.044</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsOneRowOnlyTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsOneRowOnlyTest">OneRowOnlyTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.032</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDisabledMediaTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDisabledMediaTest">DisabledMediaTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.044</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl181Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl181Test">Displ181Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.033</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsEmptyExportTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsEmptyExportTest">EmptyExportTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.024</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsCssPropertyTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsCssPropertyTest">CssPropertyTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.034</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl264Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl264Test">Displ264Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.032</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsPaginationLinksTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsPaginationLinksTest">PaginationLinksTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.194</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl243Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl243Test">Displ243Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.246</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl192Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl192Test">Displ192Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.054</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsI18nPropertiesTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsI18nPropertiesTest">I18nPropertiesTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.062</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl136Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl136Test">Displ136Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.041</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsOptimizedIterationTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsOptimizedIterationTest">OptimizedIterationTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.259</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsGroupTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsGroupTest">GroupTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.046</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl010Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl010Test">Displ010Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.027</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsColumnBodyTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsColumnBodyTest">ColumnBodyTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.039</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsOffsetTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsOffsetTest">OffsetTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.069</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl322Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl322Test">Displ322Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.036</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsColumnDecoratorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsColumnDecoratorTest">ColumnDecoratorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.052</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExportUTF8FilterTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportUTF8FilterTest">ExportUTF8FilterTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.039</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl280Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl280Test">Displ280Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.043</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl298HtmlTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl298HtmlTest">Displ298HtmlTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.049</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsOptimizedIteration3Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsOptimizedIteration3Test">OptimizedIteration3Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.1</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsHtmlAttributesTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsHtmlAttributesTest">HtmlAttributesTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.037</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsFooterTagTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsFooterTagTest">FooterTagTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.076</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl018Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl018Test">Displ018Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.201</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl279Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl279Test">Displ279Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.042</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl118Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl118Test">Displ118Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.063</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl213Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl213Test">Displ213Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.297</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl200Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl200Test">Displ200Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.03</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl049Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl049Test">Displ049Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.033</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExcludedParamsStarTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExcludedParamsStarTest">ExcludedParamsStarTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.074</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl334Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl334Test">Displ334Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.057</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsBasicTableTagTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsBasicTableTagTest">BasicTableTagTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.034</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsPartialListMissingSizeTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsPartialListMissingSizeTest">PartialListMissingSizeTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsMediaSupportHtmlTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsMediaSupportHtmlTest">MediaSupportHtmlTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.04</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl125Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl125Test">Displ125Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.1</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl074Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl074Test">Displ074Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.04</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl182Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl182Test">Displ182Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.081</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsOptimizedIteration2Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsOptimizedIteration2Test">OptimizedIteration2Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.245</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl139Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl139Test">Displ139Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.031</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl002Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl002Test">Displ002Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.139</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsNoContextTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsNoContextTest">NoContextTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.062</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl234Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl234Test">Displ234Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.038</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl174Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl174Test">Displ174Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.028</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl298CsvTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl298CsvTest">Displ298CsvTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.035</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl161Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl161Test">Displ161Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.058</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl252Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl252Test">Displ252Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.032</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl028Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl028Test">Displ028Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.031</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExternalSortTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExternalSortTest">ExternalSortTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.078</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsHtmlIdTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsHtmlIdTest">HtmlIdTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.057</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsSetPropertyTagTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsSetPropertyTagTest">SetPropertyTagTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.051</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl237Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl237Test">Displ237Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.299</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl085Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl085Test">Displ085Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.066</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl142Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl142Test">Displ142Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.085</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsCaptionTagTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsCaptionTagTest">CaptionTagTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.123</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl052Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl052Test">Displ052Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.168</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl304Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl304Test">Displ304Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.054</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsMaxLengthTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsMaxLengthTest">MaxLengthTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.074</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExportPdfTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportPdfTest">ExportPdfTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.046</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsPaginationTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsPaginationTest">PaginationTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.098</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExportHeadersFilterTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportHeadersFilterTest">ExportHeadersFilterTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.035</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl112Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl112Test">Displ112Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.057</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl220Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl220Test">Displ220Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.12</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsExportDecoratedTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportDecoratedTest">ExportDecoratedTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.037</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl107Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl107Test">Displ107Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.084</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl058Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl058Test">Displ058Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.222</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl208Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl208Test">Displ208Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.073</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsListIndexTableDecoratorTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsListIndexTableDecoratorTest">ListIndexTableDecoratorTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.171</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl068Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl068Test">Displ068Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.063</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsExportFullTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportFullTest">ExportFullTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.035</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsExportFileNameTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExportFileNameTest">ExportFileNameTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.039</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsExcludedParamsTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsExcludedParamsTest">ExcludedParamsTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.072</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsAutocolumnStringTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsAutocolumnStringTest">AutocolumnStringTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.029</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl026Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl026Test">Displ026Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.044</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsNestedTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsNestedTest">NestedTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.143</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl249Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl249Test">Displ249Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.064</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl105Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl105Test">Displ105Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.103</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDataSourceMapAutoColumnTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDataSourceMapAutoColumnTest">DataSourceMapAutoColumnTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.032</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsDispl147Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl147Test">Displ147Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.033</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsColumnPoolingTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsColumnPoolingTest">ColumnPoolingTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.034</td>
+</tr>
+<tr class="b"><td><a href="#org.displaytag.jsptestsEncodedParametersTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsEncodedParametersTest">EncodedParametersTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.03</td>
+</tr>
+<tr class="a"><td><a href="#org.displaytag.jsptestsDispl224Test"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#org.displaytag.jsptestsDispl224Test">Displ224Test</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.039</td>
+</tr>
+</table>
+</div>
+<br />
+</div>
+<div class="section"><h2><a name="Test_Cases"></a>Test Cases</h2>
+<div class="section">[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl212Test"></a>Displ212Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ212Test.test11 </td>
+<td>0.063</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ212Test.testEL </td>
+<td>0.048</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl199Test"></a>Displ199Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ199Test.test11 </td>
+<td>0.026</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ199Test.testEL </td>
+<td>0.033</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsRequestUriTest"></a>RequestUriTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.RequestUriTest.test11 </td>
+<td>0.014</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.RequestUriTest.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl110Test"></a>Displ110Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ110Test.test11 </td>
+<td>0.035</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ110Test.testEL </td>
+<td>0.024</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsEncodedUriTest"></a>EncodedUriTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EncodedUriTest.test11 </td>
+<td>0.019</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EncodedUriTest.testEL </td>
+<td>0.019</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsMediaSupportXmlTest"></a>MediaSupportXmlTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.MediaSupportXmlTest.test11 </td>
+<td>0.018</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.MediaSupportXmlTest.testEL </td>
+<td>0.026</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsTotalsTest"></a>TotalsTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.TotalsTest.test11 </td>
+<td>0.036</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.TotalsTest.testEL </td>
+<td>0.03</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.tldTldTest"></a>TldTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.tld.TldTest.testStandardTld</td>
+<td>0.089</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.tld.TldTest.testELTld</td>
+<td>0.088</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl129Test"></a>Displ129Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ129Test.test11 </td>
+<td>0.025</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ129Test.testEL </td>
+<td>0.021</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl009Test"></a>Displ009Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ009Test.test11 </td>
+<td>0.154</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ009Test.testEL </td>
+<td>0.116</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeySpringTest"></a>TitleKeySpringTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeySpringTest.test11 </td>
+<td>0.338</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeySpringTest.testEL </td>
+<td>0.029</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportLinksTest"></a>ExportLinksTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportLinksTest.test11 </td>
+<td>0.033</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportLinksTest.testEL </td>
+<td>0.034</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl305Test"></a>Displ305Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ305Test.test11 </td>
+<td>0.02</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ305Test.testEL </td>
+<td>0.02</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl081Test"></a>Displ081Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ081Test.test11 </td>
+<td>0.022</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ081Test.testEL </td>
+<td>0.019</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl017Test"></a>Displ017Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ017Test.test11 </td>
+<td>0.174</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ017Test.testEL </td>
+<td>0.142</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl232Test"></a>Displ232Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ232Test.test11 </td>
+<td>0.381</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ232Test.testEL </td>
+<td>0.195</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl145Test"></a>Displ145Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ145Test.test11 </td>
+<td>0.044</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ145Test.testEL </td>
+<td>0.049</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsPaginationAllItemsTest"></a>PaginationAllItemsTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PaginationAllItemsTest.test11 </td>
+<td>0.046</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PaginationAllItemsTest.testEL </td>
+<td>0.025</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportFilterErrorTest"></a>ExportFilterErrorTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportFilterErrorTest.test11 </td>
+<td>0.029</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportFilterErrorTest.testEL </td>
+<td>0.027</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsEmptyTableTest"></a>EmptyTableTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EmptyTableTest.test11 </td>
+<td>0.019</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EmptyTableTest.testEL </td>
+<td>0.02</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl298RtfTest"></a>Displ298RtfTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298RtfTest.test11 </td>
+<td>0.806</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298RtfTest.testEL </td>
+<td>0.038</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsPartialListSortFullTest"></a>PartialListSortFullTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PartialListSortFullTest.test11 </td>
+<td>0.007</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PartialListSortFullTest.testEL </td>
+<td>0.007</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl080Test"></a>Displ080Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ080Test.test11 </td>
+<td>0.018</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ080Test.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportUTF8Test"></a>ExportUTF8Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportUTF8Test.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportUTF8Test.testEL </td>
+<td>0.021</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl117Test"></a>Displ117Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ117Test.test11 </td>
+<td>0.028</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ117Test.testEL </td>
+<td>0.016</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDataSourceMapTest"></a>DataSourceMapTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.DataSourceMapTest.test11 </td>
+<td>0.024</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.DataSourceMapTest.testEL </td>
+<td>0.03</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.utilToStringTest"></a>ToStringTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testSmartListHelper</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testNumberedPage</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testPagination</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testCell</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testHeaderCell</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testColumn</td>
+<td>0.001</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testRow</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testTableModel</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ToStringTest.testColumnTag</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl056Test"></a>Displ056Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ056Test.test11 </td>
+<td>0.171</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ056Test.testEL </td>
+<td>0.134</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl298PdfTest"></a>Displ298PdfTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298PdfTest.test11 </td>
+<td>0.13</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298PdfTest.testEL </td>
+<td>0.039</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl109Test"></a>Displ109Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ109Test.test11 </td>
+<td>0.077</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ109Test.testEL </td>
+<td>0.072</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl004Test"></a>Displ004Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ004Test.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ004Test.testEL </td>
+<td>0.016</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl298HtmlMediaDecoratorTest"></a>Displ298HtmlMediaDecoratorTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298HtmlMediaDecoratorTest.test11 </td>
+<td>0.034</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298HtmlMediaDecoratorTest.testEL </td>
+<td>0.025</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsPartialListTest"></a>PartialListTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PartialListTest.test11 </td>
+<td>0.091</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PartialListTest.testEL </td>
+<td>0.091</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportHeadersTest"></a>ExportHeadersTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportHeadersTest.test11 </td>
+<td>0.035</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportHeadersTest.testEL </td>
+<td>0.034</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsFilterTest"></a>FilterTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.FilterTest.test11 </td>
+<td>0.03</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.FilterTest.testEL </td>
+<td>0.027</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl001Test"></a>Displ001Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ001Test.test11 </td>
+<td>0.019</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ001Test.testEL </td>
+<td>0.018</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsColumnLinksTest"></a>ColumnLinksTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnLinksTest.test11 </td>
+<td>0.031</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnLinksTest.testEL </td>
+<td>0.036</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl209Test"></a>Displ209Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ209Test.test11 </td>
+<td>0.049</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ209Test.testEL </td>
+<td>0.051</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportPdfFilterTest"></a>ExportPdfFilterTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportPdfFilterTest.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportPdfFilterTest.testEL </td>
+<td>0.023</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsOneRowOnlyTest"></a>OneRowOnlyTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OneRowOnlyTest.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OneRowOnlyTest.testEL </td>
+<td>0.015</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDisabledMediaTest"></a>DisabledMediaTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.DisabledMediaTest.test11 </td>
+<td>0.022</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.DisabledMediaTest.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl181Test"></a>Displ181Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ181Test.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ181Test.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsEmptyExportTest"></a>EmptyExportTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EmptyExportTest.test11 </td>
+<td>0.012</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EmptyExportTest.testEL </td>
+<td>0.012</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.paginationPaginationHelperTest"></a>PaginationHelperTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testEnsureOnlyListsAreHandled</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetSublistOtherPage</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetSublistFirstPage</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetSublistLastPage</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetSublistOutOfBounds</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetSublistPageSizeBiggerThanList</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetSublistForEntirePage</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyAutoColumnJstlTest"></a>TitleKeyAutoColumnJstlTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnJstlTest.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnJstlTest.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsCssPropertyTest"></a>CssPropertyTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.CssPropertyTest.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.CssPropertyTest.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl264Test"></a>Displ264Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ264Test.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ264Test.testEL </td>
+<td>0.015</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsPaginationLinksTest"></a>PaginationLinksTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PaginationLinksTest.test11 </td>
+<td>0.097</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PaginationLinksTest.testEL </td>
+<td>0.097</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl243Test"></a>Displ243Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ243Test.test11 </td>
+<td>0.15</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ243Test.testEL </td>
+<td>0.096</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.decoratorTableDecoratorTest"></a>TableDecoratorTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testDecoratorPropertyCache</td>
+<td>0.003</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testMappedProperty</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testNotExistingMappedProperty</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testIndexedProperty</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testNotExistingIndexedProperty</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testWriteOnlyProperty</td>
+<td>0.001</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testReadOnlyProperty</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testReadOnlyIndexedProperty</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.TableDecoratorTest.testReadOnlyMappedProperty</td>
+<td>0.001</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl192Test"></a>Displ192Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ192Test.test11 </td>
+<td>0.029</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ192Test.testEL </td>
+<td>0.025</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.utilDefaultHrefTest"></a>DefaultHrefTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefWithParameters</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testEquals</td>
+<td>0.002</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testSimpleHref</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefParamWithoutValue</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefMultipleParamWithoutValue</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefWithMultipleParameters</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefWithAnchor</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefWithEmptyAnchor</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefWithAnchorAndParameters</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefWithQuotes</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testHrefCopy</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testClone</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testAddParameter</td>
+<td>0.001</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testSetParameterMap</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testAddParameterMap</td>
+<td>0.034</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testAddParameterMapMultiValue</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testAddParameterMapOverridingParameters</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testGetBaseUrl</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testComplex</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.DefaultHrefTest.testNoBaseUrl</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyJstlFmtBundlePrefixTest"></a>TitleKeyJstlFmtBundlePrefixTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyJstlFmtBundlePrefixTest.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyJstlFmtBundlePrefixTest.testEL </td>
+<td>0.033</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsI18nPropertiesTest"></a>I18nPropertiesTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.I18nPropertiesTest.test11 </td>
+<td>0.036</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.I18nPropertiesTest.testEL </td>
+<td>0.026</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl136Test"></a>Displ136Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ136Test.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ136Test.testEL </td>
+<td>0.02</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsOptimizedIterationTest"></a>OptimizedIterationTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OptimizedIterationTest.test11 </td>
+<td>0.171</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OptimizedIterationTest.testEL </td>
+<td>0.088</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsGroupTest"></a>GroupTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.GroupTest.test11 </td>
+<td>0.023</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.GroupTest.testEL </td>
+<td>0.023</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl010Test"></a>Displ010Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ010Test.test11 </td>
+<td>0.013</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ010Test.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsColumnBodyTest"></a>ColumnBodyTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnBodyTest.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnBodyTest.testEL </td>
+<td>0.018</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesMediaTypeEnumTest"></a>MediaTypeEnumTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.MediaTypeEnumTest.testCsv</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.MediaTypeEnumTest.testExcel</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.MediaTypeEnumTest.testXml</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.MediaTypeEnumTest.testHtml</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.decoratorMessageFormatColumnDecoratorTest"></a>MessageFormatColumnDecoratorTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.MessageFormatColumnDecoratorTest.testDate</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.MessageFormatColumnDecoratorTest.testWrongDate</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsOffsetTest"></a>OffsetTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OffsetTest.test11 </td>
+<td>0.033</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OffsetTest.testEL </td>
+<td>0.036</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl322Test"></a>Displ322Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ322Test.test11 </td>
+<td>0.019</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ322Test.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsColumnDecoratorTest"></a>ColumnDecoratorTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnDecoratorTest.test11 </td>
+<td>0.03</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnDecoratorTest.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportUTF8FilterTest"></a>ExportUTF8FilterTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportUTF8FilterTest.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportUTF8FilterTest.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl280Test"></a>Displ280Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ280Test.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ280Test.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl298HtmlTest"></a>Displ298HtmlTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298HtmlTest.test11 </td>
+<td>0.026</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298HtmlTest.testEL </td>
+<td>0.023</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsOptimizedIteration3Test"></a>OptimizedIteration3Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OptimizedIteration3Test.test11 </td>
+<td>0.052</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OptimizedIteration3Test.testEL </td>
+<td>0.048</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsHtmlAttributesTest"></a>HtmlAttributesTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.HtmlAttributesTest.test11 </td>
+<td>0.019</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.HtmlAttributesTest.testEL </td>
+<td>0.018</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsFooterTagTest"></a>FooterTagTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.FooterTagTest.test11 </td>
+<td>0.053</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.FooterTagTest.testEL </td>
+<td>0.023</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyWebWorkTest"></a>TitleKeyWebWorkTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyWebWorkTest.test11 </td>
+<td>0.081</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyWebWorkTest.testEL </td>
+<td>0.097</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyAutoColumnSpringTest"></a>TitleKeyAutoColumnSpringTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnSpringTest.test11 </td>
+<td>0.027</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnSpringTest.testEL </td>
+<td>0.024</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl018Test"></a>Displ018Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ018Test.test11 </td>
+<td>0.103</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ018Test.testEL </td>
+<td>0.098</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl279Test"></a>Displ279Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ279Test.test11 </td>
+<td>0.022</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ279Test.testEL </td>
+<td>0.02</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl118Test"></a>Displ118Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ118Test.test11 </td>
+<td>0.032</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ118Test.testEL </td>
+<td>0.031</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl213Test"></a>Displ213Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ213Test.test11 </td>
+<td>0.143</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ213Test.testEL </td>
+<td>0.154</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl200Test"></a>Displ200Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ200Test.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ200Test.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl049Test"></a>Displ049Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ049Test.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ049Test.testEL </td>
+<td>0.016</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExcludedParamsStarTest"></a>ExcludedParamsStarTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExcludedParamsStarTest.test11 </td>
+<td>0.035</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExcludedParamsStarTest.testEL </td>
+<td>0.039</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl334Test"></a>Displ334Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ334Test.test11 </td>
+<td>0.031</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ334Test.testEL </td>
+<td>0.026</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsBasicTableTagTest"></a>BasicTableTagTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.BasicTableTagTest.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.BasicTableTagTest.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsPartialListMissingSizeTest"></a>PartialListMissingSizeTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PartialListMissingSizeTest.test11 </td>
+<td>0.008</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PartialListMissingSizeTest.testEL </td>
+<td>0.013</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsMediaSupportHtmlTest"></a>MediaSupportHtmlTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.MediaSupportHtmlTest.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.MediaSupportHtmlTest.testEL </td>
+<td>0.019</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl125Test"></a>Displ125Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ125Test.test11 </td>
+<td>0.049</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ125Test.testEL </td>
+<td>0.051</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyJstlTest"></a>TitleKeyJstlTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyJstlTest.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyJstlTest.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl074Test"></a>Displ074Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ074Test.test11 </td>
+<td>0.023</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ074Test.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.utilPostHrefTest"></a>PostHrefTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.PostHrefTest.testHrefWithParameters</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.PostHrefTest.testHrefWithParametersToBeEscaped</td>
+<td>0.001</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyJstlFmtBundleTest"></a>TitleKeyJstlFmtBundleTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyJstlFmtBundleTest.test11 </td>
+<td>0.024</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyJstlFmtBundleTest.testEL </td>
+<td>0.021</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl182Test"></a>Displ182Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ182Test.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ182Test.testEL </td>
+<td>0.06</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsOptimizedIteration2Test"></a>OptimizedIteration2Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OptimizedIteration2Test.test11 </td>
+<td>0.109</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.OptimizedIteration2Test.testEL </td>
+<td>0.136</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl139Test"></a>Displ139Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ139Test.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ139Test.testEL </td>
+<td>0.015</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl002Test"></a>Displ002Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ002Test.test11 </td>
+<td>0.095</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ002Test.testEL </td>
+<td>0.044</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyStrutsTest"></a>TitleKeyStrutsTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyStrutsTest.test11 </td>
+<td>0.154</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyStrutsTest.testEL </td>
+<td>0.051</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsNoContextTest"></a>NoContextTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.NoContextTest.test11 </td>
+<td>0.032</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.NoContextTest.testEL </td>
+<td>0.03</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl234Test"></a>Displ234Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ234Test.test11 </td>
+<td>0.019</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ234Test.testEL </td>
+<td>0.019</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl174Test"></a>Displ174Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ174Test.test11 </td>
+<td>0.014</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ174Test.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl298CsvTest"></a>Displ298CsvTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298CsvTest.test11 </td>
+<td>0.018</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ298CsvTest.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl161Test"></a>Displ161Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ161Test.test11 </td>
+<td>0.025</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ161Test.testEL </td>
+<td>0.033</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl252Test"></a>Displ252Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ252Test.test11 </td>
+<td>0.018</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ252Test.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl028Test"></a>Displ028Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ028Test.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ028Test.testEL </td>
+<td>0.015</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExternalSortTest"></a>ExternalSortTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExternalSortTest.test11 </td>
+<td>0.038</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExternalSortTest.testEL </td>
+<td>0.04</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsHtmlIdTest"></a>HtmlIdTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.HtmlIdTest.test11 </td>
+<td>0.027</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.HtmlIdTest.testEL </td>
+<td>0.03</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsSetPropertyTagTest"></a>SetPropertyTagTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.SetPropertyTagTest.test11 </td>
+<td>0.026</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.SetPropertyTagTest.testEL </td>
+<td>0.025</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl237Test"></a>Displ237Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ237Test.test11 </td>
+<td>0.15</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ237Test.testEL </td>
+<td>0.149</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl085Test"></a>Displ085Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ085Test.test11 </td>
+<td>0.043</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ085Test.testEL </td>
+<td>0.023</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl142Test"></a>Displ142Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ142Test.test11 </td>
+<td>0.042</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ142Test.testEL </td>
+<td>0.043</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsCaptionTagTest"></a>CaptionTagTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.CaptionTagTest.test11 </td>
+<td>0.077</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.CaptionTagTest.testEL </td>
+<td>0.046</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl052Test"></a>Displ052Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ052Test.test11 </td>
+<td>0.066</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ052Test.testEL </td>
+<td>0.102</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl304Test"></a>Displ304Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ304Test.test11 </td>
+<td>0.026</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ304Test.testEL </td>
+<td>0.028</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsMaxLengthTest"></a>MaxLengthTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.MaxLengthTest.test11 </td>
+<td>0.037</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.MaxLengthTest.testEL </td>
+<td>0.037</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportPdfTest"></a>ExportPdfTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportPdfTest.test11 </td>
+<td>0.024</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportPdfTest.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsPaginationTest"></a>PaginationTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PaginationTest.test11 </td>
+<td>0.024</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.PaginationTest.testEL </td>
+<td>0.074</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportHeadersFilterTest"></a>ExportHeadersFilterTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportHeadersFilterTest.test11 </td>
+<td>0.018</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportHeadersFilterTest.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.utilHtmlTagUtilTest"></a>HtmlTagUtilTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlTagsSimple</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlTagsNoHtml</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlTagsWithQuote</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlTagsMultiple</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlUnbalancedOpenStart</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlUnbalancedOpenMiddle</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testStripHtmlUnbalancedClosed</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthNoHtml</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthShorter</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthHtmlShorter</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthEntity</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthBrokenEntity</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthUnescapedAmpersand</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthHtmlSimple</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthHtmlNoClosingTag</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthHtmlEndingTag</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthHtmlEmptyTag</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthHtmlComplex</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByNumberOfWordsNoHtml</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByNumberOfWordsShorter</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByNumberOfWordsHtmlShorter</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByLengthNumberOfWordsHtmlSimple</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.HtmlTagUtilTest.testAbbreviateHtmlStringByNumberOfWordsHtmlComplex</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl112Test"></a>Displ112Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ112Test.test11 </td>
+<td>0.025</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ112Test.testEL </td>
+<td>0.032</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl220Test"></a>Displ220Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ220Test.test11 </td>
+<td>0.052</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ220Test.testEL </td>
+<td>0.068</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportDecoratedTest"></a>ExportDecoratedTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportDecoratedTest.test11 </td>
+<td>0.015</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportDecoratedTest.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl107Test"></a>Displ107Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ107Test.test11 </td>
+<td>0.034</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ107Test.testEL </td>
+<td>0.05</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl058Test"></a>Displ058Test</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ058Test.test11 </td>
+<td>0.106</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ058Test.testEL </td>
+<td>0.116</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.utilParamEncoderTest"></a>ParamEncoderTest</h3>
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ParamEncoderTest.testOptionAndAnswer</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ParamEncoderTest.testEquals</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.util.ParamEncoderTest.testNotTooLong</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl208Test"></a>Displ208Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ208Test.test11 </td>
+<td>0.028</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ208Test.testEL </td>
+<td>0.045</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsListIndexTableDecoratorTest"></a>ListIndexTableDecoratorTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ListIndexTableDecoratorTest.test11 </td>
+<td>0.102</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ListIndexTableDecoratorTest.testEL </td>
+<td>0.069</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl068Test"></a>Displ068Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ068Test.test11 </td>
+<td>0.029</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ068Test.testEL </td>
+<td>0.034</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportFullTest"></a>ExportFullTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportFullTest.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportFullTest.testEL </td>
+<td>0.018</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExportFileNameTest"></a>ExportFileNameTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportFileNameTest.test11 </td>
+<td>0.021</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExportFileNameTest.testEL </td>
+<td>0.018</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyAutoColumnStrutsTest"></a>TitleKeyAutoColumnStrutsTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnStrutsTest.test11 </td>
+<td>0.04</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnStrutsTest.testEL </td>
+<td>0.031</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsExcludedParamsTest"></a>ExcludedParamsTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExcludedParamsTest.test11 </td>
+<td>0.038</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ExcludedParamsTest.testEL </td>
+<td>0.034</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsAutocolumnStringTest"></a>AutocolumnStringTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.AutocolumnStringTest.test11 </td>
+<td>0.015</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.AutocolumnStringTest.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.decoratorAutolinkColumnDecoratorTest"></a>AutolinkColumnDecoratorTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testLongTextWithLink</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testLongTextWithEmail</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testGarbledUrl</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testSimpleLink</td>
+<td>0.001</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testSimpleHttpsLink</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testSimpleFtpLink</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testSimpleEmail</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testSimpleLinkPlusDot</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testNoLink</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.decorator.AutolinkColumnDecoratorTest.testNoLinkBeginning</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl026Test"></a>Displ026Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ026Test.test11 </td>
+<td>0.022</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ026Test.testEL </td>
+<td>0.022</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsNestedTest"></a>NestedTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.NestedTest.test11 </td>
+<td>0.069</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.NestedTest.testEL </td>
+<td>0.074</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl249Test"></a>Displ249Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ249Test.test11 </td>
+<td>0.031</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ249Test.testEL </td>
+<td>0.033</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.tagsTableTagExtraInfoTest"></a>TableTagExtraInfoTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.tags.TableTagExtraInfoTest.testIsJavaIdValid</td>
+<td>0.002</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.tags.TableTagExtraInfoTest.testIsJavaIdEnum</td>
+<td>0</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.tags.TableTagExtraInfoTest.testIsJavaIdSpace</td>
+<td>0</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.tags.TableTagExtraInfoTest.testIsJavaIdEsclamationMark</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl105Test"></a>Displ105Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ105Test.test11 </td>
+<td>0.089</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ105Test.testEL </td>
+<td>0.014</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDataSourceMapAutoColumnTest"></a>DataSourceMapAutoColumnTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.DataSourceMapAutoColumnTest.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.DataSourceMapAutoColumnTest.testEL </td>
+<td>0.016</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl147Test"></a>Displ147Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ147Test.test11 </td>
+<td>0.016</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ147Test.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsColumnPoolingTest"></a>ColumnPoolingTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnPoolingTest.test11 </td>
+<td>0.017</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.ColumnPoolingTest.testEL </td>
+<td>0.017</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.propertiesTitleKeyAutoColumnWebworkTest"></a>TitleKeyAutoColumnWebworkTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnWebworkTest.test11 </td>
+<td>0.268</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.properties.TitleKeyAutoColumnWebworkTest.testEL </td>
+<td>0.027</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsEncodedParametersTest"></a>EncodedParametersTest</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EncodedParametersTest.test11 </td>
+<td>0.014</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.EncodedParametersTest.testEL </td>
+<td>0.016</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="org.displaytag.jsptestsDispl224Test"></a>Displ224Test</h3>
+<table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ224Test.test11 </td>
+<td>0.02</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>org.displaytag.jsptests.Displ224Test.testEL </td>
+<td>0.019</td>
+</tr>
+</table>
+</div>
+<br />
+</div>
+<br />
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2008
+    
+          the Displaytag team
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

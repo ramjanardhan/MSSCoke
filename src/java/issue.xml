@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="issues" namespace="/issues" extends="default">
+  
+  <default-interceptor-ref name="crudStack"/>
+  
+         <action name="createIssue" class="com.mss.ediscv.issues.IssuesAction" method="prepare">
+            <result>/issues/createIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+            <action name="doCreateIssue" class="com.mss.ediscv.issues.IssuesAction" method="doCreateIssue">
+    
+            <result>/issues/createIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+            <action name="searchIssue" class="com.mss.ediscv.issues.IssuesAction" method="searchIssuePrepare">
+    
+            <result>/issues/searchIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+            
+            
+            <action name="doSearchIssue" class="com.mss.ediscv.issues.IssuesAction" method="doSearchIssue">
+    
+            <result>/issues/searchIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+            
+            
+             <action name="issueEdit" class="com.mss.ediscv.issues.IssuesAction" method="issueEdit">
+            <result>/issues/createIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+            <action name="doIssueEdit" class="com.mss.ediscv.issues.IssuesAction" method="doIssueEdit">
+            <result>/issues/createIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+          <!--   <action name="backToSearchList" class="com.mss.ediscv.issues.IssuesAction" method="backToSearchList">
+            <result>/issues/searchIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action> -->
+            
+            
+            
+            
+            <action name="doSearchMyIssue" class="com.mss.ediscv.issues.IssuesAction" method="doSearchMyIssue">
+            <result>/issues/searchIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+             <action name="searchTasks" class="com.mss.ediscv.issues.IssuesAction" method="searchTasksPrepare">
+    
+            <result>/issues/searchIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+             <action name="doSearchMyTasks" class="com.mss.ediscv.issues.IssuesAction" method="doSearchMyTasks">
+            <result>/issues/searchIssue.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            </action>
+            
+            
+          
+    </package>
+</struts>
+

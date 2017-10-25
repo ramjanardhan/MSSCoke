@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : documentVisibility.xml
+    Created on : January 5, 2015, 10:34 AM
+    Author     : miracle
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="documentVisibility" namespace="/documentVisibility" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+         <action name="DocumentVisibility" class="com.mss.ediscv.documentVisibility.DocumentVisibilityAction">
+            <result>../documentVisibility/documentVisibility.jsp</result>
+             <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>   
+         </action>
+        <action name="docSearch" class="com.mss.ediscv.documentVisibility.DocumentVisibilityAction" method="doDocRepositorySearch">
+               <result>../documentVisibility/documentVisibility.jsp</result>
+             <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>
+         
+         
+                 <action name="nextConsultantResume" class="com.mss.ediscv.documentVisibility.DocumentVisibilityAction" method="doNextDocRepository">
+              <!-- <result>../logisticsdoc/docrepository.jsp</result> 
+                <result>../logisticsdoc/GridDocRepository.jsp</result> -->
+                <result>../documentVisibility/documentVisibility.jsp</result>
+             <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>
+    </package>
+</struts>

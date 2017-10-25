@@ -1,0 +1,36 @@
+<%-- 
+    Document   : logisticsMenu
+    Created on : May 8, 2013, 12:16:42 PM
+    Author     : miracle
+--%>
+
+
+<%@page import="com.mss.ediscv.util.AppConstants"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
+
+           
+         <%-- <li class="current"><a href="<s:url action="../tp/addTP"/>">Trading Partner</a></li> --%>
+                  
+          
+         <%-- <li id="logisticsMain"><a href="<s:url action="../logistics/Logistics.action"/>">Logistics</a> --%>
+              <li id="ltDocRepository"><a href="<s:url action="../logisticsdoc/Logistics.action"/>">DOCRepository</a>
+                  <li id="ltLoadTendering"><a href="<s:url action="../logisticsloadtendering/loadtendering.action"/>">LoadTendering</a>
+                        <li  id="ltResponseMain"><a href="<s:url action="../ltResponse/ltResponse.action"/>">LT&nbsp;Response</a>
+         <%-- <li><a href="<s:url action="../logisticsShipment/shipment.action"/>">ShipmentLoadtendring(214)</a>
+            
+          
+          <li id="logisticsinv"><a href="<s:url action="../logisticsinvoice/invoice.action"/>">FreightDetailsAndInvoice</a>--%>
+              <s:include value="ServicesMenu.jsp"/>
+            <%--   <ul style="width:95px">
+            <%
+           if(session.getAttribute(AppConstants.SES_ROLE_ID).equals("1")){
+                %>
+                   <li  style="width:128px; " id="createUser" class="notselected"><a href="<s:url action="../user/userAction"/>">Create&nbsp;User</a></li>
+                   <li  style="width:128px; " id="resetPwd" class="notselected"><a href="<s:url action="../user/resetUserPwd"/>">Reset&nbsp;User&nbsp;Pwd</a></li>
+                   <li style="width:128px" id="searchUser" class="notselected"><a href="<s:url action="../user/doSearchUser"/>" >User&nbsp;Search</a></li>
+             
+          <li  style="width:128px; " id="resetMyPwd" class="notselected"><a href="<s:url action="../user/resetMyPwd"/>">Reset&nbsp;MY&nbsp;Pwd</a></li>
+                 
+         
+              </ul> --%>

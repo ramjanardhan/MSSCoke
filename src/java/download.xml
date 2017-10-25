@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="download" namespace="/download" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="getAttachment" class="com.mss.ediscv.download.DownloadAction"/>   
+         <action name = "gridDownload" class="com.mss.ediscv.griddownload.GridDownloadAction"/>
+         <!-- new action for schdular download -->
+         <action name = "reportDownloads" class="com.mss.ediscv.download.DownloadReportAction" method="reportDownloads"/>
+    </package>
+</struts>
+

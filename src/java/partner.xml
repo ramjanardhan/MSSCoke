@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : partner.xml
+    Created on : February 2, 2015, 6:33 AM
+    Author     : miracle
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="partner" namespace="/partner" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        
+        <action name="addPartner" class="com.mss.ediscv.partner.PartnerAction" method="addPartner">
+            <result>AddOrEditPartner.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>  
+         
+        <action name="doAddPartner" class="com.mss.ediscv.partner.PartnerAction" method="doAddPartner">
+            <result>AddOrEditPartner.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>  
+         
+         
+        <action name="getPartnerList" class="com.mss.ediscv.partner.PartnerAction" method="getPartnerList">
+            <result>PartnerList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action> 
+        <action name="partnerSearch" class="com.mss.ediscv.partner.PartnerAction" method="partnerSearch">
+            <result>PartnerList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+        <action name="nextPartList" class="com.mss.ediscv.partner.PartnerAction" method="doNextPartList">
+            <result>PartnerList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action> 
+         
+         
+        <action name="partnerEdit" class="com.mss.ediscv.partner.PartnerAction" method="partnerEdit">
+            <result>AddOrEditPartner.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action> 
+        <action name="doEditPartner" class="com.mss.ediscv.partner.PartnerAction" method="doEditPartner">
+            <result>AddOrEditPartner.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+         
+        <action name="getDelChannelInf" class="com.mss.ediscv.partner.PartnerAction" method="addDeliveryChannelInfo">
+            <result>delChnInfo.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+          
+        <action name="doAddDeliveryChannelInfo" class="com.mss.ediscv.partner.PartnerAction" method="doAddDeliveryChannelInfo">
+            <result>delChnInfo.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+          
+        <action name="deliveryChannelList" class="com.mss.ediscv.partner.PartnerAction" method="deliveryChannelList">
+            <result>DeliveryChannelList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+        <action name="deliveryChannelSearch" class="com.mss.ediscv.partner.PartnerAction" method="deliveryChannelSearch">
+            <result>DeliveryChannelList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+          
+        <action name="deliveryChannelEdit" class="com.mss.ediscv.partner.PartnerAction" method="deliveryChannelEdit">
+            <result>delChnInfo.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+        <action name="doEditDeliveryChannelInfo" class="com.mss.ediscv.partner.PartnerAction" method="doEditDeliveryChannelInfo">
+            <result>delChnInfo.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+      
+    </package>
+</struts>

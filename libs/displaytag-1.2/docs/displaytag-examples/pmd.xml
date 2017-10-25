@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2008-12-27T14:57:56.877">
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag-examples/src/main/java/org/displaytag/sample/decorators/ItextTotalWrapper.java">
+<violation beginline="117" endline="119" begincolumn="13" endcolumn="13" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.sample.decorators" class="ItextTotalWrapper" method="writeTotal" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+</pmd>

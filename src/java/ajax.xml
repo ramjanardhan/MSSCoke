@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!--
+    Document   : ajax.xml
+    Created on : Mar 20, 2013, 4:51 PM
+    Author     : miracle
+    Description:
+        Purpose of the document follows.
+-->
+
+<struts>
+    <package name="ajax" extends="default" namespace="/ajax">
+
+         <default-interceptor-ref name="crudStack"/>
+          <action name="getPoDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getPoDetails"/>
+          <action name="getASNDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getAsnDetails"/>
+          <action name="getInvDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getInvDetails"/>
+          <action name="getPaymentDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getPaymentDetails"/>
+        
+         <action name="getDocDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getDocDetails"/>
+         
+         <action name="getReportDeleteDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getReportDeleteDetails"/>
+         
+         <action name="getDocCopy" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getDocCopy"/>
+        
+           <!-- ASN COPY LIST Actions -->
+         <action name="getDocASNCopy" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getDocASNCopy"/> 
+         <action name="getInvCopy" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getInvCopy"/>
+          <action name="getPaymentCopy" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getPaymentCopy"/>
+          <action name="getLoadCopy" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLoadCopy"/>
+         
+         
+         <!-- Life cycle Actions -->
+         <action name="LifecycleDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLifecycleDetails"/>
+         
+         <!-- TP Actions  -->
+         
+         <action name="getTpDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getTpDetails"/>
+         <action name="updateTpDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="updateTpDetails"/>
+         <action name="getTpDetailsByName" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getTpDetailsByName"/>
+         <action name="getTpDetailInformation" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getTpDetailInformation"/>
+         <action name="getLogisticsDocDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLogisticsDocDetails"/>
+         <action name="getLoadTenderingDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLoadTenderingDetails"/>
+         <action name="getLtResponseDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLtResponseDetails"/>
+          <action name="getLogisticsInvDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLogisticsInvDetails"/>
+         <action name="getLogisticsShipmentDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLogisticsShipmentDetails"/>
+         <action name="getDocVisibilityDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getDocVisibilityDetails"/>
+         <action name="getPartnerDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getPartnerDetails"/>
+         <action name="getRoutingDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getRoutingDetails"/>
+          <action name="getB2bChannelDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getB2bChannelDetails"/>
+          <action name="getPartnerInfo" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getPartnerInfo"/>
+          <action name="getRouterInfo" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getRouterInfo"/>
+          <action name="getBusinessProcessInfo" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getBusinessProcessInfo"/>
+          <action name="getDeliveryChannelDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getDeliveryChannelDetails"/>
+          <action name="getDashboardDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getDashboardDetails"/>
+      <action name="getReportOverlayDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getReportOverlayDetails"/>  
+       <action name="getLogisticsDocErrorDetails" class="com.mss.ediscv.ajax.AjaxHandlerAction" method="getLogisticsDocErrorDetails"/>
+    </package>
+</struts>

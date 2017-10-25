@@ -1,0 +1,114 @@
+/*  ###########################################################
+    Author: MrutyumajayaRao.Chenn<mchennu@miraclesoft.com>
+    ###########################################################
+*/
+
+.gridTable
+{
+	border:     0px solid #27408B;
+        background-color: #104E8B;
+}
+
+.gridHeader
+{
+	font-family:       Arial,Verdana, Geneva, Tahoma, Trebuchet MS,Sans-serif;
+	font-size:         10px;
+        letter-spacing:    .1em;
+        font-weight:	    bold;
+        /*color:             #fff;
+	background: 	   #6C73B1 url(../images/DBGrid/bg_table_heading.jpg) repeat top left; */
+        
+       background: none repeat scroll 0% 0% #545454;
+       color: #A8AA94;
+        padding:           7px 6px 7px 6px;
+      /*  background-color:  transparent;*/
+        
+}
+
+.gridRowEven
+{
+	color: #000000;
+        background: #6C73B4 url(../images/DBGrid/bg_table_td_two.jpg) repeat  top center ; 
+	/*background-color: #e4e4d7;*/
+	font-family: Arial,Verdana, Tahoma,"Sans Serif", "Times New Roman";
+	font-size: 8pt;
+	font-weight: normal;
+	height: 20px;
+}
+
+
+.gridRowEvenRed
+{
+	color: #000000;        
+	background-color: #fb636d;
+        /*background: #6C73B4 url(../images/DBGrid/bg_table_td_two.jpg) repeat  top center ;*/
+	font-family: Arial,Verdana, Tahoma,"Sans Serif", "Times New Roman";
+	font-size: 8pt;
+	font-weight: normal;
+	height: 20px;
+}
+
+.gridRowEvenYellow
+{
+        color: #000000;
+	background-color: #FFFF00;
+        /*background: #6C73B4 url(../images/DBGrid/bg_table_td_two.jpg) repeat  top center ;*/
+	font-family: Arial,Verdana, Tahoma,"Sans Serif", "Times New Roman";
+	font-size: 8pt;
+	font-weight: normal;
+	height: 20px;
+
+
+}
+
+.gridRowOdd
+{
+	color: #000000;
+        
+        background: #6C73B4 url(../images/DBGrid/bg_table_td_two.jpg) repeat top center ;
+	/*background-color: #f4f4e7;*/
+	font-family: Arial,Verdana, Tahoma, "Sans Serif", "Times New Roman";
+	font-size: 8pt;
+	font-weight: normal;
+	height: 20px;
+}
+
+.gridPageOfPage
+{
+	color: #ffffff;
+        background-color: transparent;
+	font-family: Arial,Verdana, Tahoma,"Sans Serif", "Times New Roman";
+	font-size: 8pt;
+	font-weight: bold
+}
+
+.gridPager
+{
+	/*background: #6C73B4 url(../images/DBGrid/grid_bottam.jpg) repeat-x left bottom;*/
+        color: #ffffff;
+        background-color: transparent;
+	font-family: Arial,Verdana, Tahoma,"Sans Serif", "Times New Roman";
+	font-size: 8pt;
+	font-weight: bold
+}
+
+.gridSort
+{
+	color: #ffffff;
+	background-color: transparent;
+	text-decoration: none
+}
+
+.gridFooter
+{
+        font-family:       Arial,Verdana, Geneva, Tahoma, Trebuchet MS,Sans-serif;
+	font-size:         10px;
+        letter-spacing:    .1em;
+        font-weight:	    bold;
+       /* color:             #fff;
+	background: 	   #6C73B1 url(../images/DBGrid/grid_bottam.jpg) repeat bottom left;*/
+       background: none repeat scroll 0% 0% #545454;
+       color: #A8AA94;
+        padding:           7px 6px 7px 6px;
+     /*   background-color:  transparent; */
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : logistics.xml
+    Created on : May 6, 2013, 7:59 AM
+    Author     : miracle1
+    Description:
+        Purpose of the document follows.
+-->
+
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="logisticsloadtendering" namespace="/logisticsloadtendering" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        <action name = "loadtendering" class="com.mss.ediscv.logisticsloadtendering.LogisticsLoadAction" >
+            <result>/logisticsloadtendering/loadtendering.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action> 
+        <action name="ltSearch" class="com.mss.ediscv.logisticsloadtendering.LogisticsLoadAction" method="getloadSearchQuery">
+            <result>/logisticsloadtendering/loadtendering.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+        <action name="nextLtLoadTender" class="com.mss.ediscv.logisticsloadtendering.LogisticsLoadAction" method="doNextLtLoadTender">
+            <result>/logisticsloadtendering/loadtendering.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+    </package>
+</struts>

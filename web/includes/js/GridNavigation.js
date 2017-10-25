@@ -1,0 +1,121 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+function Pager(tableName, itemsPerPage) {
+    this.tableName = tableName;
+    this.itemsPerPage = itemsPerPage;
+    this.currentPage = 1;
+    this.pages = 0;
+    this.inited = false;
+
+    this.showRecords = function (from, to) {
+        var rows = document.getElementById(tableName).rows;
+        // i starts from 1 to skip table header row
+        for (var i = 1; i < rows.length; i++) {
+            if (i < from || i > to)
+                rows[i].style.display = 'none';
+            else
+                rows[i].style.display = '';
+        }
+    }
+
+    this.showPage = function (pageNumber) {
+        if (!this.inited) {
+            alert("not inited");
+            return;
+        }
+
+        var oldPageAnchor = document.getElementById('pg' + this.currentPage);
+        oldPageAnchor.className = 'pg-normal';
+
+        this.currentPage = pageNumber;
+        var newPageAnchor = document.getElementById('pg' + this.currentPage);
+        newPageAnchor.className = 'pg-selected';
+
+        var from = (pageNumber - 1) * itemsPerPage + 1;
+        var to = from + itemsPerPage - 1;
+        this.showRecords(from, to);
+    }
+
+    this.prev = function () {
+        if (this.currentPage > 1)
+            this.showPage(this.currentPage - 1);
+    }
+
+    this.next = function () {
+        if (this.currentPage < this.pages) {
+            this.showPage(this.currentPage + 1);
+        }
+    }
+
+    this.init = function () {
+        var rows = document.getElementById(tableName).rows;
+        var records = (rows.length - 1);
+        // alert('records--'+records);
+        this.pages = Math.ceil(records / itemsPerPage);
+        this.inited = true;
+    }
+
+    this.showPageNav = function (pagerName, positionId) {
+        // declared count variable to check and display only two dots in page navigation
+        var count = 0;
+        //  alert('hiiii');
+        if (!this.inited) {
+            alert("not inited");
+            return;
+        }
+        var element = document.getElementById(positionId);
+
+        var pagerHtml = '<span onclick="' + pagerName + '.prev();" class="pg-normal"> <font align="bottom" class="jumpbar"> Page: <img src="../includes/images/jumpbar_prev.gif" border="0"> </span> ';
+        for (var page = 1; page <= this.pages; page++)
+        {
+
+            //alert("page is "+ page);
+//                        pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');"><font color="black" face="verdana">' + page + '</font></span> ';
+//                    pagerHtml += '<span onclick="'+pagerName+'.next();" class="pg-normal"> <img src="../includes/images/jumpbar_next.gif" border="0"></span></font>';            
+
+            //condition to display 5 pages in the pagenation 
+            if (page < 5)
+            {
+
+                pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');"><font color="black" face="verdana">' + page + '</font></span> ';
+
+            }
+            //condition to display  dots in the pagenation
+            else if (page <= this.pages - 1)
+            {
+                //incrementing the count variable
+                count++;
+                //checking the count variable to display two dots in the pagenation and hide the remaining dots
+                if (count <= 2) {
+                    pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');"><font color="black" face="verdana">.</font></span> ';
+                }
+                //condition to display the last page in the pagenation
+                else
+                {
+                    pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');" style="display:none"><font color="black" face="verdana">.</font></span> ';
+                }
+            }
+
+            else
+            {
+                pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');"><font color="black" face="verdana">' + page + '</font></span> ';
+
+            }
+
+        }
+        pagerHtml += '<span onclick="' + pagerName + '.next();" class="pg-normal"> <img src="../includes/images/jumpbar_next.gif" border="0"></span></font>';
+        //alert(pagerHtml);
+        element.innerHTML = pagerHtml;
+    }
+}
+
+/*
+ * Function added for sorting columns in the table
+ */
+// $(document).ready(function () {
+//                $("#results").tablesorter();
+//            });

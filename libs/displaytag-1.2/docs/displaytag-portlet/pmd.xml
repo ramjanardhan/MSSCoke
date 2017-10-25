@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2008-12-27T14:55:04.608">
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag-portlet/src/main/java/org/displaytag/portlet/PortletHref.java">
+<violation beginline="257" endline="257" begincolumn="21" endcolumn="38" rule="BooleanInstantiation" ruleset="Basic Rules" package="org.displaytag.portlet" class="PortletHref" method="addParameter" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#BooleanInstantiation" priority="2">
+Avoid instantiating Boolean objects; reference Boolean.TRUE or Boolean.FALSE or call Boolean.valueOf() instead.
+</violation>
+</file>
+</pmd>

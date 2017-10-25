@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : b2bchannel.xml
+    Created on : February 2, 2015, 9:29 AM
+    Author     : miracle
+    Description:
+        Purpose of the document follows.
+-->
+
+
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="b2bchannel" namespace="/b2bchannel" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        
+         <action name="addB2BChannel" class="com.mss.ediscv.b2bchannel.B2BChannelAction" method="addB2BChannel">
+            <result>AddOrEditB2BChannel.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>  
+         
+     <action name="doAddB2BChannel" class="com.mss.ediscv.b2bchannel.B2BChannelAction" method="doAddB2BChannel">
+            <result>AddOrEditB2BChannel.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>   
+       
+         
+          <action name="getB2BChannelList" class="com.mss.ediscv.b2bchannel.B2BChannelAction" method="getB2BChannelList">
+            <result>B2BChannelList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action> 
+            <action name="b2BChannelListSearch" class="com.mss.ediscv.b2bchannel.B2BChannelAction" method="b2BChannelListSearch">
+            <result>B2BChannelList.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>
+         
+           <action name="b2bchannelEdit" class="com.mss.ediscv.b2bchannel.B2BChannelAction" method="b2bchannelEdit">
+            <result>AddOrEditB2BChannel.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>
+         
+         <action name="doEditB2BChannel" class="com.mss.ediscv.b2bchannel.B2BChannelAction" method="doEditB2BChannel">
+            <result>AddOrEditB2BChannel.jsp</result>
+            <result name="error" type="redirect" >../general/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+         </action>
+    </package>
+</struts>

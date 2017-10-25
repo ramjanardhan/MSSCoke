@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2008-12-27T14:47:28.910">
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/decorator/CheckboxTableDecorator.java">
+<violation beginline="38" endline="38" begincolumn="17" endcolumn="22" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="org.displaytag.decorator" class="CheckboxTableDecorator" variable="params" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'params'.
+</violation>
+<violation beginline="95" endline="98" begincolumn="17" endcolumn="17" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.decorator" class="CheckboxTableDecorator" method="finish" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/decorator/Decorator.java">
+<violation beginline="196" endline="199" begincolumn="9" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.decorator" class="Decorator" method="searchGetterFor" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="200" endline="203" begincolumn="9" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.decorator" class="Decorator" method="searchGetterFor" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="204" endline="207" begincolumn="9" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.decorator" class="Decorator" method="searchGetterFor" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/exception/RuntimeLookupException.java">
+<violation beginline="35" endline="39" begincolumn="12" endcolumn="5" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="org.displaytag.exception" class="RuntimeLookupException" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused constructor parameters such as 'sourceClass'.
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/export/DefaultPdfExportView.java">
+<violation beginline="80" endline="82" begincolumn="13" endcolumn="13" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.export" class="DefaultPdfExportView$PageNumber" method="onEndPage" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="83" endline="85" begincolumn="13" endcolumn="13" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.export" class="DefaultPdfExportView$PageNumber" method="onEndPage" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/model/Column.java">
+<violation beginline="141" endline="144" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.displaytag.model" class="Column" method="getValue" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/model/Row.java">
+<violation beginline="167" endline="172" begincolumn="13" endcolumn="13" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.model" class="Row" method="getOpenTag" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/model/RowIterator.java">
+<violation beginline="67" endline="73" begincolumn="15" endcolumn="5" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="org.displaytag.model" class="RowIterator" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused constructor parameters such as 'columnList'.
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/model/TableModel.java">
+<violation beginline="466" endline="480" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.displaytag.model" class="TableModel" method="sortRowList" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/properties/TableProperties.java">
+<violation beginline="502" endline="505" begincolumn="17" endcolumn="17" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.properties" class="TableProperties" method="getLocaleResolverInstance" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/tags/ColumnTag.java">
+<violation beginline="14" endline="14" begincolumn="1" endcolumn="26" rule="UnusedImports" ruleset="Import Statement Rules" package="org.displaytag.tags" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.text.Collator'
+</violation>
+<violation beginline="38" endline="38" begincolumn="1" endcolumn="46" rule="UnusedImports" ruleset="Import Statement Rules" package="org.displaytag.tags" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.displaytag.model.DefaultComparator'
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/tags/TableFooterTag.java">
+<violation beginline="47" endline="47" begincolumn="21" endcolumn="33" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="org.displaytag.tags" class="TableFooterTag" variable="showAsLastRow" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'showAsLastRow'.
+</violation>
+<violation beginline="69" endline="72" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.displaytag.tags" class="TableFooterTag" method="doEndTag" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/tags/TableTag.java">
+<violation beginline="1046" endline="1048" begincolumn="13" endcolumn="13" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.displaytag.tags" class="TableTag" method="initParameters" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="1285" endline="1288" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.displaytag.tags" class="TableTag" method="doEndTag" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="1601" endline="1605" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.displaytag.tags" class="TableTag" method="setupViewableData" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/tags/el/ELCaptionTagBeanInfo.java">
+<violation beginline="55" endline="58" begincolumn="9" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.displaytag.tags.el" class="ELCaptionTagBeanInfo" method="getPropertyDescriptors" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+<file name="/data/apps/displaytag/displaytag-all/target/checkout/displaytag/src/main/java/org/displaytag/util/PostHref.java">
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="49" rule="UnusedImports" ruleset="Import Statement Rules" package="org.displaytag.util" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.apache.commons.lang.StringEscapeUtils'
+</violation>
+<violation beginline="75" endline="75" begincolumn="20" endcolumn="40" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.displaytag.util" class="PostHref" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+Ensure you override both equals() and hashCode()
+</violation>
+</file>
+</pmd>

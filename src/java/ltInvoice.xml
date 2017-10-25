@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="logisticsinvoice" namespace="/logisticsinvoice" extends="default">
+        <default-interceptor-ref name="crudStack"/>
+        <action name = "ltinvoice" class="com.mss.ediscv.logisticsinvoice.LogisticsInvoiceAction" >
+            <result>/logisticsinvoice/ltInvoice.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+             
+        <action name="invoiceSearch" class="com.mss.ediscv.logisticsinvoice.LogisticsInvoiceAction" method="getInvoiceSearchQuery">
+            <result>/logisticsinvoice/ltInvoice.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+        </action>
+         
+        <action name="nextLtInvoice" class="com.mss.ediscv.logisticsinvoice.LogisticsInvoiceAction" method="doNextLtInvoice">
+            <result>/logisticsinvoice/ltInvoice.jsp</result>
+            <result name="error" type="redirect" >../exception/exception.action</result> 
+            <result type="redirect" name="login">../general/login.action</result>
+            <result name="accessFailed" type="redirect" >../exception/accessFailed.action</result> 
+        </action>
+    </package>
+</struts>
+

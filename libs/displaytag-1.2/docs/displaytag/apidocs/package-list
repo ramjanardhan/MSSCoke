@@ -1,0 +1,13 @@
+org.displaytag
+org.displaytag.decorator
+org.displaytag.exception
+org.displaytag.export
+org.displaytag.filter
+org.displaytag.localization
+org.displaytag.model
+org.displaytag.pagination
+org.displaytag.properties
+org.displaytag.render
+org.displaytag.tags
+org.displaytag.tags.el
+org.displaytag.util
