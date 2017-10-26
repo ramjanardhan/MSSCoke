@@ -676,14 +676,14 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
      * @return
      * @throws ServiceLocatorException
      */
-    public String getDocDetails(String instanceid, String ponum, int id) throws ServiceLocatorException {
+    public String getDocDetails(String instanceid, String ponum, int id,String database) throws ServiceLocatorException {
 
         boolean isGetting = false;
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         StringBuffer sb = new StringBuffer();
-
+        if("ARCHIVE".equals(database)){
         //queryString = "select DOCUMENT.ISA_NUMBER,DOCUMENT.DOCUMENT_TYPE,FILES.SENDER_ID,FILES.RECEIVER_ID,FILES.PRE_TRANS_FILEPATH,FILES.POST_TRANS_FILEPATH from DOCUMENT LEFT OUTER JOIN FILES on (DOCUMENT.FILE_ID= FILES.FILE_ID) where FILES.ISA_NUMBER LIKE '%"+isaNumber+"%'";
         queryString = "select FILES.STATUS,FILES.DIRECTION as DIRECTION,FILES.FILE_ID,FILES.FILE_TYPE,FILES.SENDER_ID,FILES.RECEIVER_ID,"
                 + "FILES.PRE_TRANS_FILEPATH,FILES.POST_TRANS_FILEPATH,FILES.SEC_KEY_VAL as SEC_KEY_VAL,FILES.PRI_KEY_TYPE as PRI_KEY_TYPE,FILES.PRI_KEY_VAL as PRI_KEY_VAL,"
@@ -691,7 +691,15 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
                 + "FILES.GS_CONTROL_NUMBER as GS_CONTROL_NUMBER,FILES.ST_CONTROL_NUMBER as ST_CONTROL_NUMBER,TP1.NAME as SENDER_NAME,TP2.NAME as RECEIVER_NAME,FILES.ERR_MESSAGE,FILES.ACK_FILE_ID as ACK_FILE_ID from FILES "
                 + "LEFT OUTER JOIN TP TP1 ON (TP1.ID=FILES.SENDER_ID) LEFT OUTER JOIN TP TP2 ON (TP2.ID = FILES.RECEIVER_ID) "
                 + "where FLOWFLAG like 'M' AND FILES.FILE_ID LIKE '%" + instanceid + "%' AND FILES.ID =" + id;
-
+        }else{
+             queryString = "select FILES.STATUS,FILES.DIRECTION as DIRECTION,FILES.FILE_ID,FILES.FILE_TYPE,FILES.SENDER_ID,FILES.RECEIVER_ID,"
+                + "FILES.PRE_TRANS_FILEPATH,FILES.POST_TRANS_FILEPATH,FILES.SEC_KEY_VAL as SEC_KEY_VAL,FILES.PRI_KEY_TYPE as PRI_KEY_TYPE,FILES.PRI_KEY_VAL as PRI_KEY_VAL,"
+                + "FILES.ORG_FILEPATH as ORG_FILEPATH,FILES.ISA_NUMBER as ISA_NUMBER,FILES.ISA_DATE as ISA_DATE,FILES.ISA_TIME as ISA_TIME,FILES.TRANSACTION_TYPE as TRANSACTION_TYPE,"
+                + "FILES.GS_CONTROL_NUMBER as GS_CONTROL_NUMBER,FILES.ST_CONTROL_NUMBER as ST_CONTROL_NUMBER,TP1.NAME as SENDER_NAME,TP2.NAME as RECEIVER_NAME,FILES.ERR_MESSAGE,FILES.ACK_FILE_ID as ACK_FILE_ID from FILES "
+                + "LEFT OUTER JOIN TP TP1 ON (TP1.ID=FILES.SENDER_ID) LEFT OUTER JOIN TP TP2 ON (TP2.ID = FILES.RECEIVER_ID) "
+                + "where FLOWFLAG like 'M' AND FILES.FILE_ID LIKE '%" + instanceid + "%' AND FILES.ID =" + id;
+        }
+       
         /* if(ponum!=null&&!"null".equals(ponum))
          {
          queryString =queryString+" and FILES.SEC_KEY_VAL LIKE '%" + ponum + "%'";
@@ -2891,13 +2899,14 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
         return sb.toString();
     }
 
-    public String getLogisticsDocDetails(String instanceid, int id) throws ServiceLocatorException {
+    public String getLogisticsDocDetails(String instanceid, int id,String databse) throws ServiceLocatorException {
 
         boolean isGetting = false;
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         StringBuffer sb = new StringBuffer();
+        if("ARCHIVE".equals(databse)){
         //queryString = "select DOCUMENT.ISA_NUMBER,DOCUMENT.DOCUMENT_TYPE,FILES.SENDER_ID,FILES.RECEIVER_ID,FILES.PRE_TRANS_FILEPATH,FILES.POST_TRANS_FILEPATH from DOCUMENT LEFT OUTER JOIN FILES on (DOCUMENT.FILE_ID= FILES.FILE_ID) where FILES.ISA_NUMBER LIKE '%"+isaNumber+"%'";
         queryString = "select FILES.FILE_ID,FILES.FILE_TYPE,FILES.SENDER_ID,"
                 + "FILES.RECEIVER_ID,FILES.PRE_TRANS_FILEPATH,"
@@ -2915,6 +2924,24 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
                 + "ON (TP1.ID=FILES.TMW_SENDERID) LEFT OUTER JOIN TP TP2 "
                 + "ON (TP2.ID = FILES.TMW_RECEIVERID) "
                 + "where FILES.FILE_ID LIKE '%" + instanceid + "%' and FILES.ID =" + id;
+        }else{
+            queryString = "select FILES.FILE_ID,FILES.FILE_TYPE,FILES.SENDER_ID,"
+                + "FILES.RECEIVER_ID,FILES.PRE_TRANS_FILEPATH,"
+                + "FILES.POST_TRANS_FILEPATH,FILES.SEC_KEY_VAL as SEC_KEY_VAL,"
+                + "FILES.PRI_KEY_TYPE as PRI_KEY_TYPE,FILES.PRI_KEY_VAL as PRI_KEY_VAL,"
+                + "FILES.ORG_FILEPATH as ORG_FILEPATH,FILES.ISA_NUMBER as ISA_NUMBER,"
+                + "FILES.TRANSACTION_TYPE as TRANSACTION_TYPE,FILES.TMW_SENDERID as TMW_SENDERID,FILES.TMW_RECEIVERID as TMW_RECEIVERID,"
+                + "FILES.GS_CONTROL_NUMBER as GS_CONTROL_NUMBER,"
+                + "FILES.ST_CONTROL_NUMBER as ST_CONTROL_NUMBER,TP1.NAME as SENDER_NAME,"
+                + "TP2.NAME as RECEIVER_NAME,FILES.ERR_MESSAGE,"
+                + "FILES.ACK_FILE_ID as ACK_FILE_ID,FILES.ISA_DATE as ISA_DATE,"
+                + "FILES.ISA_TIME as ISA_TIME,FILES.STATUS as STATUS,FILES.DIRECTION as DIRECTION,tl.BOL_NUMBER as BOL_NUMBER ,tl.CO_NUMBER as CO_NUMBER,tl.PO_NUMBER as PO_NUMBER  "
+                + "FROM FILES LEFT OUTER JOIN Transport_loadtender tl on (tl.FILE_ID=FILES.FILE_ID and tl.SHIPMENT_ID=FILES.SEC_KEY_VAL) "
+                + "LEFT OUTER JOIN TP TP1 "
+                + "ON (TP1.ID=FILES.TMW_SENDERID) LEFT OUTER JOIN TP TP2 "
+                + "ON (TP2.ID = FILES.TMW_RECEIVERID) "
+                + "where FILES.FILE_ID LIKE '%" + instanceid + "%' and FILES.ID =" + id;
+        }
         System.out.println("QUERY IS " + queryString);
 
         try {
@@ -3823,7 +3850,7 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
      * 
      * 
      */
-    public String getLogisticsShipmentDetails(String asnNumber, String poNumber, int id) throws ServiceLocatorException {
+    public String getLogisticsShipmentDetails(String asnNumber, String poNumber, int id,String database) throws ServiceLocatorException {
 
         boolean isGetting = false;
         Connection connection = null;
@@ -3831,6 +3858,7 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
         ResultSet resultSet = null;
         StringBuffer sb = new StringBuffer();
         StringBuffer queryString = new StringBuffer();
+        if("ARCHIVE".equals(database)){
         System.out.println("asnNumber--->" + asnNumber);
         queryString.append("SELECT FILES.TRANSACTION_TYPE as TRANSACTION_TYPE,FILES.ST_CONTROL_NUMBER as ST_CONTROL_NUMBER,FILES.GS_CONTROL_NUMBER as GS_CONTROL_NUMBER,"
                 + "TRANSPORT_SHIPMENT.FILE_ID as FILE_ID,TRANSPORT_SHIPMENT.SHIPMENT_ID as SHIPMENT_ID,TRANSPORT_SHIPMENT.PO_NUMBER as PO_NUMBER,"
@@ -3847,6 +3875,24 @@ public class AjaxHandlerServiceImpl implements AjaxHandlerService {
         if (asnNumber != null && !(asnNumber.equalsIgnoreCase("null"))) {
             System.out.println("inside asnNumber " + asnNumber);
             queryString.append(" AND TRANSPORT_SHIPMENT.SHIPMENT_ID LIKE '%" + asnNumber + "%' ");
+        }
+        }else{
+           queryString.append("SELECT FILES.TRANSACTION_TYPE as TRANSACTION_TYPE,FILES.ST_CONTROL_NUMBER as ST_CONTROL_NUMBER,FILES.GS_CONTROL_NUMBER as GS_CONTROL_NUMBER,"
+                + "TRANSPORT_SHIPMENT.FILE_ID as FILE_ID,TRANSPORT_SHIPMENT.SHIPMENT_ID as SHIPMENT_ID,TRANSPORT_SHIPMENT.PO_NUMBER as PO_NUMBER,"
+                + "TRANSPORT_SHIPMENT.TOTAL_WEIGHT as TOTAL_WEIGHT,TRANSPORT_SHIPMENT.TOTAL_VOLUME as TOTAL_VOLUME,"
+                + "FILES.ISA_NUMBER as ISA_NUMBER,FILES.ISA_DATE as ISA_DATE,FILES.ISA_TIME as ISA_TIME,"
+                + " FILES.PRE_TRANS_FILEPATH,FILES.POST_TRANS_FILEPATH,FILES.SENDER_ID,FILES.RECEIVER_ID,"
+                + "FILES.ORG_FILEPATH,FILES.ERR_MESSAGE,FILES.STATUS,FILES.TMW_SENDERID,FILES.TMW_RECEIVERID,"
+                + "FILES.ACK_FILE_ID as ACK_FILE_ID,TP1.NAME as SENDER_NAME,TP2.NAME as RECEIVER_NAME "
+                + " FROM TRANSPORT_SHIPMENT "
+                + "LEFT OUTER JOIN FILES ON (TRANSPORT_SHIPMENT.FILE_ID =FILES.FILE_ID) "
+                // + "LEFT OUTER JOIN FILES ON ((TRANSPORT_SHIPMENT.SHIPMENT_ID =FILES.SEC_KEY_VAL) AND ((TRANSPORT_SHIPMENT.BOL_NUMBER =FILES.PRI_KEY_VAL) OR (TRANSPORT_SHIPMENT.STOP_SEQ_NUM =FILES.PRI_KEY_VAL))) "
+                + "LEFT OUTER JOIN TP TP1 ON (TP1.ID=FILES.TMW_SENDERID) LEFT OUTER JOIN TP TP2 ON (TP2.ID = FILES.TMW_RECEIVERID) "
+                + " WHERE TRANSPORT_SHIPMENT.ID =" + id);
+        if (asnNumber != null && !(asnNumber.equalsIgnoreCase("null"))) {
+            System.out.println("inside asnNumber " + asnNumber);
+            queryString.append(" AND TRANSPORT_SHIPMENT.SHIPMENT_ID LIKE '%" + asnNumber + "%' ");
+        } 
         }
         System.out.println("Logistics Shipment Details--> " + queryString);
         String queryString1 = queryString.toString();

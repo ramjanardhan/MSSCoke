@@ -86,8 +86,17 @@ public class AjaxHandlerAction extends ActionSupport implements ServletRequestAw
      private String receiverId;
      private String docType;
      private String ackStatus;
+
+    public String getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(String database) {
+        this.database = database;
+    }
      private String status;
      private String direction;
+     private String database;
      
      
      
@@ -141,7 +150,7 @@ public class AjaxHandlerAction extends ActionSupport implements ServletRequestAw
          if(httpServletRequest.getSession(false).getAttribute(AppConstants.SES_USER_NAME) != null){
             try {
                 //System.out.println("in actionnnnnn");
-                 responseString = ServiceLocator.getAjaxHandlerService().getDocDetails(getIsaNumber(),getPoNumber(),getId()).toString();              
+                 responseString = ServiceLocator.getAjaxHandlerService().getDocDetails(getIsaNumber(),getPoNumber(),getId(),getDatabase()).toString();              
                  //System.out.println("responseString--->"+responseString);
                 httpServletResponse.setContentType("text/xml");
                 httpServletResponse.getWriter().write(responseString);
@@ -339,7 +348,7 @@ public class AjaxHandlerAction extends ActionSupport implements ServletRequestAw
          if(httpServletRequest.getSession(false).getAttribute(AppConstants.SES_USER_NAME) != null){
             try {
                 //System.out.println("in actionnnnnn");
-                 responseString = ServiceLocator.getAjaxHandlerService().getLogisticsDocDetails(getIsaNumber(),getId()).toString();              
+                 responseString = ServiceLocator.getAjaxHandlerService().getLogisticsDocDetails(getIsaNumber(),getId(),getDatabase()).toString();              
                 // System.out.println("responseString--->"+responseString);
                 httpServletResponse.setContentType("text/xml");
                 httpServletResponse.getWriter().write(responseString);
@@ -399,7 +408,7 @@ public String getLogisticsInvDetails() {
             try {
                 //System.out.println("in actionnnnnn");
                  //responseString = ServiceLocator.getAjaxHandlerService().getLogisticsShipmentDetails(getAsnNumber(),getPoNumber()).toString(); 
-                responseString = ServiceLocator.getAjaxHandlerService().getLogisticsShipmentDetails(getAsnNumber(),getPoNumber(),getId()).toString();
+                responseString = ServiceLocator.getAjaxHandlerService().getLogisticsShipmentDetails(getAsnNumber(),getPoNumber(),getId(),getDatabase()).toString();
                  //System.out.println("responseString--->"+responseString);
                 httpServletResponse.setContentType("text/xml");
                 httpServletResponse.getWriter().write(responseString);

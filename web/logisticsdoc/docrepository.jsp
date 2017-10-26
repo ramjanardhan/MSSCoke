@@ -124,7 +124,16 @@
             }
 
             function getDetails(val, id) {
-                getLogisticsDocDetails(val, id);
+                //var db = document.forms["purchaseForm"]["database"].value;
+                var form = document.forms['documentForm'];
+                var radios = form.elements["database"];
+                var db=null;
+                for(var i=0;i<radios.length;i++) {
+                    if(radios[i].checked == true) {
+                        db = radios[i].value;
+                    }
+                }
+                getLogisticsDocDetails(val, id,db);
             }
             function checkCorrelation() {
 

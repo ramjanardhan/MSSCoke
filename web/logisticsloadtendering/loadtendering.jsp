@@ -61,7 +61,7 @@
 
         <script language="JavaScript"
         src='<s:url value="/includes/js/dbgridDisplay.js"/>'></script>
- <script language="JavaScript"
+        <script language="JavaScript"
         src='<s:url value="/includes/js/tablesorter.min.js"/>'></script>
         <script language="JavaScript"
         src='<s:url value="/includes/js/common.js"/>'></script>
@@ -109,8 +109,16 @@
 
             function getDetails(val, ponum) {
                 //  alert("hiiii");    
-
-                getDocDetails(val, ponum);
+                //var db = document.forms["purchaseForm"]["database"].value;
+                var form = document.forms['logisticsForm'];
+                var radios = form.elements["database"];
+                var db = null;
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked == true) {
+                        db = radios[i].value;
+                    }
+                }
+                getDocDetails(val, ponum,db);
             }
             function checkCorrelation() {
 
@@ -516,19 +524,19 @@
                                             <%}%> 
 
                                             <input type="hidden" name="sec_lt_list" id="sec_lt_list" value="<%=loadList.size()%>"/> 
-                                          <thead>
-                                            <tr>
-                                                <th >FileFormat</th> 
-                                                <th >InstanceID</th>
-                                                <th >Shipment</th>
-                                                <th >Customer/Carrier</th>
-                                                <th >DateTime</th>
-                                                <th >Direction</th>
-                                                <th >Status</th>
-                                                <th>Trans_Purpose</th>
-                                                <th>RCT Order#</th>
-                                          </thead>
-<tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th >FileFormat</th> 
+                                                    <th >InstanceID</th>
+                                                    <th >Shipment</th>
+                                                    <th >Customer/Carrier</th>
+                                                    <th >DateTime</th>
+                                                    <th >Direction</th>
+                                                    <th >Status</th>
+                                                    <th>Trans_Purpose</th>
+                                                    <th>RCT Order#</th>
+                                            </thead>
+                                            <tbody>
                                                 <%
                                                     // out.println(session.getAttribute(AppConstants.SES_ROLE_ID));
 
@@ -536,28 +544,28 @@
                                                 %>
                                                 <%-- <td>#</td>--%>
                                                 <%}%>
-                                            </tr>
+                                                </tr>
 
-                                            <%
+                                                <%
 
-                                                if (request.getAttribute("strStartGrid") != null) {
-                                                    strStartGrid = request.getAttribute("strStartGrid").toString();
-                                                    System.out.println("strStartGrid----  " + strStartGrid);
-                                                    strIntStartGrid = Integer.parseInt(strStartGrid);
-                                                }
-                                                //else{   strStartGrid = null;  }
+                                                    if (request.getAttribute("strStartGrid") != null) {
+                                                        strStartGrid = request.getAttribute("strStartGrid").toString();
+                                                        System.out.println("strStartGrid----  " + strStartGrid);
+                                                        strIntStartGrid = Integer.parseInt(strStartGrid);
+                                                    }
+                                                    //else{   strStartGrid = null;  }
 
-                                                if (request.getAttribute("strEndGrid") != null) {
-                                                    strEndGrid = request.getAttribute("strEndGrid").toString();
-                                                    strIntEndGrid = Integer.parseInt(strEndGrid);
-                                                }
-                                //else{   strEndGrid = null;   }
-                                            %>                                                    
+                                                    if (request.getAttribute("strEndGrid") != null) {
+                                                        strEndGrid = request.getAttribute("strEndGrid").toString();
+                                                        strIntEndGrid = Integer.parseInt(strEndGrid);
+                                                    }
+                                    //else{   strEndGrid = null;   }
+                                                %>                                                    
 
 
-                                            <%
-                                                if (session.getAttribute("loadList") != null) {
-                                            %>
+                                                <%
+                                                    if (session.getAttribute("loadList") != null) {
+                                                %>
                                             <input type="hidden" name="strIntStartGrid" id="strIntStartGrid" value="<%=strIntStartGrid%>"/> 
                                             <input type="hidden" name="strIntEndGrid" id="strIntEndGrid" value="<%=strIntEndGrid%>"/> 
 
@@ -677,8 +685,8 @@
                                                 <td>
                                                     <%
                                                         if (logisticsLoadBean.getPoNumber() != null) {
-                                                        out.println(logisticsLoadBean.getPoNumber());
-                                                        }else{
+                                                            out.println(logisticsLoadBean.getPoNumber());
+                                                        } else {
                                                             out.println("-");
                                                         }
                                                     %>

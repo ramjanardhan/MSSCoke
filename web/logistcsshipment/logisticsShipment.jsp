@@ -116,9 +116,19 @@
             function getDetails(val, ponum, id) {
 
 
+
+                //var db = document.forms["purchaseForm"]["database"].value;
+                var form = document.forms['ltshipmentForm'];
+                var radios = form.elements["database"];
+                var db=null;
+                for(var i=0;i<radios.length;i++) {
+                    if(radios[i].checked == true) {
+                        db = radios[i].value;
+                    }
+                }
                 //alert("This is in js id"+id);    
 
-                getLogisticsShipmentDetails(val, ponum, id);
+                getLogisticsShipmentDetails(val, ponum, id,db);
             }
             function resetvalues()
             {

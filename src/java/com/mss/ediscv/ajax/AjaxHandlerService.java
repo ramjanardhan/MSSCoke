@@ -29,7 +29,7 @@ public interface AjaxHandlerService {
      public String getASNDetails(String asnNumber,String poNumber,String fileID)throws ServiceLocatorException;
      public String getInvDetails(String invNumber,String poNumber,String fileID)throws ServiceLocatorException;
      public String getPaymentDetails(String fileId)throws ServiceLocatorException;
-     public String getDocDetails(String isaNumber,String poNum,int id) throws ServiceLocatorException;
+     public String getDocDetails(String isaNumber,String poNum,int id,String database) throws ServiceLocatorException;
      public String getReportDeleteDetails(int id) throws ServiceLocatorException;
      
      public String getDocCopy(String poList,String type) throws ServiceLocatorException; 
@@ -54,11 +54,11 @@ public interface AjaxHandlerService {
      
      
      public String getTpDetailInformation(String tpId,String defFlowId) throws ServiceLocatorException;
-     public String getLogisticsDocDetails(String instanceid,int id)throws ServiceLocatorException;
+     public String getLogisticsDocDetails(String instanceid,int id,String database)throws ServiceLocatorException;
      public String getLoadTenderingDetails(String instanceid,String ponum,int id)throws ServiceLocatorException;
      public String getLtResponseDetails(String invNum,String ponum)throws ServiceLocatorException;
      public String getLogisticsInvDetails(String invNum,int id)throws ServiceLocatorException;
-     public String getLogisticsShipmentDetails(String asnNum,String ponum,int id)throws ServiceLocatorException;
+     public String getLogisticsShipmentDetails(String asnNum,String ponum,int id,String database)throws ServiceLocatorException;
      public String getDocVisibilityDetails(int docId)throws ServiceLocatorException;
      
      public String getPartnerDetails(String partnerId)throws ServiceLocatorException;

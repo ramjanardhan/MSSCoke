@@ -636,7 +636,7 @@ function populateInvDetails(responseXML)
  * For doc Ajax call
  * 
  */
-function getDocDetails(number,ponum,id){
+function getDocDetails(number,ponum,id,db){
     
     var num=number;
     var ponum = ponum;
@@ -656,7 +656,7 @@ function getDocDetails(number,ponum,id){
   // alert(ponum);
    var req = getXMLHttpRequest();
    req.onreadystatechange = readyStateHandlerText(req,populateDocDetails); 
-   var url="../ajax/getDocDetails.action?isaNumber="+num+"&poNumber="+ponum+"&id="+id;
+   var url="../ajax/getDocDetails.action?isaNumber="+num+"&poNumber="+ponum+"&id="+id+"&database="+db;
     req.open("GET",url,"true");
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     req.send(null);
@@ -1976,10 +1976,11 @@ function populateTpDetailInformation(responseXML)
  
 }
 
-function getLogisticsDocDetails(number,id){
+function getLogisticsDocDetails(number,id,db){
     
     var num=number;
     var id = id;
+    alert(db);
     $(function() {
        
            $('#detail_box').show();
@@ -1988,7 +1989,7 @@ function getLogisticsDocDetails(number,id){
    });
    var req = getXMLHttpRequest();
    req.onreadystatechange = readyStateHandlerText(req,populateLogisticsDocDetails); 
-   var url="../ajax/getLogisticsDocDetails.action?isaNumber="+num+"&id="+id;
+   var url="../ajax/getLogisticsDocDetails.action?isaNumber="+num+"&id="+id+"&database="+db;
     req.open("GET",url,"true");
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     req.send(null);
@@ -2635,7 +2636,7 @@ function populateLogisticsInvDetails(responseXML)
  * Author : santosh kola
  * 
  */
-function getLogisticsShipmentDetails(number,ponum,id){
+function getLogisticsShipmentDetails(number,ponum,id,db){
   //  alert("hii");
   
     var num=number;
@@ -2654,7 +2655,7 @@ function getLogisticsShipmentDetails(number,ponum,id){
  var req = getXMLHttpRequest();
    req.onreadystatechange = readyStateHandlerText(req,populateLogisticsShipmentDetails); 
    
-    var url="../ajax/getLogisticsShipmentDetails.action?asnNumber="+num+"&poNumber="+ponum+"&id="+id;
+    var url="../ajax/getLogisticsShipmentDetails.action?asnNumber="+num+"&poNumber="+ponum+"&id="+id+"&database="+db;
    
     req.open("GET",url,"true");
     req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
