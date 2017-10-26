@@ -126,9 +126,10 @@ public class LogisticsShipmentAction extends ActionSupport implements ServletReq
                 session.removeAttribute("gridSize");
                 session.removeAttribute("noOfPages");
                 if ("ARCHIVE".equals(getDatabase())) {
-                    ltShipmentList = ServiceLocator.getLogShipmentService().getLtResponseList(this, httpServletRequest);
-                } else {
                     ltShipmentList = ServiceLocator.getLogShipmentService().getLtResponseArchiveList(this, httpServletRequest);
+                } else {
+                    ltShipmentList = ServiceLocator.getLogShipmentService().getLtResponseList(this, httpServletRequest);
+
                 }
                 httpServletRequest.getSession(false).setAttribute(AppConstants.SES_LTSHIPMENT_LIST, ltShipmentList);
                 System.out.println("list size-----" + ltShipmentList.size());

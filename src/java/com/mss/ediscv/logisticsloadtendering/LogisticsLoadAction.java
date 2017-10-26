@@ -146,13 +146,14 @@ public class LogisticsLoadAction extends ActionSupport implements ServletRequest
                 session.removeAttribute("searchString");
                 session.removeAttribute("gridSize");
                 session.removeAttribute("noOfPages");
-                if("ARCHIVE".equals(getDatabase())) {
-                loadList = ServiceLocator.getLoadService().buildLoadQuery(this, httpServletRequest);
-                }else{
-                     loadList = ServiceLocator.getLoadService().buildLoadArchiveQuery(this, httpServletRequest);
-               
+                if ("ARCHIVE".equals(getDatabase())) {
+                    loadList = ServiceLocator.getLoadService().buildLoadArchiveQuery(this, httpServletRequest);
+
+                } else {
+                    loadList = ServiceLocator.getLoadService().buildLoadQuery(this, httpServletRequest);
+
                 }
-               
+
                 httpServletRequest.getSession(false).setAttribute(AppConstants.SES_LOAD_LIST, loadList);
                 System.out.println("list size-----" + loadList.size());
                 if (loadList.size() > 0) {

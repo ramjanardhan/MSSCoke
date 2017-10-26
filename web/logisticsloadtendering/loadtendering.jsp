@@ -107,7 +107,7 @@
 
             }
 
-            function getDetails(val, ponum) {
+            function getDetails(val, ponum,id) {
                 //  alert("hiiii");    
                 //var db = document.forms["purchaseForm"]["database"].value;
                 var form = document.forms['logisticsForm'];
@@ -118,7 +118,7 @@
                         db = radios[i].value;
                     }
                 }
-                getDocDetails(val, ponum,db);
+                getDocDetails(val, ponum,id,db);
             }
             function checkCorrelation() {
 
@@ -596,7 +596,7 @@
 
                                                 </td>
 
-                                                <td><a href="javascript:getLoadTenderingDetails('<%=logisticsLoadBean.getFile_id()%>','<%=logisticsLoadBean.getShipmentId()%>','<%=logisticsLoadBean.getId()%>');">
+                                                <td><a href="javascript:getDetails('<%=logisticsLoadBean.getFile_id()%>','<%=logisticsLoadBean.getShipmentId()%>','<%=logisticsLoadBean.getId()%>');">
 
                                                         <%
                                                             if (logisticsLoadBean.getShipmentId() != null) {

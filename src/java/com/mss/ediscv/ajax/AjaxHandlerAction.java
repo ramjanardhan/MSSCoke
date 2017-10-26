@@ -149,7 +149,11 @@ public class AjaxHandlerAction extends ActionSupport implements ServletRequestAw
     public String getDocDetails() {
          if(httpServletRequest.getSession(false).getAttribute(AppConstants.SES_USER_NAME) != null){
             try {
-                //System.out.println("in actionnnnnn");
+                System.out.println("in actionnnnnn");
+                System.out.println(getIsaNumber());
+                System.out.println(getPoNumber());
+                System.out.println(getId());
+                System.out.println(getDatabase());
                  responseString = ServiceLocator.getAjaxHandlerService().getDocDetails(getIsaNumber(),getPoNumber(),getId(),getDatabase()).toString();              
                  //System.out.println("responseString--->"+responseString);
                 httpServletResponse.setContentType("text/xml");

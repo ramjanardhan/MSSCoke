@@ -641,7 +641,7 @@ function getDocDetails(number,ponum,id,db){
     var num=number;
     var ponum = ponum;
     var id = id;
-    
+    alert(num +""+ponum+""+id+""+db)
     $(function() {
        
            $('#detail_box').show();

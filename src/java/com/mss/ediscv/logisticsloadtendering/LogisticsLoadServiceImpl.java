@@ -582,7 +582,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
                 + "tf.FILE_TYPE as file_type,tf.FILE_ORIGIN as file_origin,tf.TRANSACTION_TYPE as tran_type,tf.TMW_SENDERID as TMW_SENDERID,tf.TMW_RECEIVERID as TMW_RECEIVERID,"
                 + "tf.ACK_STATUS as ack_status,tf.DIRECTION as direction,tf.DATE_TIME_RECEIVED as datetime,tf.SENDER_ID,tf.RECEIVER_ID,"
                 + "tf.STATUS as status,tf.PRI_KEY_VAL,tp1.NAME as name,tp2.NAME as ReceiverName,tf.SEC_KEY_VAL as secval,tf.REPROCESSSTATUS as REPROCESSSTATUS "
-                + "FROM Transport_loadtender tl LEFT OUTER JOIN FILES TF ON "
+                + "FROM ARCHIVE_TRANSPORT_LOADTENDER tl LEFT OUTER JOIN ARCHIVE_FILES TF ON "
                 + "(tl.FILE_ID=tf.FILE_ID and tl.SHIPMENT_ID=tf.PRI_KEY_VAL)  "
                 //                          + "LEFT OUTER JOIN TP TP1 ON(TP1.ID=TF.TMW_SENDERID ) "
                 //                          + "LEFT OUTER JOIN TP TP2 ON(TP2.ID=TF.TMW_RECEIVERID)");
@@ -603,7 +603,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
                     System.out.println("con "+con);
                 statement2 = con.createStatement();
                 //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE  from FILES WHERE SEC_KEY_TYPE='ORDERNUMBER' AND SEC_KEY_VAL ='" + corrvalue + "'";
-                String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM FILES WHERE SEC_KEY_VAL ='" + corrvalue + "')";
+                String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM ARCHIVE_FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM ARCHIVE_FILES WHERE SEC_KEY_VAL ='" + corrvalue + "')";
                 //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE FROM FILES WHERE SEC_KEY_VAL='"+corrvalue+"'";
                     System.out.println("query --> "+query);
                 resultSet2 = statement2.executeQuery(query);
@@ -657,7 +657,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
                     System.out.println("con "+con);
                 statement2 = con.createStatement();
                 //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE  from FILES WHERE SEC_KEY_TYPE='ORDERNUMBER' AND SEC_KEY_VAL ='" + corrvalue + "'";
-                String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM FILES WHERE SEC_KEY_VAL ='" + corrvalue1 + "')";
+                String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM ARCHIVE_FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM ARCHIVE_FILES WHERE SEC_KEY_VAL ='" + corrvalue1 + "')";
                 //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE FROM FILES WHERE SEC_KEY_VAL='"+corrvalue1+"'";
                     System.out.println("query --> "+query);
                 resultSet2 = statement2.executeQuery(query);
@@ -711,7 +711,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
                     System.out.println("con "+con);
                 statement2 = con.createStatement();
                 //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE  from FILES WHERE SEC_KEY_TYPE='ORDERNUMBER' AND SEC_KEY_VAL ='" + corrvalue + "'";
-                String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM FILES WHERE SEC_KEY_VAL ='" + corrvalue2 + "')";
+                String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM ARCHIVE_FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM ARCHIVE_FILES WHERE SEC_KEY_VAL ='" + corrvalue2 + "')";
                 //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE FROM FILES WHERE SEC_KEY_VAL='"+corrvalue2+"'";
                     System.out.println("query --> "+query);
                 resultSet2 = statement2.executeQuery(query);
@@ -936,7 +936,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
 //                    logisticsdocBean.setPoNumber(resultSet.getString("secval"));
 //                }
                 if (resultSet.getString("direction").equalsIgnoreCase("INBOUND")) {
-                    String queryString = "SELECT SEC_KEY_VAL as orderNum FROM FILES WHERE PRI_KEY_VAL='" + resultSet.getString("PRI_KEY_VAL") + "' AND SEC_KEY_TYPE='ORDERNUMBER'";
+                    String queryString = "SELECT SEC_KEY_VAL as orderNum FROM ARCHIVE_FILES WHERE PRI_KEY_VAL='" + resultSet.getString("PRI_KEY_VAL") + "' AND SEC_KEY_TYPE='ORDERNUMBER'";
                     System.out.println("query string is " + queryString);
                      statement1 = connection.createStatement();
                     resultSet1 = statement1.executeQuery(queryString);

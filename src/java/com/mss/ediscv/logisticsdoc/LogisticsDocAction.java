@@ -145,9 +145,10 @@ public class LogisticsDocAction extends ActionSupport implements ServletRequestA
                 List<LogisticsDocBean> searchResult = null;
                 // searchResult = search(indexDir, q);
                 if ("ARCHIVE".equals(getDatabase())) {
-                    searchResult = ServiceLocator.getLogDocService().buildDocumentQuery(this, httpServletRequest);
-                } else {
                     searchResult = ServiceLocator.getLogDocService().buildDocumentArchiveQuery(this, httpServletRequest);
+
+                } else {
+                    searchResult = ServiceLocator.getLogDocService().buildDocumentQuery(this, httpServletRequest);
                 }
 
                 //System.out.println("search result is::::::"+searchResult);

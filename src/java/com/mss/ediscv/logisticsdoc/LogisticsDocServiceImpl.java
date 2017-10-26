@@ -634,7 +634,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
     public ArrayList<LogisticsDocBean> buildDocumentArchiveQuery(LogisticsDocAction logisticsDocAction, HttpServletRequest httpServletRequest) throws ServiceLocatorException {
         StringBuffer documentSearchQuery = new StringBuffer();
         logger.info("Entered into the :::: PurchaseOrderServiceImpl :::: buildPurchaseQuery");
-
+        System.out.println("In Doc Search Archive Query");
         String docdatepicker = logisticsDocAction.getDocdatepicker();
         String docdatepickerfrom = logisticsDocAction.getDocdatepickerfrom();
         String docSenderId = "";
@@ -678,20 +678,20 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
          String bolnum= docRepositoryAction.getBolNum();
          String chequeNum = docRepositoryAction.getChequeNum();*/
 
-        documentSearchQuery.append("SELECT DISTINCT TOP 500 (FILES.FILE_ID) as FILE_ID,FILES.ID as ID,"
-                + "FILES.ISA_NUMBER as ISA_NUMBER,FILES.FILE_TYPE as FILE_TYPE,FILES.CARRIER_STATUS,FILES.PRI_KEY_VAL  as PRI_KEY_VAL,FILES.SENDER_ID,FILES.RECEIVER_ID,"
-                + "FILES.FILE_ORIGIN as FILE_ORIGIN,FILES.TRANSACTION_TYPE as TRANSACTION_TYPE,FILES.TMW_SENDERID as TMW_SENDERID,FILES.TMW_RECEIVERID as TMW_RECEIVERID,"
-                + "FILES.DIRECTION as DIRECTION,FILES.DATE_TIME_RECEIVED as DATE_TIME_RECEIVED,"
-                + "FILES.STATUS as STATUS,FILES.ACK_STATUS as ACK_STATUS,TP2.NAME as RECEIVER_NAME,TP1.NAME as SENDER_NAME,trsrsp.REF_ID,"
-                + "FILES.SEC_KEY_VAL,FILES.REPROCESSSTATUS,FILES.FILENAME,trsrsp.RESPONSE_STATUS,FILES.TRANSACTION_PURPOSE FROM FILES "
+        documentSearchQuery.append("SELECT DISTINCT TOP 500 (ARCHIVE_FILES.FILE_ID) as FILE_ID,ARCHIVE_FILES.ID as ID,"
+                + "ARCHIVE_FILES.ISA_NUMBER as ISA_NUMBER,ARCHIVE_FILES.FILE_TYPE as FILE_TYPE,ARCHIVE_FILES.CARRIER_STATUS,ARCHIVE_FILES.PRI_KEY_VAL  as PRI_KEY_VAL,ARCHIVE_FILES.SENDER_ID,ARCHIVE_FILES.RECEIVER_ID,"
+                + "ARCHIVE_FILES.FILE_ORIGIN as FILE_ORIGIN,ARCHIVE_FILES.TRANSACTION_TYPE as TRANSACTION_TYPE,ARCHIVE_FILES.TMW_SENDERID as TMW_SENDERID,ARCHIVE_FILES.TMW_RECEIVERID as TMW_RECEIVERID,"
+                + "ARCHIVE_FILES.DIRECTION as DIRECTION,ARCHIVE_FILES.DATE_TIME_RECEIVED as DATE_TIME_RECEIVED,"
+                + "ARCHIVE_FILES.STATUS as STATUS,ARCHIVE_FILES.ACK_STATUS as ACK_STATUS,TP2.NAME as RECEIVER_NAME,TP1.NAME as SENDER_NAME,trsrsp.REF_ID,"
+                + "ARCHIVE_FILES.SEC_KEY_VAL,ARCHIVE_FILES.REPROCESSSTATUS,ARCHIVE_FILES.FILENAME,trsrsp.RESPONSE_STATUS,ARCHIVE_FILES.TRANSACTION_PURPOSE FROM ARCHIVE_FILES "
                 //+ "FROM FILES LEFT OUTER JOIN Transport_loadtender ten on (ten.FILE_ID=FILES.FILE_ID and ten.SHIPMENT_ID=FILES.PRI_KEY_VAL) "
-                + "LEFT OUTER JOIN TRANSPORT_LT_RESPONSE trsrsp on (trsrsp.FILE_ID=FILES.FILE_ID)"
+                + "LEFT OUTER JOIN TRANSPORT_LT_RESPONSE trsrsp on (trsrsp.FILE_ID=ARCHIVE_FILES.FILE_ID)"
                 //                          + " LEFT OUTER JOIN TP TP1 "
                 //                          + "ON (TP1.ID=FILES.TMW_SENDERID) LEFT OUTER JOIN TP TP2 ON (TP2.ID=FILES.TMW_RECEIVERID)");
-                + " LEFT OUTER JOIN TP TP1 ON (TP1.ID=FILES.TMW_SENDERID) "
-                + " LEFT OUTER JOIN TP TP2 ON (TP2.ID=FILES.TMW_RECEIVERID)"
-                + " LEFT OUTER JOIN TP TP3 ON (TP3.ID=FILES.SENDER_ID)"
-                + " LEFT OUTER JOIN TP TP4 ON (TP4.ID=FILES.RECEIVER_ID)");
+                + " LEFT OUTER JOIN TP TP1 ON (TP1.ID=ARCHIVE_FILES.TMW_SENDERID) "
+                + " LEFT OUTER JOIN TP TP2 ON (TP2.ID=ARCHIVE_FILES.TMW_RECEIVERID)"
+                + " LEFT OUTER JOIN TP TP3 ON (TP3.ID=ARCHIVE_FILES.SENDER_ID)"
+                + " LEFT OUTER JOIN TP TP4 ON (TP4.ID=ARCHIVE_FILES.RECEIVER_ID)");
         //raja
         documentSearchQuery.append(" WHERE FLOWFLAG LIKE '%L%' ");
         //LogisticsDocBean logisticsdocBean1 = new LogisticsDocBean();
@@ -704,7 +704,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                     
                     statement2 = con.createStatement();
                     //String queryPriKey = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE FROM FILES WHERE SEC_KEY_VAL='"+corrvalue+"'";
-                    String queryPriKey = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM FILES WHERE SEC_KEY_VAL ='" + corrvalue + "')";
+                    String queryPriKey = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM ARCHIVE_FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM ARCHIVE_FILES WHERE SEC_KEY_VAL ='" + corrvalue + "')";
                     System.out.println("query --> " + queryPriKey);
                     resultSet2 = statement2.executeQuery(queryPriKey);
                     System.out.println("in ordernumbe try");
@@ -716,7 +716,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                         
                         if (resultSet2.getString("TRANSACTION_TYPE").equalsIgnoreCase("204")) {
                             System.out.println(" 204 TRANSACTION_TYPE" + resultSet2.getString("TRANSACTION_TYPE"));
-                            documentSearchQuery.append("AND (FILES.PRI_KEY_VAL='"+resultSet2.getString("PRI_KEY_VAL")+"' OR FILES.PRI_KEY_VAL='"+corrvalue.trim().toUpperCase()+"')");
+                            documentSearchQuery.append("AND (ARCHIVE_FILES.PRI_KEY_VAL='"+resultSet2.getString("PRI_KEY_VAL")+"' OR ARCHIVE_FILES.PRI_KEY_VAL='"+corrvalue.trim().toUpperCase()+"')");
 //                            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.PRI_KEY_VAL",
 //                                    resultSet2.getString("PRI_KEY_VAL")));
                             System.out.println("204 appended");
@@ -725,7 +725,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                             System.out.println(" other TRANSACTION_TYPE" + resultSet2.getString("TRANSACTION_TYPE"));
 //                            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.SEC_KEY_VAL",
 //                                    corrvalue.trim().toUpperCase()));
-                            documentSearchQuery.append("AND (FILES.SEC_KEY_TYPE='"+resultSet2.getString("PRI_KEY_VAL")+"' OR FILES.SEC_KEY_TYPE='"+corrvalue.trim().toUpperCase()+"')" );
+                            documentSearchQuery.append("AND (ARCHIVE_FILES.SEC_KEY_TYPE='"+resultSet2.getString("PRI_KEY_VAL")+"' OR ARCHIVE_FILES.SEC_KEY_TYPE='"+corrvalue.trim().toUpperCase()+"')" );
                             //documentSearchQuery.append("AND FILES.SEC_KEY_TYPE='ORDERNUMBER'");
                             System.out.println("other appended");
                         }
@@ -772,14 +772,14 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                     System.out.println("con " + con);
                     statement2 = con.createStatement();
                     //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE  from FILES WHERE SEC_KEY_TYPE='ORDERNUMBER' AND SEC_KEY_VAL ='" + corrvalue + "'";
-                    String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM FILES WHERE SEC_KEY_VAL ='" + corrvalue1 + "')";
+                    String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM ARCHIVE_FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM ARCHIVE_FILES WHERE SEC_KEY_VAL ='" + corrvalue1 + "')";
                     //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE FROM FILES WHERE SEC_KEY_VAL='"+corrvalue1+"'";
                     System.out.println("query --> " + query);
                     resultSet2 = statement2.executeQuery(query);
                     if (resultSet2.next()) {
                         if (resultSet2.getString("TRANSACTION_TYPE").equals("204")) {
                             System.out.println(" 204 TRANSACTION_TYPE" + resultSet2.getString("TRANSACTION_TYPE"));
-                            documentSearchQuery.append("AND (FILES.PRI_KEY_VAL='"+resultSet2.getString("PRI_KEY_VAL")+"' OR FILES.PRI_KEY_VAL='"+corrvalue1.trim().toUpperCase()+"')");
+                            documentSearchQuery.append("AND (ARCHIVE_FILES.PRI_KEY_VAL='"+resultSet2.getString("PRI_KEY_VAL")+"' OR ARCHIVE_FILES.PRI_KEY_VAL='"+corrvalue1.trim().toUpperCase()+"')");
 //                            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.PRI_KEY_VAL",
 //                                    resultSet2.getString("PRI_KEY_VAL")));
                             System.out.println("204 appended");
@@ -787,7 +787,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                             System.out.println(" other TRANSACTION_TYPE" + resultSet2.getString("TRANSACTION_TYPE"));
 //                            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.SEC_KEY_VAL",
 //                                    corrvalue1.trim().toUpperCase()));
-                            documentSearchQuery.append("AND (FILES.SEC_KEY_TYPE='"+resultSet2.getString("PRI_KEY_VAL")+"' OR FILES.SEC_KEY_TYPE='"+corrvalue1.trim().toUpperCase()+"')" );
+                            documentSearchQuery.append("AND (ARCHIVE_FILES.SEC_KEY_TYPE='"+resultSet2.getString("PRI_KEY_VAL")+"' OR ARCHIVE_FILES.SEC_KEY_TYPE='"+corrvalue1.trim().toUpperCase()+"')" );
                             //documentSearchQuery.append("AND FILES.SEC_KEY_TYPE='ORDERNUMBER'");
                             System.out.println("other appended");
                         }
@@ -826,14 +826,14 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                     System.out.println("con " + con);
                     statement2 = con.createStatement();
                     //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE  from FILES WHERE SEC_KEY_TYPE='ORDERNUMBER' AND SEC_KEY_VAL ='" + corrvalue + "'";
-                    String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM FILES WHERE SEC_KEY_VAL ='" + corrvalue2 + "')";
+                    String query = "SELECT PRI_KEY_VAL, TRANSACTION_TYPE FROM ARCHIVE_FILES WHERE PRI_KEY_VAL = (SELECT MAX(PRI_KEY_VAL) FROM ARCHIVE_FILES WHERE SEC_KEY_VAL ='" + corrvalue2 + "')";
                     //String query = "SELECT PRI_KEY_VAL,TRANSACTION_TYPE FROM FILES WHERE SEC_KEY_VAL='"+corrvalue2+"'";
                     System.out.println("query --> " + query);
                     resultSet2 = statement2.executeQuery(query);
                     if (resultSet2.next()) {
                         if (resultSet2.getString("TRANSACTION_TYPE").equals("204")) {
                             System.out.println(" 204 TRANSACTION_TYPE" + resultSet2.getString("TRANSACTION_TYPE"));
-                            documentSearchQuery.append("AND (FILES.PRI_KEY_VAL='"+resultSet2.getString("PRI_KEY_VAL")+"' OR FILES.PRI_KEY_VAL='"+corrvalue2.trim().toUpperCase()+"')");
+                            documentSearchQuery.append("AND (ARCHIVE_FILES.PRI_KEY_VAL='"+resultSet2.getString("PRI_KEY_VAL")+"' OR ARCHIVE_FILES.PRI_KEY_VAL='"+corrvalue2.trim().toUpperCase()+"')");
 //                            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.PRI_KEY_VAL",
 //                                    resultSet2.getString("PRI_KEY_VAL")));
                             System.out.println("204 appended");
@@ -841,7 +841,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                             System.out.println(" other TRANSACTION_TYPE" + resultSet2.getString("TRANSACTION_TYPE"));
 //                            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.SEC_KEY_VAL",
 //                                    corrvalue2.trim().toUpperCase()));
-                            documentSearchQuery.append("AND (FILES.SEC_KEY_TYPE='"+resultSet2.getString("PRI_KEY_VAL")+"' OR FILES.SEC_KEY_TYPE='"+corrvalue2.trim().toUpperCase()+"')" );
+                            documentSearchQuery.append("AND (ARCHIVE_FILES.SEC_KEY_TYPE='"+resultSet2.getString("PRI_KEY_VAL")+"' OR ARCHIVE_FILES.SEC_KEY_TYPE='"+corrvalue2.trim().toUpperCase()+"')" );
                             //documentSearchQuery.append("AND FILES.SEC_KEY_TYPE='ORDERNUMBER'");
                             System.out.println("other appended");
                         }
@@ -874,42 +874,42 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
         //if(corrattribute1.equalsIgnoreCase("PO Number") || corrattribute1.equalsIgnoreCase("Invoice Number")  || corrattribute1.equalsIgnoreCase("Shipment Number") || corrattribute1.equalsIgnoreCase("Cheque Number") )
         if (corrattribute != null && corrattribute.equalsIgnoreCase("Shipment Number")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.PRI_KEY_VAL",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.PRI_KEY_VAL",
                         corrvalue.trim().toUpperCase()));
             }
         }
 
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("Shipment Number")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.PRI_KEY_VAL",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.PRI_KEY_VAL",
                         corrvalue1.trim().toUpperCase()));
             }
         }
 
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("Shipment Number")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.PRI_KEY_VAL",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.PRI_KEY_VAL",
                         corrvalue2.trim().toUpperCase()));
             }
         }
 
         if (corrattribute != null && corrattribute.equalsIgnoreCase("Invoice Number")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.SEC_KEY_VAL",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.SEC_KEY_VAL",
                         corrvalue.trim().toUpperCase()));
             }
         }
 
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("Invoice Number")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.SEC_KEY_VAL",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.SEC_KEY_VAL",
                         corrvalue1.trim().toUpperCase()));
             }
         }
 
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("Invoice Number")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.SEC_KEY_VAL",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.SEC_KEY_VAL",
                         corrvalue2.trim().toUpperCase()));
             }
         }
@@ -917,21 +917,21 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
 
         if (corrattribute != null && corrattribute.equalsIgnoreCase("ISA Number")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.ISA_Number",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.ISA_Number",
                         corrvalue.trim().toUpperCase()));
             }
         }
 
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("ISA Number")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.ISA_Number",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.ISA_Number",
                         corrvalue1.trim().toUpperCase()));
             }
         }
 
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("ISA Number")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.ISA_Number",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.ISA_Number",
                         corrvalue2.trim().toUpperCase()));
             }
         }
@@ -940,21 +940,21 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
         // isa 
         if (corrattribute != null && corrattribute.equalsIgnoreCase("GS Number")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.GS_CONTROL_Number",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.GS_CONTROL_Number",
                         corrvalue.trim().toUpperCase()));
             }
         }
 
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("GS Number")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.GS_CONTROL_Number",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.GS_CONTROL_Number",
                         corrvalue1.trim().toUpperCase()));
             }
         }
 
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("GS Number")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.GS_CONTROL_Number",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.GS_CONTROL_Number",
                         corrvalue2.trim().toUpperCase()));
             }
         }
@@ -962,19 +962,19 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
         // bol
         if (corrattribute != null && corrattribute.equalsIgnoreCase("Instance ID")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.FILE_ID",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.FILE_ID",
                         corrvalue.trim().toUpperCase()));
             }
         }
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("Instance ID")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.FILE_ID",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.FILE_ID",
                         corrvalue1.trim().toUpperCase()));
             }
         }
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("Instance ID")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.FILE_ID",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.FILE_ID",
                         corrvalue2.trim().toUpperCase()));
             }
         }
@@ -983,53 +983,53 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
         //file name
         if (corrattribute != null && corrattribute.equalsIgnoreCase("FILE NAME")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.FILENAME",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.FILENAME",
                         corrvalue.trim().toUpperCase()));
             }
         }
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("FILE NAME")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.FILENAME",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.FILENAME",
                         corrvalue1.trim().toUpperCase()));
             }
         }
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("FILE NAME")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.FILENAME",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.FILENAME",
                         corrvalue2.trim().toUpperCase()));
             }
         }
         //end --------------------------------------------filename
         if (doctype != null && !"".equals(doctype.trim())) {
-            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.TRANSACTION_TYPE",
+            documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.TRANSACTION_TYPE",
                     doctype.trim()));
         }
         //Status
         if (status != null && !"-1".equals(status.trim())) {
-            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.STATUS",
+            documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.STATUS",
                     status.trim()));
         }
         //ACK_STATUS
         if (ackStatus != null && !"-1".equals(ackStatus.trim())) {
-            documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.ACK_STATUS",
+            documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.ACK_STATUS",
                     ackStatus.trim()));
         }
         // gs number
         if (corrattribute != null && corrattribute.equalsIgnoreCase("GS Number")) {
             if (corrvalue != null && !"".equals(corrvalue.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.GS_CONTROL_NUMBER",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.GS_CONTROL_NUMBER",
                         corrvalue.trim().toUpperCase()));
             }
         }
         if (corrattribute1 != null && corrattribute1.equalsIgnoreCase("GS Number")) {
             if (corrvalue1 != null && !"".equals(corrvalue1.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.GS_CONTROL_NUMBER",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.GS_CONTROL_NUMBER",
                         corrvalue1.trim().toUpperCase()));
             }
         }
         if (corrattribute2 != null && corrattribute2.equalsIgnoreCase("GS Number")) {
             if (corrvalue2 != null && !"".equals(corrvalue2.trim())) {
-                documentSearchQuery.append(WildCardSql.getWildCardSql1("FILES.GS_CONTROL_NUMBER",
+                documentSearchQuery.append(WildCardSql.getWildCardSql1("ARCHIVE_FILES.GS_CONTROL_NUMBER",
                         corrvalue2.trim().toUpperCase()));
             }
         }
@@ -1039,7 +1039,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
 //					docBusId.trim().toUpperCase()));
 //		}
         if (docBusId != null && !"".equals(docBusId.trim())) {
-            documentSearchQuery.append(" AND (FILES.RECEIVER_ID like '%" + docBusId + "%' OR FILES.TMW_RECEIVERID like '%" + docBusId + "%')");
+            documentSearchQuery.append(" AND (ARCHIVE_FILES.RECEIVER_ID like '%" + docBusId + "%' OR ARCHIVE_FILES.TMW_RECEIVERID like '%" + docBusId + "%')");
         }
 
 //                
@@ -1048,7 +1048,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
 //					docSenderId.trim().toUpperCase()));
 //		}
         if (docSenderId != null && !"".equals(docSenderId.trim())) {
-            documentSearchQuery.append(" AND (FILES.SENDER_ID like '%" + docSenderId + "%' OR FILES.TMW_SENDERID like '%" + docSenderId + "%')");
+            documentSearchQuery.append(" AND (ARCHIVE_FILES.SENDER_ID like '%" + docSenderId + "%' OR ARCHIVE_FILES.TMW_SENDERID like '%" + docSenderId + "%')");
         }
 
 //                  if (docSenderName != null && !"".equals(docSenderName.trim())) {
@@ -1072,12 +1072,12 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
 
         if (docdatepicker != null && !"".equals(docdatepicker)) {
             tmp_Recieved_From = DateUtility.getInstance().DateViewToDBCompare(docdatepicker);
-            documentSearchQuery.append(" AND FILES.DATE_TIME_RECEIVED <= '" + tmp_Recieved_From
+            documentSearchQuery.append(" AND ARCHIVE_FILES.DATE_TIME_RECEIVED <= '" + tmp_Recieved_From
                     + "'");
         }
         if (docdatepickerfrom != null && !"".equals(docdatepickerfrom)) {
             tmp_Recieved_From = DateUtility.getInstance().DateViewToDBCompare(docdatepickerfrom);
-            documentSearchQuery.append(" AND FILES.DATE_TIME_RECEIVED >= '" + tmp_Recieved_From
+            documentSearchQuery.append(" AND ARCHIVE_FILES.DATE_TIME_RECEIVED >= '" + tmp_Recieved_From
                     + "'");
         }
         documentSearchQuery.append(" order by DATE_TIME_RECEIVED DESC");
@@ -1136,7 +1136,7 @@ public class LogisticsDocServiceImpl implements LogisticsDocService {
                 logisticsdocBean.setShipmentId(resultSet.getString("PRI_KEY_VAL"));
                 if (resultSet.getString("TRANSACTION_TYPE").equalsIgnoreCase("204")) {
                     if (resultSet.getString("direction").equalsIgnoreCase("INBOUND")) {
-                        String queryString = "SELECT SEC_KEY_VAL as orderNum FROM FILES WHERE PRI_KEY_VAL='" + resultSet.getString("PRI_KEY_VAL") + "' AND SEC_KEY_TYPE='ORDERNUMBER'";
+                        String queryString = "SELECT SEC_KEY_VAL as orderNum FROM ARCHIVE_FILES WHERE PRI_KEY_VAL='" + resultSet.getString("PRI_KEY_VAL") + "' AND SEC_KEY_TYPE='ORDERNUMBER'";
                         System.out.println("query string is " + queryString);
                         resultSet1 = statement1.executeQuery(queryString);
                         if (resultSet1.next()) {
