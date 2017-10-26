@@ -15,4 +15,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface LtShipmentService {
 
     public ArrayList<LtShipmentBean> getLtResponseList(LogisticsShipmentAction logisticsShipmentAction, HttpServletRequest http) throws ServiceLocatorException;
+    public ArrayList<LtShipmentBean> getLtResponseArchiveList(LogisticsShipmentAction logisticsShipmentAction, HttpServletRequest http) throws ServiceLocatorException;
 }

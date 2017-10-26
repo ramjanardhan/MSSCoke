@@ -15,5 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 public interface LogisticsDocService {
 
     public ArrayList<LogisticsDocBean> buildDocumentQuery(LogisticsDocAction logisticsAction, HttpServletRequest http) throws ServiceLocatorException;
+    public ArrayList<LogisticsDocBean> buildDocumentArchiveQuery(LogisticsDocAction logisticsAction, HttpServletRequest http) throws ServiceLocatorException;
 
 }

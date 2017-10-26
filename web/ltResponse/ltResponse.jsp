@@ -351,6 +351,10 @@
                                 <table >
                                     <tbody >
                                         <s:form action="../ltResponse/doSearchltResponse.action" method="post" name="ltResponseForm" id="ltResponseForm" theme="simple">
+                                            <tr>
+                                                <td class="lableLeft">Database&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td><s:radio cssClass="myRadio" id="database" name="database" value="%{database}" list="#@java.util.LinkedHashMap@{'MSCVP':'Live','ARCHIVE':'Archive'}"/></td>
+                                            </tr>                                            
 
                                             <tr>
                                                 <td class="lableLeft"><s:label value="Date From"/> </td>

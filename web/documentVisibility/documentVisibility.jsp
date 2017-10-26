@@ -444,6 +444,10 @@
                                 <table border="0">
                                     <tbody >
                                         <s:form action="../documentVisibility/docSearch.action" method="post" name="documentForm" id="documentForm" theme="simple">
+                                            <tr>
+                                                <td class="lableLeft">Database&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td><s:radio cssClass="myRadio" id="database" name="database" value="%{database}" list="#@java.util.LinkedHashMap@{'MSCVP':'Live','ARCHIVE':'Archive'}"/></td>
+                                            </tr>                                            
 
                                             <tr>
                                                 <td class="lableLeft">Date From </td>

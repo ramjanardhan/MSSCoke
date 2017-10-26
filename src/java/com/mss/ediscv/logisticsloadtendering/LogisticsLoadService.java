@@ -15,5 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 public interface LogisticsLoadService {
 
     public ArrayList<LogisticsLoadBean> buildLoadQuery(LogisticsLoadAction logisticsDocAction, HttpServletRequest http) throws ServiceLocatorException;
+    public ArrayList<LogisticsLoadBean> buildLoadArchiveQuery(LogisticsLoadAction logisticsDocAction, HttpServletRequest http) throws ServiceLocatorException;
 
 }

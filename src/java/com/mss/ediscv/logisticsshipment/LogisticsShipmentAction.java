@@ -50,6 +50,15 @@ public class LogisticsShipmentAction extends ActionSupport implements ServletReq
     private List pageList;
     private int startValue;
     private int endValue;
+    private String database;
+
+    public String getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(String database) {
+        this.database = database;
+    }
     private static Logger logger = Logger.getLogger(LogisticsShipmentAction.class
             .getName());
 
@@ -84,6 +93,11 @@ public class LogisticsShipmentAction extends ActionSupport implements ServletReq
                 defaultFlowId = DataSourceDataProvider.getInstance().getFlowIdByFlowName("Logistics");
                 httpServletRequest.getSession(false).setAttribute(AppConstants.SES_USER_DEFAULT_FLOWID, defaultFlowId);
             }
+            if ("ARCHIVE".equals(getDatabase())) {
+                setDatabase("ARCHIVE");
+            } else {
+                setDatabase("MSCVP");
+            }
             setResultType(SUCCESS);
             //}
         }
@@ -111,7 +125,11 @@ public class LogisticsShipmentAction extends ActionSupport implements ServletReq
                 session.removeAttribute("searchString");
                 session.removeAttribute("gridSize");
                 session.removeAttribute("noOfPages");
-                ltShipmentList = ServiceLocator.getLogShipmentService().getLtResponseList(this, httpServletRequest);
+                if ("ARCHIVE".equals(getDatabase())) {
+                    ltShipmentList = ServiceLocator.getLogShipmentService().getLtResponseList(this, httpServletRequest);
+                } else {
+                    ltShipmentList = ServiceLocator.getLogShipmentService().getLtResponseArchiveList(this, httpServletRequest);
+                }
                 httpServletRequest.getSession(false).setAttribute(AppConstants.SES_LTSHIPMENT_LIST, ltShipmentList);
                 System.out.println("list size-----" + ltShipmentList.size());
                 if (ltShipmentList.size() > 0) {

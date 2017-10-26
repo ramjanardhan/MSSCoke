@@ -145,6 +145,11 @@
             function checkCorrelation() {
 
                 //   alert("hiii");
+                var db = document.forms["ltshipmentForm"]["database"].value;
+                if (db == '') {
+                    alert("Please select Database!!!");
+                    return false;
+                }
                 var corrattr = document.getElementById('corrattribute').value;
                 var corrval = document.getElementById('corrvalue').value;
 
@@ -354,6 +359,11 @@
                                 <table >
                                     <tbody >
                                         <s:form action="../logisticsshipment/ltShipmentSearch.action" method="post" name="ltshipmentForm" id="ltshipmentForm" theme="simple">
+                                            <tr>
+                                                <td class="lableLeft">Database&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td><s:radio cssClass="myRadio" id="database" name="database" value="%{database}" list="#@java.util.LinkedHashMap@{'MSCVP':'Live','ARCHIVE':'Archive'}"/></td>
+                                            </tr>                                            
+
                                             <tr>
                                                 <td class="lableLeft">Date From </td>
                                                 <td><%-- <input type="text" id="datepickerfrom" /> --%>

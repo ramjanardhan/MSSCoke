@@ -129,6 +129,12 @@
             function checkCorrelation() {
 
                 //   alert("hiii");
+               var db = document.forms["documentForm"]["database"].value;
+                if (db == '') {
+                    alert("Please select Database!!!");
+                    return false;
+                }
+                
                 var corrattr = document.getElementById('corrattribute').value;
                 var corrval = document.getElementById('corrvalue').value;
 
@@ -384,6 +390,10 @@
                                 <table >
                                     <tbody >
                                         <s:form action="../logisticsdoc/docSearch.action" method="post" name="documentForm" id="documentForm" theme="simple">
+                                            <tr>
+                                                <td class="lableLeft">Database&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td><s:radio cssClass="myRadio" id="database" name="database" value="%{database}" list="#@java.util.LinkedHashMap@{'MSCVP':'Live','ARCHIVE':'Archive'}"/></td>
+                                            </tr>                                            
 
                                             <tr>
                                                 <td class="lableLeft">Date From </td>

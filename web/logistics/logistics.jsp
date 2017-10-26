@@ -120,6 +120,11 @@
 
                                         <s:form action="#" method="post" name="paymentForm" id="paymentForm" theme="simple">
                                             <tr>
+                                                <td class="lableLeft">Database&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td><s:radio cssClass="myRadio" id="database" name="database" value="%{database}" list="#@java.util.LinkedHashMap@{'MSCVP':'Live','ARCHIVE':'Archive'}"/></td>
+                                            </tr>                                            
+
+                                            <tr>
                                                 <td class="lableLeft">Date From </td>
                                                 <td>
                                                     <%--  <input type="text" id="datepickerfrom" /> --%>
