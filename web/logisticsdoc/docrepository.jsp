@@ -229,10 +229,18 @@
                 var e = parseInt(document.documentForm.txtStartGrid.value);
                 var a = parseInt(document.documentForm.txtEndGrid.value);
                 var d = parseInt(document.documentForm.txtMaxGrid.value);
+                var form = document.forms['documentForm'];
+                var radios = form.elements["database"];
+                var db=null;
+                for(var i=0;i<radios.length;i++) {
+                    if(radios[i].checked == true) {
+                        db = radios[i].value;
+                    }
+                }
                 if (b == "Next") {
                     if (a < d)
                     {
-                        document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b
+                        document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b+"&database="+db;
                     } else {
                         if (a == d) {
                             alert("You are already viewing last page!")
@@ -242,7 +250,7 @@
                     if (b == "Previous")
                     {
                         if (e < d && e > 0) {
-                            document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b
+                            document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b+"&database="+db;
                         } else {
                             if (e == 0) {
                                 alert("You are already viewing first page!")
@@ -253,7 +261,7 @@
                             if (e < d && e > 0) {
                                 e = 0;
                                 a = 10;
-                                document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b
+                                document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b+"&database="+db;
                             } else {
                                 if (e == 0) {
                                     alert("You are already viewing first page!")
@@ -264,7 +272,7 @@
                                 if (a < d) {
                                     e = d - 10;
                                     a = d;
-                                    document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b
+                                    document.location = "nextLogisticDoc.action?startValue=" + e + "&endValue=" + a + "&button=" + b+"&database="+db;
                                 } else {
                                     if (a == d) {
                                         alert("You are already viewing last page!")
@@ -283,7 +291,15 @@
                 var b = "Select";
                 var startValue = ((parseInt(pageNumber) - 1) * 10);
                 var endValue = parseInt(startValue) + 10;
-                document.location = "nextLogisticDoc.action?startValue=" + startValue + "&endValue=" + endValue + "&button=" + b
+                var form = document.forms['documentForm'];
+                var radios = form.elements["database"];
+                var db=null;
+                for(var i=0;i<radios.length;i++) {
+                    if(radios[i].checked == true) {
+                        db = radios[i].value;
+                    }
+                }
+                document.location = "nextLogisticDoc.action?startValue=" + startValue + "&endValue=" + endValue + "&button=" + b+"&database="+db;
 
             }
 

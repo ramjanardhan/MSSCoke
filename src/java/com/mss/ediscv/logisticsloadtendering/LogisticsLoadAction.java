@@ -234,6 +234,11 @@ public class LogisticsLoadAction extends ActionSupport implements ServletRequest
             docList = DataSourceDataProvider.getInstance().getDocumentTypeList(1, 2);
             setCorrelationList(corrList);
             setDocTypeList(docList);
+             if ("ARCHIVE".equals(getDatabase())) {
+                setDatabase("ARCHIVE");
+            } else {
+                setDatabase("MSCVP");
+            }
             int gettxtStartGrid = Integer.parseInt(httpServletRequest.getParameter("startValue"));
             int gettxtEndGrid = Integer.parseInt(httpServletRequest.getParameter("endValue"));
             String buttonValue = httpServletRequest.getParameter("button");
