@@ -641,7 +641,8 @@ function getDocDetails(number,ponum,id,db){
     var num=number;
     var ponum = ponum;
     var id = id;
-    alert(num +""+ponum+""+id+""+db)
+    var db=db;
+    alert(db);
     $(function() {
        
            $('#detail_box').show();
@@ -1980,8 +1981,7 @@ function getLogisticsDocDetails(number,id,db){
     
     var num=number;
     var id = id;
-    alert(db);
-    $(function() {
+       $(function() {
        
            $('#detail_box').show();
            return false;

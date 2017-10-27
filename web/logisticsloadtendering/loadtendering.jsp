@@ -596,7 +596,7 @@
 
                                                 </td>
 
-                                                <td><a href="javascript:getDetails('<%=logisticsLoadBean.getFile_id()%>','<%=logisticsLoadBean.getShipmentId()%>','<%=logisticsLoadBean.getId()%>');">
+                                                <td><a href="javascript:getLoadTenderingDetails('<%=logisticsLoadBean.getFile_id()%>','<%=logisticsLoadBean.getShipmentId()%>','<%=logisticsLoadBean.getId()%>');">
 
                                                         <%
                                                             if (logisticsLoadBean.getShipmentId() != null) {

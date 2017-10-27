@@ -529,8 +529,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
         // System.out.println("Length--->"+purchaseList.size());
         return documentList;
     }
-    
-    
+
     public ArrayList<LogisticsLoadBean> buildLoadArchiveQuery(LogisticsLoadAction logisticsDocAction, HttpServletRequest httpServletRequest) throws ServiceLocatorException {
         StringBuffer documentSearchQuery = new StringBuffer();
         logger.info("Entered into the :::: PurchaseOrderServiceImpl :::: buildPurchaseQuery");
@@ -582,7 +581,7 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
                 + "tf.FILE_TYPE as file_type,tf.FILE_ORIGIN as file_origin,tf.TRANSACTION_TYPE as tran_type,tf.TMW_SENDERID as TMW_SENDERID,tf.TMW_RECEIVERID as TMW_RECEIVERID,"
                 + "tf.ACK_STATUS as ack_status,tf.DIRECTION as direction,tf.DATE_TIME_RECEIVED as datetime,tf.SENDER_ID,tf.RECEIVER_ID,"
                 + "tf.STATUS as status,tf.PRI_KEY_VAL,tp1.NAME as name,tp2.NAME as ReceiverName,tf.SEC_KEY_VAL as secval,tf.REPROCESSSTATUS as REPROCESSSTATUS "
-                + "FROM ARCHIVE_TRANSPORT_LOADTENDER tl LEFT OUTER JOIN ARCHIVE_FILES TF ON "
+                + "FROM ARCHIVE_Transport_loadtender tl LEFT OUTER JOIN ARCHIVE_FILES TF ON "
                 + "(tl.FILE_ID=tf.FILE_ID and tl.SHIPMENT_ID=tf.PRI_KEY_VAL)  "
                 //                          + "LEFT OUTER JOIN TP TP1 ON(TP1.ID=TF.TMW_SENDERID ) "
                 //                          + "LEFT OUTER JOIN TP TP2 ON(TP2.ID=TF.TMW_RECEIVERID)");
@@ -1009,5 +1008,5 @@ public class LogisticsLoadServiceImpl implements LogisticsLoadService {
         return documentList;
     }
 
-
+    
 }

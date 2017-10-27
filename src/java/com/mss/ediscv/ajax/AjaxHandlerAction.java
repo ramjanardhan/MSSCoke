@@ -38,7 +38,7 @@ public class AjaxHandlerAction extends ActionSupport implements ServletRequestAw
      * Creating a reference variable for HttpServletResponse.
      */
     private HttpServletResponse httpServletResponse;
-     private int id;
+    private int id;
     private String responseString;
     private String poNumber;
     private String poInst;
